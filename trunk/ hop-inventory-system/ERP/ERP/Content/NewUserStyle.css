@@ -1,0 +1,50 @@
+﻿body {
+    background-color: #5c87b2;
+    font-size: .85em;
+    font-family: "Trebuchet MS", Verdana, Helvetica, Sans-Serif;
+    margin: 0;
+    padding: 10px 100px 0px 250px;
+    color: #696969;
+}
+legend 
+{
+    color:Black;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+.font_position
+{
+   padding: 10px 100px 0px 180px;
+}
+.editor-label 
+{
+    color: black;
+    margin: 1em 1cm 0px 1cm;
+}
+.editor-field
+{
+  margin: -1em 1px 5px 200px ; 
+}
+.Main_content
+{
+    float:left;
+    width: 87%;
+    padding: 10px;
+    margin: 20px 0% 0px 20px ;
+    min-height: 380px;
+    background-color: #F8F8F8; 
+    overflow: hidden;
+    height: 200px;
+}
+.Control_Width_100
+{
+    width:100px!Important;
+}
+/* Login User and password Text Boxes
+------------------------------------------------------------------------------*/
+.editor-field input:focus
+{
+    border: 1px solid #CCCCCC;
+    box-shadow: 0 6px 3px rgba(0, 0, 0, 0.05) inset, 0 0 8px rgba(82, 168, 236, 0.6);
+}
+/*-------------------------------------------------------------------------------------*/

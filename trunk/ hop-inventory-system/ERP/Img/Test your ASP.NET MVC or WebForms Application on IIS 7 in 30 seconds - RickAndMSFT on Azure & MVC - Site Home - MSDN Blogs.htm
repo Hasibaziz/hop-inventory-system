@@ -1,0 +1,833 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><script src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/ms2.htm" async="" type="text/javascript"></script><script src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/Widget.js" charset="UTF-8" type="text/javascript"></script><meta http-equiv="X-UA-Compatible" content="IE=10; IE=9; IE=8;"><meta name="robots" content="index,follow">
+<meta name="description" content="MVC, ASP.NET, Dynamic Data, Entity Framework, LINQ to SQL,">
+<meta name="keywords" content="MVC, ASP.NET, Dynamic Data, Entity Framework, LINQ to SQL, MVC, ASP.NET">
+<meta name="GENERATOR" content="Telligent Evolution Platform Developer Build (Build: 5.6.50428.7875)">
+<link rel="pingback" href="http://blogs.msdn.com/b/rickandy/pingback.aspx">
+<link href="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/7632fe1dd91290a46b3a118f9478cf1b-27cae0dd5641775697cb89e9a85.css" rel="Stylesheet" type="text/css"><link rel="alternate" type="application/rss+xml" title="Site Home (RSS 2.0)" href="http://blogs.msdn.com/rss.aspx">
+<link rel="alternate" type="application/rss+xml" title="Rick_Anderson's Comments (RSS 2.0)" href="http://blogs.msdn.com/members/ricka0/comments/rss.aspx">
+<link rel="alternate" type="application/rss+xml" title="Rick_Anderson's Activities (RSS 2.0)" href="http://blogs.msdn.com/members/ricka0/activities/rss.aspx">
+<link rel="alternate" type="application/rss+xml" title="Activities of People Rick_Anderson Follows (RSS 2.0)" href="http://blogs.msdn.com/members/ricka0/activities/followersrss.aspx">
+<link rel="alternate" type="application/rss+xml" title="Rick_Anderson's Groups Activities (RSS 2.0)" href="http://blogs.msdn.com/members/ricka0/activities/groupsrss.aspx">
+<link rel="alternate" type="application/rss+xml" title="RickAndMSFT on Azure &amp; MVC (RSS 2.0)" href="http://blogs.msdn.com/b/rickandy/rss.aspx">
+<link rel="alternate" type="application/atom+xml" title="RickAndMSFT on Azure &amp; MVC (Atom 1.0)" href="http://blogs.msdn.com/b/rickandy/atom.aspx">
+<link rel="alternate" type="application/rss+xml" title="RickAndMSFT on Azure &amp; MVC - All Comments (RSS 2.0)" href="http://blogs.msdn.com/b/rickandy/rsscomments.aspx">
+<link rel="alternate" type="application/rss+xml" title="Test your ASP.NET MVC or WebForms Application on IIS 7 in 30 seconds - Comments for this post (RSS 2.0)" href="http://blogs.msdn.com/b/rickandy/rsscomments.aspx?WeblogPostID=10157260">
+
+                    
+          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+          <link rel="shortcut icon" type="image/ico" href="http://blogs.msdn.com/themes/MSDN2/favicon.ico">
+          <!--
+            Third party scripts and code linked to or referenced from this website are licensed to you by the parties that own such code, not by Microsoft.  See ASP.NET Ajax CDN Terms of Use – http://www.asp.net/ajaxlibrary/CDN.ashx.
+          -->
+          <link href="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/6e455ee01481483d5d047db51a775dad-ffc9f7e1f0412800af51bef62a8.css" rel="Stylesheet" type="text/css"><script src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/jquery-1.js" type="text/javascript" language="javascript"></script>
+                            
+          <link type="text/css" rel="stylesheet" href="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/DynamicStyle.css" media="screen,print">
+          <link type="text/css" rel="stylesheet" href="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/DynamicStyle.xml" media="screen,print">
+        
+          <!--[if lte IE 6]>
+              <link type="text/css" rel="stylesheet" href="/themes/MSDN2/css/ie6.css" media="screen,print" />
+          <![endif]-->
+                  <meta name="msvalidate.01" content="B717AD6FC29D3A844832AF011B5F9E4C">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://blogs.msdn.com/b/rickandy/rsd.ashx">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" title="WLWManifest" href="http://blogs.msdn.com/b/rickandy/wlwmanifest.ashx">
+
+        <!--
+            Third party scripts and code linked to or referenced from this website are licensed to you by the parties that own such code, not by Microsoft.  See ASP.NET Ajax CDN Terms of Use – http://www.asp.net/ajaxlibrary/CDN.ashx.
+          -->
+        <script src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/jquery-1.js" type="text/javascript" language="javascript"></script>
+    <title>
+	Test your ASP.NET MVC or WebForms Application on IIS 7 in 30 seconds - RickAndMSFT on Azure &amp; MVC - Site Home - MSDN Blogs
+</title><style type="text/css"></style><script src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/jquery.js" type="text/javascript"></script><link type="text/css" rel="stylesheet" href="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/usercard.css"><script src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/widgets.js" type="text/javascript"></script></head>
+	<body spellcheck="true">
+		<form name="aspnetForm" method="post" action="/b/rickandy/archive/2011/04/22/test-you-asp-net-mvc-or-webforms-application-on-iis-7-in-30-seconds.aspx" onsubmit="javascript:return WebForm_OnSubmit();" id="aspnetForm">
+<div>
+<input name="__EVENTTARGET" id="__EVENTTARGET" value="" type="hidden">
+<input name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" type="hidden">
+<input name="ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_invisibleCaptcha_answer" id="ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_invisibleCaptcha_answer" value="6" type="hidden">
+<input name="ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_invisibleCaptcha_encrypted" id="ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_invisibleCaptcha_encrypted" value="jEm/Pl2QpmKyyKDbnZ/23oLlyu1zMTAlbcV8SyIF0fg=" type="hidden">
+<input name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTM5OTAxNDYyNWRkvI787cXLvh9XHlDReEjVejxzcZ4=" type="hidden">
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/a69df1233a82ba148f648a2951475939-dd1f433ba8eddc05b6f3118874cd.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+//<![CDATA[
+function WebForm_OnSubmit() {
+if (typeof(ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;
+return true;
+}
+//]]>
+</script>
+
+			
+            
+                
+            
+            <div class="header-fragments-header"></div>
+<div class="header-fragments"><div class="header-fragment-outer top-bar msdn-header-fragment-outer msdn-top-bar"><div class="header-fragment-inner top-bar msdn-header-fragment-inner msdn-top-bar"><div class="header-fragment welcome-message" id="header-fragment-1402503690">
+
+
+<!-- always render -->
+</div><div class="header-fragment login-logout" id="header-fragment-1402503691">
+
+
+
+
+
+        <div class="navigation-list-header"></div>
+        <ul class="navigation-list">
+
+            <li class="navigation-item">
+                <span id="ctl00_header_fragment_1402503691__b3586d_ctl00_ctl02_ctl05_WLIDLoginButton1" class="internal-link live-id-button"><a href="https://login.live.com/login.srf?wa=wsignin1.0&amp;rpsnv=11&amp;ct=1364872983&amp;rver=6.0.5286.0&amp;wp=MBI&amp;wreply=http:%2F%2Fblogs.msdn.com%2Fb%2Frickandy%2Farchive%2F2011%2F04%2F22%2Ftest-you-asp-net-mvc-or-webforms-application-on-iis-7-in-30-seconds.aspx&amp;lc=1033&amp;id=271611">Sign in</a></span>
+            </li>
+        </ul>
+        <div class="navigation-list-footer"></div>
+    </div><div class="header-fragment user-welcome-without-login" id="header-fragment-1402503692">
+
+ &nbsp;<!-- always render -->
+
+</div></div></div><div class="header-fragment blog-banner" id="header-fragment-1402503693">
+
+
+
+<div class="site-banner blog-banner">
+
+<h1 class="blog-banner-name"><a href="http://blogs.msdn.com/b/rickandy/">RickAndMSFT on Azure &amp; MVC</a></h1>
+<div class="blog-banner-description">Filling the Azure Gap</div>
+</div>
+
+</div></div>
+<div class="header-fragments-footer"></div>
+			
+    <div class="content-fragment-page post" id="ctl00_content_ctl00_page"><div class="layout">
+<div class="layout-header"></div>
+<div class="layout-content content-left-sidebar-right" id="ctl00_content_ctl00_layout">
+<div class="layout-region right-sidebar" id="ctl00_content_ctl00_right-sidebar">
+<div class="layout-region-inner right-sidebar"><div class="content-fragment c-t-f-widget no-wrapper-with-spacing with-header" id="fragment-52310">
+<div class="content-fragment-inner msdn-content-fragment-inner"><div class="content-fragment-top msdn-content-fragment-top"><div class="r1 msdn-r1"></div><div class="r2 msdn-r2"></div><div class="r3 msdn-r3"></div><div class="r4 msdn-r4"></div></div><div class="content-fragment-header"><div>Translate This Page</div></div>
+<div class="content-fragment-content">
+
+
+     <!--
+         
+           localize text, such as translate this & powered by 
+           
+           
+            -->
+<div class="" id="MicrosoftTranslatorWidget" style="border: 2px solid rgb(51, 51, 51); direction: ltr; width: 275px; min-height: 83px; background-color: rgb(204, 204, 204); background-repeat: repeat-x; background-image: url(&quot;data:image/x-ms-bmp;base64,Qk2eAAAAAAAAADYAAAAoAAAAAQAAABoAAAABABgAAAAAAGgAAAAAAAAAAAAAAAAAAAAAAAAAgICA/3p6ev90dHT/bm5u/2hoaP9iYmL/XFxc/1ZWVv9QUFD/S0tL/0VFRf8/Pz//OTk5/4CAgP+FhYX/i4uL/5GRkf+Xl5f/nZ2d/6Ojo/+pqan/r6+v/7S0tP+6urr/wMDA/8bGxv8=&quot;);"><div id="MSTWContent"><div style="border-color: rgb(158, 158, 158);" id="MSTWHeader"><span class="MSTWBox"><span id="MSTWHeaderText" style="width: 160px;">Translate this page</span></span><span class="MSTWBox"><select name="MSTWMenu" id="MSTWMenu"><option value="ar">Arabic</option><option value="bg">Bulgarian</option><option value="ca">Catalan</option><option value="zh-chs">Chinese Simplified</option><option value="zh-cht">Chinese Traditional</option><option value="cs">Czech</option><option value="da">Danish</option><option value="nl">Dutch</option><option value="et">Estonian</option><option value="fi">Finnish</option><option value="fr">French</option><option value="de">German</option><option value="el">Greek</option><option value="ht">Haitian Creole</option><option value="he">Hebrew</option><option value="hi">Hindi</option><option value="mww">Hmong Daw</option><option value="hu">Hungarian</option><option value="id">Indonesian</option><option value="it">Italian</option><option value="ja">Japanese</option><option value="ko">Korean</option><option value="lv">Latvian</option><option value="lt">Lithuanian</option><option value="ms">Malay</option><option value="no">Norwegian</option><option value="fa">Persian</option><option value="pl">Polish</option><option value="pt">Portuguese</option><option value="ro">Romanian</option><option value="ru">Russian</option><option value="sk">Slovak</option><option value="sl">Slovenian</option><option selected="selected" value="es">Spanish</option><option value="sv">Swedish</option><option value="th">Thai</option><option value="tr">Turkish</option><option value="uk">Ukrainian</option><option value="ur">Urdu</option><option value="vi">Vietnamese</option></select><a href="javascript:%20Translate%20this%20page" style="background-repeat: repeat-x; background-image: url(&quot;data:image/x-ms-bmp;base64,Qk2GAAAAAAAAADYAAAAoAAAAAQAAABQAAAABABgAAAAAAFAAAAAAAAAAAAAAAAAAAAAAAAAA5ubm/+Pj4//g4OD/3t7e/9vb2//Z2dn/1tbW/9TU1P/R0dH/z8/P/+bm5v/o6Oj/6+vr/+3t7f/w8PD/8vLy//X19f/39/f/+vr6//z8/P8=&quot;); border-color: rgb(158, 158, 158);" id="MSTWGoButton" title="Translate this page" class="MSTWButtonLink"><img id="MSTWGoImage" src="data:image/gif;base64,R0lGODlhGAASAHAAACH5BAEAAP8ALAAAAAAYABIAhwAAAP%2f%2f%2fwAAAAAAAAAAAAAAAAAAAAAAAAAA%0d%0aAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA%0d%0aAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA%0d%0aAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA%0d%0aAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA%0d%0aAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA%0d%0aAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA%0d%0aAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA%0d%0aAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA%0d%0aAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA%0d%0aAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA%0d%0aAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA%0d%0aAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA%0d%0aAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA%0d%0aAAg8AP8JHEiwoMGDCBMqXMiwIcMAARwihAhRYkGKFC0KxIjRIkeODj9%2bfCiyYsOSHkFq7KhxY8SW%0d%0aMGPKRBgQADs%3d" style="border-width:0px;"></a></span></div><div id="MSTWFooter"><span id="MSTWBrand" class="MSTWBox"><a id="MSTWBrandLink" title="Microsoft® Translator" href="http://www.bing.com/translator?ref=MSTWidget" target="_blank"><span style="font-family: Segoe UI; direction: ltr;">Microsoft<sup style="vertical-align: super; font-size: 70%;">®</sup> Translator</span></a></span><span id="MSTWGetShare" class="MSTWBox"><a style="border-color: rgb(158, 158, 158);" id="MSTWGetButton" title="Get this widget for your own site" class="MSTWButtonLink" href="http://www.microsofttranslator.com/widget/?ref=MSTWidget" target="_blank"><img id="MSTWGetImage" src="data:image/gif;base64,R0lGODlhGAASAPcAAAAAAP%2f%2f%2fwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA%0d%0aAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA%0d%0aAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA%0d%0aAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA%0d%0aAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA%0d%0aAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA%0d%0aAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA%0d%0aAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA%0d%0aAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA%0d%0aAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA%0d%0aAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA%0d%0aAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA%0d%0aAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA%0d%0aAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAP8ALAAAAAAYABIA%0d%0aAAhBAP8JHEiwoMGDCBMqXMiwocOHCAMEGCgRYkWCFxlmxDhx4caCH0F2TBiSI8mRJw%2bWVIny38qI%0d%0aI19CnEmzpk2DAQEAOw%3d%3d" style="border-width:0px;"></a><a href="mailto:?charset=utf-8&amp;subject=Check%20out%20this%20page%20in%20Spanish%20translated%20from%20English&amp;body=Translated%3A%20http%3A%2F%2Fblogs.msdn.com%2Fb%2Frickandy%2Farchive%2F2011%2F04%2F22%2Ftest-you-asp-net-mvc-or-webforms-application-on-iis-7-in-30-seconds.aspx%23mstto%3Des%0D%0AOriginal%3A%20http%3A%2F%2Fblogs.msdn.com%2Fb%2Frickandy%2Farchive%2F2011%2F04%2F22%2Ftest-you-asp-net-mvc-or-webforms-application-on-iis-7-in-30-seconds.aspx%0D%0A%0D%0AAutomatic%20translation%20powered%20by%20Microsoft%C2%AE%20Translator%0D%0Ahttp%3A%2F%2Fwww.bing.com%2Ftranslator" style="border-color: rgb(158, 158, 158);" id="MSTWShareButton" title="Share translated page with friends" class="MSTWButtonLink"><img id="MSTWShareImage" src="data:image/gif;base64,R0lGODlhGAASAPcAAAAAAP%2f%2f%2fwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA%0d%0aAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA%0d%0aAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA%0d%0aAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA%0d%0aAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA%0d%0aAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA%0d%0aAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA%0d%0aAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA%0d%0aAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA%0d%0aAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA%0d%0aAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA%0d%0aAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA%0d%0aAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA%0d%0aAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAP8ALAAAAAAYABIA%0d%0aAAhHAP8JHEiwoMGDCBMqXMiwocOHBQNInEiRokKJFwNc%2fKfxoMaOCDuCHChyo8CRIEcaLGmxZMKP%0d%0aITlmnPmyok2MEHPq3MlTYUAAOw%3d%3d" style="border-width:0px;"></a></span></div><div id="MSTWHidden" style="display: none;"><span id="MSTWCheckOut">Check out this page in {0} translated from {1}</span><span id="MSTWTranslatedFrom">translated from</span><span id="MSTWOriginal">Original:</span><span id="MSTWTranslated">Translated:</span><span id="MSTWPoweredBy">Automatic translation powered by Microsoft® Translator</span><span id="MSTWStart">Start translating</span><span id="MSTWStop">Stop translating</span><span id="MSTWClose">Close</span><span id="MSTWCloseShowOrig">Close and show original page</span><span id="MSTWLangNotSup"></span><span id="MSTWSelect">Select</span></div></div></div>
+</div>
+<div class="content-fragment-footer"></div>
+<div class="content-fragment-bottom msdn-content-fragment-bottom"><div class="r1 msdn-r1"></div><div class="r2 msdn-r2"></div><div class="r3 msdn-r3"></div><div class="r4 msdn-r4"></div></div></div></div>
+<div class="content-fragment blog-links no-wrapper-with-spacing with-header" id="fragment-52311">
+<div class="content-fragment-inner msdn-content-fragment-inner"><div class="content-fragment-top msdn-content-fragment-top"><div class="r1 msdn-r1"></div><div class="r2 msdn-r2"></div><div class="r3 msdn-r3"></div><div class="r4 msdn-r4"></div></div><div class="content-fragment-header"><div>Options</div></div>
+<div class="content-fragment-content">
+
+		<div class="navigation-list-header"></div>
+		<ul class="navigation-list">
+	<li class="navigation-item"><a class="internal-link view-application" href="http://blogs.msdn.com/b/rickandy/"><span></span>Blog Home</a></li><li class="navigation-item"><a class="internal-link view-user-profile" href="http://blogs.msdn.com/b/rickandy/about.aspx"><span></span>About</a></li><li class="navigation-item"><a class="internal-link view-contact" href="http://blogs.msdn.com/b/rickandy/contact.aspx"><span></span>Email Blog Author</a></li><li class="navigation-item"><a class="internal-link email-post" href="mailto:?subject=Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds&amp;body=http://blogs.msdn.com/b/rickandy/archive/2011/04/22/test-you-asp-net-mvc-or-webforms-application-on-iis-7-in-30-seconds.aspx">
+		<span></span>Share this
+	</a></li><li class="navigation-item"><a class="internal-link rss" href="http://blogs.msdn.com/b/rickandy/rss.aspx"><span></span>RSS for posts</a></li><li class="navigation-item"><a class="internal-link rss" href="http://blogs.msdn.com/b/rickandy/atom.aspx"><span></span>Atom</a></li><li id="" rsscomments"""="" class="navigation-item"><a class="internal-link rss" href="http://blogs.msdn.com/b/rickandy/rsscomments.aspx"><span></span>RSS for comments</a></li>
+		</ul>
+		<div class="navigation-list-footer"></div>
+	</div>
+<div class="content-fragment-footer"></div>
+<div class="content-fragment-bottom msdn-content-fragment-bottom"><div class="r1 msdn-r1"></div><div class="r2 msdn-r2"></div><div class="r3 msdn-r3"></div><div class="r4 msdn-r4"></div></div></div></div>
+<div class="content-fragment search-form no-wrapper-with-spacing with-header" id="fragment-52312">
+<div class="content-fragment-inner msdn-content-fragment-inner"><div class="content-fragment-top msdn-content-fragment-top"><div class="r1 msdn-r1"></div><div class="r2 msdn-r2"></div><div class="r3 msdn-r3"></div><div class="r4 msdn-r4"></div></div><div class="content-fragment-header"><div>Search</div></div>
+<div class="content-fragment-content">
+
+<div class="field-list-header">
+</div>
+<fieldset class="field-list">
+    <ul class="field-list">
+        <li class="field-item search">
+            <div style="display: none;" id="search-allblogs-container">
+                <span class="field-item-input">
+                    <input value="Search MSDN with Bing" style="color: rgb(170, 170, 170); font-style: italic;" title="Search MSDN with Bing" id="SearchTextBox_AllBlogs" name="SearchTextBox_AllBlogs" class="searchField" maxlength="64" size="45" autocomplete="off" type="text">
+                    <input title="Search MSDN with Bing" id="SearchButton_AllBlogs" name="SearchButton_AllBlogs" class="search-button" type="button">
+                <div style="display: none; text-align: left; border: 1px solid buttonshadow; position: absolute; z-index: 1000; padding: 2px; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); font-family: MS Shell Dlg; font-size: 11px;" id="SearchFlyoutContainer"><div id="SuggestionContainer"><ul style="list-style: none outside none; padding: 4px 2px 0px 1px; cursor: pointer; margin: 1px; white-space: nowrap;"></ul></div></div></span>
+            </div>
+            <div id="search-thisblog-container">
+                <span class="field-item-input">
+                    <input value="Search MSDN with Bing" style="color: rgb(170, 170, 170); font-style: italic;" title="Search MSDN with Bing" id="SearchTextBox_ThisBlog" name="SearchTextBox_ThisBlog" class="searchField" maxlength="64" size="45" autocomplete="off" type="text">
+                    <input title="Search MSDN with Bing" id="SearchButton_ThisBlog" name="SearchButton_ThisBlog" class="search-button" type="button">
+                <div style="display: none; text-align: left; border: 1px solid buttonshadow; position: absolute; z-index: 1000; padding: 2px; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); font-family: MS Shell Dlg; font-size: 11px;" id="SearchFlyoutContainer"><div id="SuggestionContainer"><ul style="list-style: none outside none; padding: 4px 2px 0px 1px; cursor: pointer; margin: 1px; white-space: nowrap;"></ul></div></div></span>
+            </div>
+        </li>
+    </ul>
+</fieldset>
+<div class="field-list-footer">
+    <div id="search-switch-container">
+        <span style="display: inline-block">
+            <input name="SearchTypeRadio" value="ThisBlog" id="ThisBlog" checked="checked" type="radio"><label for="ThisBlog" id="ThisBlogText">Search this blog</label></span>
+        <span style="display: inline-block">
+            <input name="SearchTypeRadio" value="AllBlogs" id="AllBlogs" type="radio"><label for="AllBlogs" id="AllBlogsText">Search all blogs</label></span>
+    </div>
+</div>
+<script type="text/javascript">
+var elmSearchAll = $('#search-allblogs-container').hide();
+var elmSearchThis = $('#search-thisblog-container');
+
+// try to get the blog id, if we fail, then we aren't on a blog and just use the regular search approach       
+(11173 === -1) && $('#search-switch-container').hide();
+
+$(document).ready(function() {
+    $('#ThisBlog').click(function () {
+        var self = $(this);
+        if (self.is(':checked')) {
+            elmSearchAll.hide();
+            elmSearchThis.show();
+        }
+    });
+    
+    $('#AllBlogs').click(function () {
+        var self = $(this);
+        if (self.is(':checked')) {
+            elmSearchThis.hide();
+            elmSearchAll.show();
+        }
+    });
+});
+</script>
+<script src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/SearchBox.js" type="text/javascript" language="javascript"></script>
+<script src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/SearchBox_002.js" type="text/javascript" language="javascript"></script>
+</div>
+<div class="content-fragment-footer"></div>
+<div class="content-fragment-bottom msdn-content-fragment-bottom"><div class="r1 msdn-r1"></div><div class="r2 msdn-r2"></div><div class="r3 msdn-r3"></div><div class="r4 msdn-r4"></div></div></div></div>
+<div class="content-fragment tag-cloud no-wrapper-with-spacing with-header" id="fragment-52313">
+<div class="content-fragment-inner msdn-content-fragment-inner"><div class="content-fragment-top msdn-content-fragment-top"><div class="r1 msdn-r1"></div><div class="r2 msdn-r2"></div><div class="r3 msdn-r3"></div><div class="r4 msdn-r4"></div></div><div class="content-fragment-header"><div>Tags</div></div>
+<div class="content-fragment-content">
+<div class="tag-list-header"></div><ul class="tag-list">
+<li class="tag-item level-1"><a href="http://blogs.msdn.com/b/rickandy/archive/tags/ASP-Net/" rel="tag">ASP.Net</a></li>
+<li class="tag-item level-6"><a href="http://blogs.msdn.com/b/rickandy/archive/tags/Azure/" rel="tag">Azure</a></li>
+<li class="tag-item level-6"><a href="http://blogs.msdn.com/b/rickandy/archive/tags/MVC/" rel="tag">MVC</a></li>
+</ul>
+<div class="tag-list-footer"></div>
+</div>
+<div class="content-fragment-footer"></div>
+<div class="content-fragment-bottom msdn-content-fragment-bottom"><div class="r1 msdn-r1"></div><div class="r2 msdn-r2"></div><div class="r3 msdn-r3"></div><div class="r4 msdn-r4"></div></div></div></div>
+<div class="content-fragment blog-archive-list no-wrapper-with-spacing with-header" id="fragment-52314">
+<div class="content-fragment-inner msdn-content-fragment-inner"><div class="content-fragment-top msdn-content-fragment-top"><div class="r1 msdn-r1"></div><div class="r2 msdn-r2"></div><div class="r3 msdn-r3"></div><div class="r4 msdn-r4"></div></div><div class="content-fragment-header"><div>Archive</div></div>
+<div class="content-fragment-content">
+
+		<div class="content-list-header"></div>
+		<div class="content-list-name">Archives</div>
+		<ul class="content-list">
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/rickandy/archive/2013/02.aspx">February 2013</a> (1)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/rickandy/archive/2012/12.aspx">December 2012</a> (2)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/rickandy/archive/2012/11.aspx">November 2012</a> (1)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/rickandy/archive/2012/10.aspx">October 2012</a> (1)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/rickandy/archive/2012/09.aspx">September 2012</a> (2)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/rickandy/archive/2012/08.aspx">August 2012</a> (4)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/rickandy/archive/2012/06.aspx">June 2012</a> (3)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/rickandy/archive/2012/03.aspx">March 2012</a> (2)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/rickandy/archive/2012/02.aspx">February 2012</a> (1)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/rickandy/archive/2012/01.aspx">January 2012</a> (2)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/rickandy/archive/2011/11.aspx">November 2011</a> (1)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/rickandy/archive/2011/08.aspx">August 2011</a> (2)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/rickandy/archive/2011/07.aspx">July 2011</a> (1)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/rickandy/archive/2011/05.aspx">May 2011</a> (2)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/rickandy/archive/2011/04.aspx">April 2011</a> (2)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/rickandy/archive/2011/03.aspx">March 2011</a> (1)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/rickandy/archive/2011/02.aspx">February 2011</a> (2)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/rickandy/archive/2011/01.aspx">January 2011</a> (1)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/rickandy/archive/2010/08.aspx">August 2010</a> (2)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/rickandy/archive/2009/12.aspx">December 2009</a> (2)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/rickandy/archive/2009/11.aspx">November 2009</a> (1)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/rickandy/archive/2009/10.aspx">October 2009</a> (3)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/rickandy/archive/2009/08.aspx">August 2009</a> (2)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/rickandy/archive/2009/07.aspx">July 2009</a> (1)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/rickandy/archive/2009/06.aspx">June 2009</a> (1)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/rickandy/archive/2009/01.aspx">January 2009</a> (1)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/rickandy/archive/2008/12.aspx">December 2008</a> (2)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/rickandy/archive/2008/11.aspx">November 2008</a> (1)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/rickandy/archive/2008/10.aspx">October 2008</a> (1)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/rickandy/archive/2008/09.aspx">September 2008</a> (1)</li>
+	
+		</ul>
+		<div class="content-list-footer"></div>
+	
+</div>
+<div class="content-fragment-footer"></div>
+<div class="content-fragment-bottom msdn-content-fragment-bottom"><div class="r1 msdn-r1"></div><div class="r2 msdn-r2"></div><div class="r3 msdn-r3"></div><div class="r4 msdn-r4"></div></div></div></div>
+</div>
+</div>
+<div class="layout-region content" id="ctl00_content_ctl00_content">
+<div class="layout-region-inner content"><div class="content-fragment blog-title full-border" id="fragment-52315">
+<div class="content-fragment-inner msdn-content-fragment-inner"><div class="content-fragment-top msdn-content-fragment-top"><div class="r1 msdn-r1"></div><div class="r2 msdn-r2"></div><div class="r3 msdn-r3"></div><div class="r4 msdn-r4"></div></div><div class="content-fragment-content">
+<h1 class="title">
+	    
+			        
+			    
+	                Test your ASP.NET MVC or WebForms Application on IIS 7 in 30 seconds
+			    
+	</h1></div>
+<div class="content-fragment-footer"></div>
+<div class="content-fragment-bottom msdn-content-fragment-bottom"><div class="r1 msdn-r1"></div><div class="r2 msdn-r2"></div><div class="r3 msdn-r3"></div><div class="r4 msdn-r4"></div></div></div></div>
+<div class="content-fragment blog-bread-crumbs no-wrapper" id="fragment-52316">
+<div class="content-fragment-inner msdn-content-fragment-inner"><div class="content-fragment-top msdn-content-fragment-top"><div class="r1 msdn-r1"></div><div class="r2 msdn-r2"></div><div class="r3 msdn-r3"></div><div class="r4 msdn-r4"></div></div><div class="content-fragment-content">
+
+
+<div class="breadcrumb-list-header"></div>
+<div class="breadcrumb-list">
+	<span class="breadcrumb-item"><a class="internal-link view-home" href="http://blogs.msdn.com/">MSDN Blogs</a></span>
+  
+	
+
+	
+			<span class="separator"> &gt; </span>
+			<span class="breadcrumb-item">
+		<a href="http://blogs.msdn.com/b/rickandy/">RickAndMSFT on Azure &amp; MVC</a>
+			</span>
+		
+	
+	
+			<span class="separator"> &gt; </span>
+			<span class="breadcrumb-item">
+		<a class="last" href="http://blogs.msdn.com/b/rickandy/archive/2011/04/22/test-you-asp-net-mvc-or-webforms-application-on-iis-7-in-30-seconds.aspx">Test your ASP.NET MVC or WebForms Application on IIS 7 in 30 seconds</a>
+			</span>
+		
+
+	
+</div>
+<div class="breadcrumb-list-footer"></div>
+</div>
+<div class="content-fragment-footer"></div>
+<div class="content-fragment-bottom msdn-content-fragment-bottom"><div class="r1 msdn-r1"></div><div class="r2 msdn-r2"></div><div class="r3 msdn-r3"></div><div class="r4 msdn-r4"></div></div></div></div>
+<div class="content-fragment blog-post no-wrapper" id="fragment-52317">
+<div class="content-fragment-inner msdn-content-fragment-inner"><div class="content-fragment-top msdn-content-fragment-top"><div class="r1 msdn-r1"></div><div class="r2 msdn-r2"></div><div class="r3 msdn-r3"></div><div class="r4 msdn-r4"></div></div><div class="content-fragment-content">
+
+<div class="full-post-header"></div>
+<div class="full-post">
+	<h3 class="post-name">Test your ASP.NET MVC or WebForms Application on IIS 7 in 30 seconds</h3>
+	
+	        <div class="post-rating">
+	            Rate This<br>
+	    <span class="rating readonly" id="ctl00_content_ctl00_w_52317__b3586d_ctl00_ctl01" title="Rated Good [4 out of 5]."><img src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/star-left-on.png" style="border-width: 0px;" align="absmiddle" border="0"><img src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/star-right-on.png" style="border-width: 0px;" align="absmiddle" border="0"><img src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/star-left-on.png" style="border-width: 0px;" align="absmiddle" border="0"><img src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/star-right-on.png" style="border-width: 0px;" align="absmiddle" border="0"><img src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/star-left-on.png" style="border-width: 0px;" align="absmiddle" border="0"><img src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/star-right-on.png" style="border-width: 0px;" align="absmiddle" border="0"><img src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/star-left-on.png" style="border-width: 0px;" align="absmiddle" border="0"><img src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/star-right-on.png" style="border-width: 0px;" align="absmiddle" border="0"><img src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/star-left-off.png" style="border-width: 0px;" align="absmiddle" border="0"><img src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/star-right-off.png" style="border-width: 0px;" align="absmiddle" border="0"></span><input value="4" id="ctl00_content_ctl00_w_52317__b3586d_ctl00_ctl01_Value" type="hidden">
+	        </div>
+	    
+    <div class="post-author">
+        <span class="avatar"><a href="http://blogs.msdn.com/157925/ProfileUrlRedirect.ashx"><img src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/avatar.jpg" alt="" style="border-width:0px;max-height:32px;max-width:32px;"></a></span>
+        
+         <span data-profile-rendered="true" class="profile-usercard-hover" data-profile-userid="61729510905641c3b45f27551125de97">
+            <span class="user-name"><a class="internal-link view-user-profile" href="http://blogs.msdn.com/157925/ProfileUrlRedirect.ashx"><span></span>Rick_Anderson</a></span>
+       
+            
+        <div class="profile-usercard">            <div class="profile-header">                <span class="profile-userimage">                                            <img src="data:image/jpg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAA0JCgsKCA0LCgsODg0PEyAVExISEyccHhcgLikxMC4pLSwzOko+MzZGNywtQFdBRkxOUlNSMj5aYVpQYEpRUk//2wBDAQ4ODhMREyYVFSZPNS01T09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0//wAARCAAsACQDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDgo2llbbGoUDqcdB71ct7dyx8qR8MpRmPf2pdAtRdTsgAOQAPrmusTS3gdd8RCHjpjmuapNp2R006aaucumg3Mx2xfe7Aisq4he3leGVGWRThge1eolFt8KvDMMdK4zxRaPuW4bBK/K57+2acJtuzFOnZXRzlFJkUVsYGnodw1rqEP+0wGPxr120KrGYn+b5upPPQV4nG5DK2eV6V6P4Y1YalsDuROFCyAnr7isprqdFFrZnV3EcTWoSNV2r0AHArh/E1nJPbzJbx87N7MeOc9BXZG5hRjbwDLfX9TWXOvzE/w5xu7U6UOeQVp8sbHkTKVOGBBHY0V6jNplpcPvezikOMbmQEmiur2Zx855xDbhkDEnmtKxDC8tlgJRy4GV447/pVyO2hGMRgcVd023jW5SQD5lIA9utc1OXPKx0TXLG51FnujhMaDnOC2eKtNEjhVI+VOvGOapRysIMAKPlzwOtXx8qJjvya7YxS2OWUm9xwDxgKsYYDueaKkIyx5NFXYk//Z" alt="Avatar of Rick_Anderson">                                    </span>                <div>                    <p title="Rick_Anderson" class="profile-display-name">Rick_Anderson</p>                                    <p class="profile-company">Microsoft</p>                                    <p class="profile-affiliations"></p>                </div>            </div>            <div class="profile-points-bar">                <span class="profile-points">26,990<span class="points-label"> Points</span></span>                <span class="profile-count profile-bronze-points"><span class="profile-bronze-img" title="Achievements Earned"></span><span>9</span></span>                <span class="profile-count profile-silver-points"><span class="profile-silver-img" title="Achievements Earned"></span><span>5</span></span>                <span class="profile-count profile-gold-points"><span class="profile-gold-img" title="Achievements Earned"></span><span>4</span></span>                        </div>            <div class="profile-achievements-header">                <span class="profile-achievements-title">Recent Achievements</span>            </div>            <div class="profile-achievements-recent">                <div class="profile-achievements-centering">                                                                <span class="profile-achievement profile-achievement-Gold"><span>Blog Party Starter</span></span>                                            <span class="profile-achievement profile-achievement-Gold"><span>Blogger III</span></span>                                            <span class="profile-achievement profile-achievement-Gold"><span>Gallery Contributor III</span></span>                                                            </div>            </div>            <div class="profile-footer">                                <a href="http://social.msdn.microsoft.com/profile/rick_anderson/?ws=usercard-hover" class="profile-usercard-profileLink" target="_blank">View Profile</a>            </div>        </div></span>
+    </div>
+    <div class="post-date">
+        <span class="value">
+            22 Apr 2011 3:48 PM
+        </span>
+    </div>
+    <div class="post-attributes">
+        <div class="attribute-list-header"></div>
+        <ul class="attribute-list">
+             <li class="attribute-item post-reply-count">
+                <span class="attribute-name">Comments</span>
+                <span class="attribute-value"><a href="#comments" class="internal-link view-replies"><span></span>7</a></span>
+             </li>
+        </ul>
+        <div class="attribute-list-footer"></div>
+    </div>
+    <div class="post-content user-defined-markup"><p>A frequent 
+complaint in the ASP.NET forums is that an application works fine with 
+Cassini (AKA, the built in Visual Studio Development Server), but fails 
+when deployed to a real IIS server. The two most common reasons for this
+ failure are:</p>  <ol>   <li>Cassini runs at the root level, so when 
+resources (such as CSS and JavaScript files) are referenced incorrectly,
+ they still work. For example, create a new MVC 3 Application and change
+ the CSS and jQuery as shown below:      <br><span style="background: yellow">       <br>@*</span><span style="color: #006400">&nbsp;&nbsp; &lt;link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" /&gt;        <br>&nbsp;&nbsp;&nbsp; &lt;script src="@Url.Content("~/Scripts/jquery-1.5.1.min.js")" type="text/javascript"&gt;&lt;/script&gt;</span><span style="background: yellow">*@        <br>        <br></span>&nbsp;&nbsp;&nbsp; <span style="color: blue">&lt;</span><span style="color: maroon">link</span><span style="color: red">href</span><span style="color: blue">="/Content/Site.css""</span><span style="color: red">rel</span><span style="color: blue">="stylesheet"</span><span style="color: red">type</span><span style="color: blue">="text/css" /&gt;        <br>&nbsp;&nbsp;&nbsp; &lt;</span><span style="color: maroon">script</span><span style="color: red">src</span><span style="color: blue">="/Scripts/jquery-1.5.1.min.js"</span><span style="color: red">type</span><span style="color: blue">="text/javascript"&gt;&lt;/</span><span style="color: maroon">script</span><span style="color: blue">&gt;        <br>        <br></span>The
+ application continues to work. But when you run it under IIS, client 
+side validation no longer works and you don’t have CSS styling. The 
+application looks unstylish:&nbsp; <br>      <br><a href="http://blogs.msdn.com/cfs-file.ashx/__key/CommunityServer-Blogs-Components-WeblogFiles/00-00-01-11-73-metablogapi/0675.NoCSS_5F00_3347F20F.png"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="NoCSS" alt="NoCSS" src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/4478.png" border="0" height="458" width="559"></a>       <br>      <br>This
+ problem with assuming root access to the resources is so common that 
+most ASP.NET MVC books and many ASP.NET MVC tutorials have samples that 
+don’t work on IIS. </li>    <li>Cassini runs under the logged in users 
+credentials, that’s you, and you're often running as administrator. IIS 
+runs under the application pool identity, and for security reasons has 
+far less access than an administrator. Access to any resource ( a remote
+ SQL Server, a local file ) often fails when run on IIS. </li> </ol>  <p>IIS
+ Express is a huge improvement over Cassini, but it doesn’t solve either
+ of these problems. IIS has additional advantages over IIS Express:</p>  <ol>   <li>Easier to test your application from remote computers. </li>    <li>Easier to set up and test SSL.&nbsp; See <a href="http://blogs.msdn.com/b/rickandy/archive/2011/04/22/better-faster-easier-ssl-testing-for-asp-net-mvc-amp-webforms.aspx">Better, Faster, Easier SSL testing for ASP.NET MVC &amp; WebForms</a> </li> </ol>  <p>Since IIS is tied to the OS, you need Vista/SP1 or higher to test with IIS 7. ( Win7/SP1 strongly preferred. )</p>  <h2>Installing IIS 7 </h2>  <ol>   <li>Run the <a href="http://www.microsoft.com/web/downloads/platform.aspx" target="_blank">Web Platform Installer</a> (WPI) </li>    <li>In the left pane select <strong>All</strong>. In the tabs select <strong>Products</strong>. </li>    <li>Install <strong>IIS 7 Recommended Configuration</strong>.       <p><a href="http://blogs.msdn.com/cfs-file.ashx/__key/CommunityServer-Blogs-Components-WeblogFiles/00-00-01-11-73-metablogapi/7115.WPI_5F00_384A2FBE.png"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="WPI" alt="WPI" src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/6457.png" border="0" height="480" width="622"></a></p>      <p>&nbsp;</p>   </li>    <li>In the Start menu, type IIS, and select Internet Information Services (IIS) Manager.&nbsp; <br>      <br><a href="http://blogs.msdn.com/cfs-file.ashx/__key/CommunityServer-Blogs-Components-WeblogFiles/00-00-01-11-73-metablogapi/6471.Start_5F00_IIS_5F00_05E65C3F.png"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="Start_IIS" alt="Start_IIS" src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/7041.png" border="0" height="495" width="334"></a>       <br>      <br>IIS manger is displayed.&nbsp; <br>      <br><a href="http://blogs.msdn.com/cfs-file.ashx/__key/CommunityServer-Blogs-Components-WeblogFiles/00-00-01-11-73-metablogapi/3302.IISmgr_5F00_49BA9096.png"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="IISmgr" alt="IISmgr" src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/8105.png" border="0" height="570" width="689"></a> </li> </ol>  <p>&nbsp;</p>  <p>Create
+ a new ASP.NET MVC 3 application or Web Application, accept all the 
+defaults. If you want to follow this tutorial, name it <strong>MvcFun</strong>.</p>  <p><a href="http://blogs.msdn.com/cfs-file.ashx/__key/CommunityServer-Blogs-Components-WeblogFiles/00-00-01-11-73-metablogapi/3817.newMVCproj_5F00_494E5DA1.png"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="newMVCproj" alt="newMVCproj" src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/3821.png" border="0" height="485" width="834"></a></p>  <blockquote>   <p>&nbsp;<span style="background-color: #ffff00; color: #ff0000">WARNING:
+ IIS cannot run an ASP.NET project that has been created in the default 
+Visual Studio project folder (C:\users\&lt;user&gt;\Documents\Visual 
+Studio 2010\Projects). Select a folder where IIS can access the files, 
+such as C:\Webs.</span> </p> </blockquote>  <p>Right click the solution and select <strong>Properties</strong>.</p>  <p><a href="http://blogs.msdn.com/cfs-file.ashx/__key/CommunityServer-Blogs-Components-WeblogFiles/00-00-01-11-73-metablogapi/7853.RightClickProject_5F00_44D7DCDA.png"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="RightClickProject" alt="RightClickProject" src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/2656.png" border="0" height="658" width="616"></a></p>  <ol>   <li>Select <strong>Web</strong> in the left pane. </li>    <li>Under Servers, select the <strong>Use Local IIS Web server</strong> radio button. </li>    <li>Select the <strong>Create Virtual Directory</strong> button. </li> </ol>  <p><a href="http://blogs.msdn.com/cfs-filesystemfile.ashx/__key/CommunityServer-Blogs-Components-WeblogFiles/00-00-01-11-73/5417.UseLocal_5F00_IIS.png" target="_blank"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="UseLocal_IIS_sm" alt="UseLocal_IIS_sm" src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/0677.png" border="0" height="787" width="655"></a></p>  <p>Should you get the message:</p>  <blockquote>   <p>Unable
+ to create the virtual directory. To access Web sites on the local IIS 
+Web server, you must run Visual Studio under an Administrator account.</p>    <p><a href="http://blogs.msdn.com/cfs-file.ashx/__key/CommunityServer-Blogs-Components-WeblogFiles/00-00-01-11-73-metablogapi/5481.RunAsAdmin_5F00_4F29013A.png"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="RunAsAdmin" alt="RunAsAdmin" src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/6052.png" border="0" height="219" width="523"></a></p> </blockquote>  <p>Read it and follow the directions and you’ll be rewarded with a friendlier message.</p>  <p><a href="http://blogs.msdn.com/cfs-file.ashx/__key/CommunityServer-Blogs-Components-WeblogFiles/00-00-01-11-73-metablogapi/7522.vid_5F00_Success_5F00_6ED7DB02.png"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="vid_Success" alt="vid_Success" src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/6545.png" border="0" height="206" width="393"></a></p>  <p>Now go back to IIS manager, refresh and drill down in the Default Web Site. Select <strong>Browse *:80(http)</strong> in the right pane.</p>  <p><a href="http://blogs.msdn.com/cfs-file.ashx/__key/CommunityServer-Blogs-Components-WeblogFiles/00-00-01-11-73-metablogapi/0272.IISmgrBrowse80_5F00_479D91CD.png"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="IISmgrBrowse80" alt="IISmgrBrowse80" src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/1680.png" border="0" height="570" width="689"></a></p>  <p>If you get the following Parser Error,&nbsp; you need to build your application. </p>  <h3><span style="color: #ff0000; font-size: large">Server Error in '/MvcFun' Application.</span>     <hr size="1" width="100%"></h3>  <h4><i><span style="color: #800000">Parser Error</span></i></h4>  <p><b>Description: </b>An
+ error occurred during the parsing of a resource required to service 
+this request. Please review the following specific parse error details 
+and modify your source file appropriately.     <br><b>Parser Error Message: </b>Could not load type 'MvcFun.MvcApplication'.     <br><b>Source Error:</b></p>  <p><code></code></p>  <pre><span style="color: #ff0000"><span style="background-color: #ffffff">Line 1:  &lt;%@ Application Codebehind="Global.asax.cs" Inherits="MvcFun.MvcApplication" Language="C#" %&gt;
+</span></span></pre>
+
+<p><b>Source File: </b>/MvcFun/global.asax<b> Line: </b>1 </p>
+
+<hr size="1" width="100%">
+
+<p><b>Version Information:</b> Microsoft .NET Framework Version:4.0.30319; ASP.NET Version:4.0.30319.225 </p>
+
+<p>&nbsp;</p>
+
+<h2>Testing your Application</h2>
+
+<p>After building, refresh&nbsp; your browser. In the browser URL, change <em>localhost</em> to the name of your computer. In the image below, I’m using the Q3 computer.</p>
+
+<p><a href="http://blogs.msdn.com/cfs-file.ashx/__key/CommunityServer-Blogs-Components-WeblogFiles/00-00-01-11-73-metablogapi/5875.Q3_5F00_5C22E14B.png"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="Q3" alt="Q3" src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/4807.png" border="0" height="448" width="590"></a></p>
+
+<p>Go&nbsp; to another computer and test the URL.&nbsp; If you cannot 
+access the Web application from a remote computer, you might need to 
+configure the firewall on the computer that is serving the Web pages. </p>
+
+<h2>To enable the Web server access through the Windows firewall</h2>
+
+<ol>
+  <li>In the Windows <strong>Search programs or files</strong> box, enter "firewall". </li>
+
+  <li>Select <strong>Allow a program or feature through Windows Firewall</strong>. 
+
+    <br><img src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/Gg703322_002.png"> </li>
+
+  <li>Click <strong>Change settings</strong> and scroll to the bottom. 
+
+    <br>
+
+    <br><img src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/Gg703322.png"> </li>
+
+  <li>Select <strong>World Wide Web Services (HTTP).</strong> </li>
+
+  <li>Verify that the URL for your ASP.NET MVC 3 application now works from a remote computer. </li>
+</ol><div style="clear:both;"></div></div>
+    <div class="post-attachment-viewer">
+		
+    </div>
+    <div class="post-actions">
+        <div class="navigation-list-header"></div>
+        <ul class="navigation-list">
+            <!---->
+            <li class="navigation-item"><a class="internal-link view-replies" href="http://blogs.msdn.com/b/rickandy/archive/2011/04/22/test-you-asp-net-mvc-or-webforms-application-on-iis-7-in-30-seconds.aspx#comments"><span></span>7 Comments</a></li>
+            
+            
+        </ul>
+        <div class="navigation-list-footer"></div>
+    </div>
+    
+</div>
+<div class="full-post-footer"></div></div>
+<div class="content-fragment-footer"></div>
+<div class="content-fragment-bottom msdn-content-fragment-bottom"><div class="r1 msdn-r1"></div><div class="r2 msdn-r2"></div><div class="r3 msdn-r3"></div><div class="r4 msdn-r4"></div></div></div></div>
+<div class="content-fragment social-media-sharing no-wrapper" id="fragment-52318">
+<div class="content-fragment-inner msdn-content-fragment-inner"><div class="content-fragment-top msdn-content-fragment-top"><div class="r1 msdn-r1"></div><div class="r2 msdn-r2"></div><div class="r3 msdn-r3"></div><div class="r4 msdn-r4"></div></div><div class="content-fragment-content">
+
+<script src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/47499858c4077d6e043f7add14000981-e99ec8f3b45f97b38095df2708dc.js" type="text/javascript"></script>
+<div class="ShareThisMainPanel">
+	<div id="ctl00_content_ctl00_w_52318__b3586d_ctl00_8d7fb63d_c5cd_4511_ab8a_02e7a6f93c2c" class="ShareThis_ChildRootPanel" onmouseover="ShareThisChildRootPanelOnmouseOver(this.id);" onmouseout="ShareThisChildRootPanelOnmouseOut(this.id);">
+		<div id="ctl00_content_ctl00_w_52318__b3586d_ctl00_ShareThisBtnCollPanel_96f652a663964805b3225ffece4e8a3f" class="tierOnePanel">
+			<div class="buttonPanel">
+				<a title="Share on Facebook" class="iconsOnPanel" href="http://www.facebook.com/sharer.php?u=http://blogs.msdn.com/b/rickandy/archive/2011/04/22/test-you-asp-net-mvc-or-webforms-application-on-iis-7-in-30-seconds.aspx&amp;t=Test+your+ASP.NET+MVC+or+WebForms+Application+on+IIS+7+in+30+seconds" target="_blank"><img title="Share on Facebook" src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/facebook.gif" style="border-width:0px;"></a>
+			</div><div class="buttonPanel">
+				<a title="Share on Twitter" class="iconsOnPanel" href="http://twitter.com/home?status=Test+your+ASP.NET+MVC+or+WebForms+Application+on+IIS+7+in+30+seconds%20:%20http://blogs.msdn.com/b/rickandy/archive/2011/04/22/test-you-asp-net-mvc-or-webforms-application-on-iis-7-in-30-seconds.aspx" target="_blank"><img title="Share on Twitter" src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/twitter.gif" style="border-width:0px;"></a>
+			</div><div class="buttonPanel">
+				<a title="Share on Digg" class="iconsOnPanel" href="http://digg.com/submit?url=http://blogs.msdn.com/b/rickandy/archive/2011/04/22/test-you-asp-net-mvc-or-webforms-application-on-iis-7-in-30-seconds.aspx&amp;title=Test+your+ASP.NET+MVC+or+WebForms+Application+on+IIS+7+in+30+seconds" target="_blank"><img title="Share on Digg" src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/digg.gif" style="border-width:0px;"></a>
+			</div><div class="buttonPanel">
+				<a title="Share on del.icio.us" class="iconsOnPanel" href="http://del.icio.us/post?url=http://blogs.msdn.com/b/rickandy/archive/2011/04/22/test-you-asp-net-mvc-or-webforms-application-on-iis-7-in-30-seconds.aspx&amp;title=Test+your+ASP.NET+MVC+or+WebForms+Application+on+IIS+7+in+30+seconds" target="_blank"><img title="Share on del.icio.us" src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/delicious.gif" style="border-width:0px;"></a>
+			</div>
+		</div><div id="ctl00_content_ctl00_w_52318__b3586d_ctl00_ShareThisBtnCollPanel_e278c990a63c4129bb822e91b56d590e" class="tierTwoPanel" onclick="TierTwoPanelOnclick(this.id);" onkeypress="if (event.keyCode == 13) TierTwoPanelOnclick(this.id);" onmouseover="TierTwoPanelOnmouseOver(this.id);" onmouseout="TierTwoPanelOnmouseOut(this.id);">
+			<div id="ctl00_content_ctl00_w_52318__b3586d_ctl00_ShareThisBtnCollPanel_81dea97d7c3243c1a7f221ab38fa6837" class="tierTwoRowPanel">
+				<div class="buttonPanel">
+					<a title="Share on Reddit" class="iconsOnPanel" href="http://www.reddit.com/submit?url=http://blogs.msdn.com/b/rickandy/archive/2011/04/22/test-you-asp-net-mvc-or-webforms-application-on-iis-7-in-30-seconds.aspx&amp;title=Test+your+ASP.NET+MVC+or+WebForms+Application+on+IIS+7+in+30+seconds" target="_blank"><img title="Share on Reddit" src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/reddit.gif" style="border-width:0px;"></a>
+				</div><div class="buttonPanel">
+					<a title="Share on LinkedIn" class="iconsOnPanel" href="http://www.linkedin.com/shareArticle?mini=true&amp;ro=true&amp;url=http://blogs.msdn.com/b/rickandy/archive/2011/04/22/test-you-asp-net-mvc-or-webforms-application-on-iis-7-in-30-seconds.aspx&amp;title=Test+your+ASP.NET+MVC+or+WebForms+Application+on+IIS+7+in+30+seconds&amp;summary=&amp;source=Microsoft&amp;armin=armin" target="_blank"><img title="Share on LinkedIn" src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/linkedin.gif" style="border-width:0px;"></a>
+				</div><div class="buttonPanel">
+					<a title="Share on Slashdot" class="iconsOnPanel" href="http://slashdot.org/bookmark.pl?url=http://blogs.msdn.com/b/rickandy/archive/2011/04/22/test-you-asp-net-mvc-or-webforms-application-on-iis-7-in-30-seconds.aspx&amp;title=Test+your+ASP.NET+MVC+or+WebForms+Application+on+IIS+7+in+30+seconds" target="_blank"><img title="Share on Slashdot" src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/slashdot.gif" style="border-width:0px;"></a>
+				</div><div class="buttonPanel">
+					<a title="Share on MySpace" class="iconsOnPanel" href="http://www.myspace.com/Modules/PostTo/Pages/?u=http://blogs.msdn.com/b/rickandy/archive/2011/04/22/test-you-asp-net-mvc-or-webforms-application-on-iis-7-in-30-seconds.aspx&amp;t=Test+your+ASP.NET+MVC+or+WebForms+Application+on+IIS+7+in+30+seconds" target="_blank"><img title="Share on MySpace" src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/myspace.gif" style="border-width:0px;"></a>
+				</div>
+			</div><div id="ctl00_content_ctl00_w_52318__b3586d_ctl00_ShareThisBtnCollPanel_1b8ed16f1d3f4481a7dc8d3aba4f13a3" class="tierTwoRowPanel">
+				<div class="buttonPanel">
+					<a title="Share on Technorati" class="iconsOnPanel" href="http://technorati.com/faves/?add=http://blogs.msdn.com/b/rickandy/archive/2011/04/22/test-you-asp-net-mvc-or-webforms-application-on-iis-7-in-30-seconds.aspx" target="_blank"><img title="Share on Technorati" src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/technorati.gif" style="border-width:0px;"></a>
+				</div><div class="buttonPanel">
+					<a title="Share on FriendFeed" class="iconsOnPanel" href="http://friendfeed.com/?url=http://blogs.msdn.com/b/rickandy/archive/2011/04/22/test-you-asp-net-mvc-or-webforms-application-on-iis-7-in-30-seconds.aspx&amp;title=Test+your+ASP.NET+MVC+or+WebForms+Application+on+IIS+7+in+30+seconds" target="_blank"><img title="Share on FriendFeed" src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/friendfeed.gif" style="border-width:0px;"></a>
+				</div><div class="buttonPanel">
+					<a title="Share on Messenger" class="iconsOnPanel" href="http://profile.live.com/badge?url=http://blogs.msdn.com/b/rickandy/archive/2011/04/22/test-you-asp-net-mvc-or-webforms-application-on-iis-7-in-30-seconds.aspx&amp;title=Test+your+ASP.NET+MVC+or+WebForms+Application+on+IIS+7+in+30+seconds" target="_blank"><img title="Share on Messenger" src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/messenger.png" style="border-width:0px;"></a>
+				</div><div class="buttonPanel">
+					<a title="Share on StumbleUpon" class="iconsOnPanel" href="http://www.stumbleupon.com/submit?url=http://blogs.msdn.com/b/rickandy/archive/2011/04/22/test-you-asp-net-mvc-or-webforms-application-on-iis-7-in-30-seconds.aspx&amp;title=Test+your+ASP.NET+MVC+or+WebForms+Application+on+IIS+7+in+30+seconds" target="_blank"><img title="Share on StumbleUpon" src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/stumbleupon.gif" style="border-width:0px;"></a>
+				</div>
+			</div>
+		</div>
+	</div><div id="ctl00_content_ctl00_w_52318__b3586d_ctl00_ShowMoreLessButtonsPanel_2ca0f7e6_75c5_499f_b5cd_7073a4b804b1" tabindex="1" class="ShowMoreLessButtonsPanel" onclick="ShowMoreLessButtonsPanelOnClick(this.id);" onkeypress="if (event.keyCode == 13) ShowMoreLessButtonsPanelOnClick(this.id);" onmouseover="ShowMoreLessButtonsPanelOnmouseOver(this.id);" onmouseout="ShowMoreLessButtonsPanelOnmouseOut(this.id);">
+		<a class="buttonMoreLess" id="btn_more"><img title="More" src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/more.gif" style="border-width:0px;"></a><a class="buttonMoreLess" id="btn_less"><img title="Less" src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/less.gif" style="border-width:0px;"></a>
+	</div>
+</div><div class="ShareClearFloatsPanel">
+
+</div></div>
+<div class="content-fragment-footer"></div>
+<div class="content-fragment-bottom msdn-content-fragment-bottom"><div class="r1 msdn-r1"></div><div class="r2 msdn-r2"></div><div class="r3 msdn-r3"></div><div class="r4 msdn-r4"></div></div></div></div>
+<div class="content-fragment blog-feedback-list no-wrapper with-header" id="fragment-52319">
+<div class="content-fragment-inner msdn-content-fragment-inner"><div class="content-fragment-top msdn-content-fragment-top"><div class="r1 msdn-r1"></div><div class="r2 msdn-r2"></div><div class="r3 msdn-r3"></div><div class="r4 msdn-r4"></div></div><div class="content-fragment-header"><div>Blog - Comment List MSDN TechNet</div></div>
+<div class="content-fragment-content">
+
+<script src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/c6cf9e2cff3f0bfc0a1a8c20bf243544-5882c0bb1c3252f4238afcfee921.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+	// <![CDATA[
+    var endpoint = '/Utility/ContentFragments/Blogs/FeedbackListAjax.asmx';
+	$(document).ready(function() {
+	    $.ajax({ type: 'POST', 
+	             contentType: 'application/json',
+	             dataType: 'json',
+	             url: endpoint + '/GetComments',
+	             data: '{blogId:11173, postId:10157260}', 
+	             success: function(data) {
+	                 var comments = $('#commentList').empty();
+	                 $('#commentTemplate').tmpl(data.d).appendTo(comments);
+	                 
+	            }
+        });
+	});
+// ]]>
+</script>
+
+
+<a name="comments"></a>
+<div class="content-list-header"></div>
+<div class="content-list-name">
+    
+            <a class="internal-link rss" href="http://blogs.msdn.com/b/rickandy/rsscomments.aspx?WeblogPostID=10157260"><span></span>Comments</a>
+        
+</div>
+
+
+
+<ul id="commentList" class="content-list"><li id="commentItem10161137" class="content-item">         <div class="full-post-outer fiji-full-post-outer"><div class="full-post-header"><div class="r fiji-r"></div></div>         <div class="full-post"><div class="full-post-inner fiji-full-post-inner">             <div class="post-author">                 <span class="avatar">                                          <img src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/anonymous.gif" style="border-width:0;max-height:32px;max-width:32px;">                                      </span>                 <span class="profile-usercard-hover" data-profile-userid="00000000000000000000000000000000">                     <span class="user-name">                                                  Jason                                              </span>                 </span>             </div>             <div class="post-date">                 <span class="value">4 May 2011 2:37 PM</span>             </div>             <a name="10161137" style="padding-left:5px;" href="#10161137">#</a>             <div class="post-content user-defined-markup">                 <p>Thanks for posting this as I require everyone to run through IIS debugger on my team.</p>
+<div style="clear:both;"></div>             </div>             <div class="post-actions">                              </div>         </div>                  <div class="full-post-footer">                      <div class="r wireframe-r"></div>         </div>     </div></div></li>          <li id="commentItem10161329" class="content-item">         <div class="full-post-outer fiji-full-post-outer"><div class="full-post-header"><div class="r fiji-r"></div></div>         <div class="full-post"><div class="full-post-inner fiji-full-post-inner">             <div class="post-author">                 <span class="avatar">                                          <img src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/anonymous.gif" style="border-width:0;max-height:32px;max-width:32px;">                                      </span>                 <span class="profile-usercard-hover" data-profile-userid="00000000000000000000000000000000">                     <span class="user-name">                                                  Dave                                              </span>                 </span>             </div>             <div class="post-date">                 <span class="value">5 May 2011 5:23 AM</span>             </div>             <a name="10161329" style="padding-left:5px;" href="#10161329">#</a>             <div class="post-content user-defined-markup">                 <p>&lt;link href="/Content/Site.css""rel="stylesheet"type="text/css" /&gt; </p>
+<p>the above will still fail as it will look in http://localhost/Content/ not http://localhost/MvcFun/Content/.</p>
+<p>In IIS7 you can create websites (not virtual directories) and setup 
+host headers in the hosts file. If you need remote access give each 
+website a different port number.</p>
+<div style="clear:both;"></div>             </div>             <div class="post-actions">                              </div>         </div>                  <div class="full-post-footer">                      <div class="r wireframe-r"></div>         </div>     </div></div></li>          <li id="commentItem10164189" class="content-item">         <div class="full-post-outer fiji-full-post-outer"><div class="full-post-header"><div class="r fiji-r"></div></div>         <div class="full-post"><div class="full-post-inner fiji-full-post-inner">             <div class="post-author">                 <span class="avatar">                                          <a href="http://blogs.msdn.com/122428/ProfileUrlRedirect.ashx">                         <img src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/avatar_003.jpg" style="border-width:0;max-height:32px;max-width:32px;">                     </a>                                      </span>                 <span data-profile-rendered="true" class="profile-usercard-hover" data-profile-userid="a3a801c7f4634661b96ed68a3e0ac878">                     <span class="user-name">                                                  <a href="http://blogs.msdn.com/122428/ProfileUrlRedirect.ashx">                             Tien Q. Do                         </a>                                              </span>                 <div class="profile-usercard">            <div class="profile-header">                <span class="profile-userimage">                                            <img src="data:image/jpg;base64,/9j/4AAQSkZJRgABAQEBOgE6AAD/2wBDAA0JCgsKCA0LCgsODg0PEyAVExISEyccHhcgLikxMC4pLSwzOko+MzZGNywtQFdBRkxOUlNSMj5aYVpQYEpRUk//2wBDAQ4ODhMREyYVFSZPNS01T09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0//wAARCAAsACwDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDQ068QQJFAygYxtYn/AD0p0d5BDDK8zZEfTI4X6VziPsYZXbtXGQc80l/cbhCpYlCxJGMDNc0Y6kpXZZuNfubi4DQRKYw393rVhru5ncvOVSPA3KOAPeqEd9HGvAUfSpobsXMyNCyvu+RlIwfatnFW2NJQjbQ2tMgtb6VJPOZCnbqX69B+FSXNvdI48u2ypGegHf271FZ24064XUb0GAJztzjHXrV2XxJoVywkkfDYxWcZx2M7I5jSElC/vLLzmGGwRwc9/wCVLqlwlz5lrIkcPl8YQf1rUt76KbywjlWQAYzyfxHUVHfHRkeS4uIyZGBZm3EAVpClKbugk1DVnMRvawExuhcNxlzyPpV22uFigCwwIrhwV3dz61lRytNK0kKh1LZAPUVp2iwi8jF9KqiT5QoPIbscf561Xs5SfKaymlDmNFYL7UxGtw+YlIB+frVOfRQk7oqsQrFc7gK6jTrf5Wis4xuQ7ipPzE4wRgn6e1Kuj6pLuldfLLknZkHH61jOHJoYxakrxOOUx2sW9JDKAPkYjaRVAzJclhJIdpboeppL6R3O0thQduBxxUUcaoImA5OSc17ULU7U0ccr1E6jL8ESwTLNCoB6c9D9adB5cc7T3KiVnIJ7Ec9qiMrhl5zgZApZQNjA8/LmtpU4b2OdVZrS5YXWbiPU/tETlWJzwenpXYDxjJsQrp3m5UEsJcc/TFeaXM0huFk3fMep9a6BeWdT0Vto+lcs6cKvutbHRzSpe8up/9k=" alt="Avatar of Tien Q. Do">                                    </span>                <div>                    <p title="Tien Q. Do" class="profile-display-name">Tien Q. Do</p>                                    <p class="profile-company">Harvey Nash Vietnam</p>                                    <p class="profile-affiliations"></p>                </div>            </div>            <div class="profile-points-bar">                <span class="profile-points">0<span class="points-label"> Points</span></span>                <span class="profile-count profile-bronze-points"><span class="profile-bronze-img" title="Achievements Earned"></span><span>4</span></span>                <span class="profile-count profile-silver-points"><span class="profile-silver-img" title="Achievements Earned"></span><span>0</span></span>                <span class="profile-count profile-gold-points"><span class="profile-gold-img" title="Achievements Earned"></span><span>0</span></span>                        </div>            <div class="profile-achievements-header">                <span class="profile-achievements-title">Recent Achievements</span>            </div>            <div class="profile-achievements-recent">                <div class="profile-achievements-centering">                                                                <span class="profile-achievement profile-achievement-Bronze"><span>New Blog Rater</span></span>                                            <span class="profile-achievement profile-achievement-Bronze"><span>First Forums Reply</span></span>                                            <span class="profile-achievement profile-achievement-Bronze"><span>Profile Complete</span></span>                                                            </div>            </div>            <div class="profile-footer">                                <a href="http://social.msdn.microsoft.com/profile/tien%20q.%20do/?ws=usercard-hover" class="profile-usercard-profileLink" target="_blank">View Profile</a>            </div>        </div></span>             </div>             <div class="post-date">                 <span class="value">13 May 2011 6:41 AM</span>             </div>             <a name="10164189" style="padding-left:5px;" href="#10164189">#</a>             <div class="post-content user-defined-markup">                 <p>What
+ you said in step 1 about modifying stylesheet and JavaScript links are 
+not true. We don't need to modify anything. In fact ~/ always give us 
+correct web application root folder.</p>
+<p>Virtual directory is enough for testing, it's not necessary to create a new website with different port.</p>
+<div style="clear:both;"></div>             </div>             <div class="post-actions">                              </div>         </div>                  <div class="full-post-footer">                      <div class="r wireframe-r"></div>         </div>     </div></div></li>          <li id="commentItem10309476" class="content-item">         <div class="full-post-outer fiji-full-post-outer"><div class="full-post-header"><div class="r fiji-r"></div></div>         <div class="full-post"><div class="full-post-inner fiji-full-post-inner">             <div class="post-author">                 <span class="avatar">                                          <img src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/anonymous.gif" style="border-width:0;max-height:32px;max-width:32px;">                                      </span>                 <span class="profile-usercard-hover" data-profile-userid="00000000000000000000000000000000">                     <span class="user-name">                                                  Emile                                              </span>                 </span>             </div>             <div class="post-date">                 <span class="value">23 May 2012 6:47 AM</span>             </div>             <a name="10309476" style="padding-left:5px;" href="#10309476">#</a>             <div class="post-content user-defined-markup">                 <p>My
+ MVC3 application is working fine under Visual Studio 2010 Ultimate on 
+my home computer, but when I deploy it to the webhost in a virtual 
+directory that is parked as an application (mycomain.com/mvcfun) then I 
+get that Parser Error with Global.asax just as you have.</p>
+<p>However, the solution you propose "rebuild the application" is not 
+correct, it may have by chance been your solution but when I deploy the 
+MVC has already been built (I do just for the sake of completeness) but 
+the error still appears.</p>
+<div style="clear:both;"></div>             </div>             <div class="post-actions">                              </div>         </div>                  <div class="full-post-footer">                      <div class="r wireframe-r"></div>         </div>     </div></div></li>          <li id="commentItem10310960" class="content-item">         <div class="full-post-outer fiji-full-post-outer"><div class="full-post-header"><div class="r fiji-r"></div></div>         <div class="full-post"><div class="full-post-inner fiji-full-post-inner">             <div class="post-author">                 <span class="avatar">                                          <img src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/anonymous.gif" style="border-width:0;max-height:32px;max-width:32px;">                                      </span>                 <span class="profile-usercard-hover" data-profile-userid="00000000000000000000000000000000">                     <span class="user-name">                                                  kanishka dubey                                              </span>                 </span>             </div>             <div class="post-date">                 <span class="value">28 May 2012 2:24 AM</span>             </div>             <a name="10310960" style="padding-left:5px;" href="#10310960">#</a>             <div class="post-content user-defined-markup">                 <p>the best and simple explanation ever got g888888 post, appreciated</p>
+<div style="clear:both;"></div>             </div>             <div class="post-actions">                              </div>         </div>                  <div class="full-post-footer">                      <div class="r wireframe-r"></div>         </div>     </div></div></li>          <li id="commentItem10359418" class="content-item">         <div class="full-post-outer fiji-full-post-outer"><div class="full-post-header"><div class="r fiji-r"></div></div>         <div class="full-post"><div class="full-post-inner fiji-full-post-inner">             <div class="post-author">                 <span class="avatar">                                          <a href="http://blogs.msdn.com/453659/ProfileUrlRedirect.ashx">                         <img src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/avatar_002.jpg" style="border-width:0;max-height:32px;max-width:32px;">                     </a>                                      </span>                 <span data-profile-rendered="true" class="profile-usercard-hover" data-profile-userid="5da3a1c9063b49d382d6b68df5aab235">                     <span class="user-name">                                                  <a href="http://blogs.msdn.com/453659/ProfileUrlRedirect.ashx">                             Srigopal Chitrapu                         </a>                                              </span>                 <div class="profile-usercard">            <div class="profile-header">                <span class="profile-userimage">                                            <img src="data:image/jpg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAA0JCgsKCA0LCgsODg0PEyAVExISEyccHhcgLikxMC4pLSwzOko+MzZGNywtQFdBRkxOUlNSMj5aYVpQYEpRUk//2wBDAQ4ODhMREyYVFSZPNS01T09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0//wAARCAAqACwDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwB08CyL5oleXbyA+Nq++MVElhbXLiS+VZF2nC9iT34qnDqKXEqiZtisDjPf/wCvWlb2t6Q5XlI13kggjFcmFhr7xlHc4m6dLO5kigBYxORnHTmq41OUTeYYxuxjd0P6V3OhwyaJpVxNdWL3E0075CrzgHb1+uTUPii4s1tooZ7GZGlQScIPlHpXS6utrHWqN1dnNQzSXsbbZVG0ZYNVWRfLba5AP1H+NMt42i85k4G/aM8cUyW6lEhBC59xmqW+hztWZ0mlTLCfL3+Zx3AOPzrpLW6uYWaaJ1WM/KVdM7vY8DA54rjdNt768uClpE0rnqFQtXYWXhDWLgKLmaG3j785b8hxXNHnWxMbpl+e6nmtoUs9kYMnzoW/h57/AFxXM6pf6hBqQkuJBMoGzDx7QP05rqr3SIbMSWcZZY1UMjA/N0wefqM/jXEiwu5dbjVGkmxKNm48nmmr3sz0Yy/d3Em0q8mkZ/sy7SMlX67j6VUl0WcvlbAMMdQ3B/Wu6fXbqIlJYoQynB5PXPNM/t5/W2HsUar5mjlbbdzq7O2t9Ps0tbOJY40GOB1PqfU1K7TGL9ywTJ+8Rkgew9aaOn50/wD5aAdglbGZRubJng/1jyOM/M5yT6is5JbDTi0scTXN3twqxLkLn/a6Vs33/Hkw7HAP51AygMMADn0pcivcvnaXKZ+o6Pa6tDlsxyEfLKg5H19R7VwOp6Lq+n3jQfZpZ16rJChZSP6fSvUF4349RTZid/XtVuKZF7H/2Q==" alt="Avatar of Srigopal Chitrapu">                                    </span>                <div>                    <p title="Srigopal Chitrapu" class="profile-display-name">Srigopal Chitrapu</p>                                    <p class="profile-company">Pyramid Consulting Limited</p>                                    <p class="profile-affiliations">Partner</p>                </div>            </div>            <div class="profile-points-bar">                <span class="profile-points">11,349<span class="points-label"> Points</span></span>                <span class="profile-count profile-bronze-points"><span class="profile-bronze-img" title="Achievements Earned"></span><span>12</span></span>                <span class="profile-count profile-silver-points"><span class="profile-silver-img" title="Achievements Earned"></span><span>5</span></span>                <span class="profile-count profile-gold-points"><span class="profile-gold-img" title="Achievements Earned"></span><span>4</span></span>                        </div>            <div class="profile-achievements-header">                <span class="profile-achievements-title">Recent Achievements</span>            </div>            <div class="profile-achievements-recent">                <div class="profile-achievements-centering">                                                                <span class="profile-achievement profile-achievement-Gold"><span>Gallery Rater III</span></span>                                            <span class="profile-achievement profile-achievement-Gold"><span>Ratings Board President</span></span>                                            <span class="profile-achievement profile-achievement-Gold"><span>Better Galleries Together</span></span>                                                            </div>            </div>            <div class="profile-footer">                                <a href="http://social.msdn.microsoft.com/profile/srigopal%20chitrapu/?ws=usercard-hover" class="profile-usercard-profileLink" target="_blank">View Profile</a>            </div>        </div></span>             </div>             <div class="post-date">                 <span class="value">13 Oct 2012 4:31 PM</span>             </div>             <a name="10359418" style="padding-left:5px;" href="#10359418">#</a>             <div class="post-content user-defined-markup">                 <p>Good article nice steps with screen shots.</p>
+<div style="clear:both;"></div>             </div>             <div class="post-actions">                              </div>         </div>                  <div class="full-post-footer">                      <div class="r wireframe-r"></div>         </div>     </div></div></li>          <li id="commentItem10382001" class="content-item">         <div class="full-post-outer fiji-full-post-outer"><div class="full-post-header"><div class="r fiji-r"></div></div>         <div class="full-post"><div class="full-post-inner fiji-full-post-inner">             <div class="post-author">                 <span class="avatar">                                          <img src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/anonymous.gif" style="border-width:0;max-height:32px;max-width:32px;">                                      </span>                 <span class="profile-usercard-hover" data-profile-userid="00000000000000000000000000000000">                     <span class="user-name">                                                  Vidit                                              </span>                 </span>             </div>             <div class="post-date">                 <span class="value">3 Jan 2013 12:22 AM</span>             </div>             <a name="10382001" style="padding-left:5px;" href="#10382001">#</a>             <div class="post-content user-defined-markup">                 <p>HTTP Error 404.0 - Not Found</p>
+<p>The resource you are looking for has been removed, had its name changed, or is temporarily unavailable.</p>
+<p>I found this issue what can i do now?</p>
+<div style="clear:both;"></div>             </div>             <div class="post-actions">                              </div>         </div>                  <div class="full-post-footer">                      <div class="r wireframe-r"></div>         </div>     </div></div></li></ul>
+<div class="content-list-footer"></div>
+
+<script id="commentTemplate" type="text/html">
+    {{if Author}}
+    <li id="commentItem${Id}" class="content-item">
+        <div class="full-post-outer fiji-full-post-outer"><div class="full-post-header"><div class="r fiji-r"></div></div>
+        <div class="full-post"><div class="full-post-inner fiji-full-post-inner">
+            <div class="post-author">
+                <span class="avatar">
+                    {{if !Author.IsAnonymous}}
+                    <a href="${Author.ProfileUrl}">
+                        <img src="${Author.AvatarUrl}" style="border-width:0;max-height:32px;max-width:32px;"/>
+                    </a>
+                    {{else}}
+                    <img src="${Author.AvatarUrl}" style="border-width:0;max-height:32px;max-width:32px;"/>
+                    {{/if}}
+                </span>
+                <span class="profile-usercard-hover" data-profile-userid="${Author.ProfileId}">
+                    <span class="user-name">
+                        {{if !Author.IsAnonymous}}
+                        <a href="${Author.ProfileUrl}">
+                            ${Author.DisplayName}
+                        </a>
+                        {{else}}
+                        ${Author.DisplayName}
+                        {{/if}}
+                    </span>
+                </span>
+            </div>
+            <div class="post-date">
+                <span class="value">${PublishedDate}</span>
+            </div>
+            <a name="${Id}" style="padding-left:5px;" href="#${Id}">#</a>
+            <div class="post-content user-defined-markup">
+                {{html Body}}
+            </div>
+            <div class="post-actions">
+                
+            </div>
+        </div>
+        {{if !Author.IsAnonymous && Author.Id == 157925}}
+        <div class="full-post-footer user-is-author">
+        {{else}}
+        <div class="full-post-footer">
+        {{/if}}
+            <div class="r wireframe-r"></div>
+        </div>
+    </li>
+    {{/if}}
+</script></div>
+<div class="content-fragment-footer"></div>
+<div class="content-fragment-bottom msdn-content-fragment-bottom"><div class="r1 msdn-r1"></div><div class="r2 msdn-r2"></div><div class="r3 msdn-r3"></div><div class="r4 msdn-r4"></div></div></div></div>
+<div class="content-fragment captcha-blog-post-comment-form no-wrapper" id="fragment-52320">
+<div class="content-fragment-inner msdn-content-fragment-inner"><div class="content-fragment-top msdn-content-fragment-top"><div class="r1 msdn-r1"></div><div class="r2 msdn-r2"></div><div class="r3 msdn-r3"></div><div class="r4 msdn-r4"></div></div><div class="content-fragment-content">
+
+    
+            <div class="field-list-header"></div>
+            <fieldset class="field-list">
+                <legend class="field-list-description">Leave a Comment</legend>
+                <ul class="field-list">
+                    <li id="ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_NameField" class="field-item">
+                        <label for="ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbName" class="field-item-header">Name</label>
+                        <span class="field-item-input"><input name="ctl00$content$ctl00$w_52320$_b3586d$ctl00$ctl00$ctl00$ctl05$bpCommentForm$ctl05$tbName" size="60" id="ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbName" type="text"></span>
+                        <span id="ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbNameRFV" style="color:Red;display:none;"><span class="field-item-validation">*</span></span>
+                    </li>
+                    <li class="field-item post-body">
+                        <label for="ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbComment" class="field-item-header">Comment</label>
+                        <span class="field-item-input"><textarea tabindex="-1" rows="2" cols="20" style="height: 100px; resize: none; overflow-y: hidden; position: absolute; top: 0px; left: -9999px; width: 597px; line-height: 15px; text-decoration: none; letter-spacing: normal;"></textarea><textarea name="ctl00$content$ctl00$w_52320$_b3586d$ctl00$ctl00$ctl00$ctl05$bpCommentForm$ctl05$tbComment" rows="2" cols="20" id="ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbComment" style="height: 100px; resize: none; overflow-y: hidden;"></textarea></span>
+                        <span id="ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbCommentRFV" style="color:Red;display:none;"><span class="field-item-validation">* Please enter a comment</span></span>
+                        <span id="ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbCommentREV" style="color:Red;display:none;"><span class="field-item-validation">Please shorten the content to 3072 or less</span></span>
+                    </li>
+                    <li class="field-item">
+                        
+                           <span id="ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_invisibleCaptcha" style="color:Red;display:none;">*</span><span style="display: none;" id="ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_invisibleCaptcha_subtext_captcha">Please add 3 and 3 and type the answer here: <input name="ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_invisibleCaptcha_visibleanswer" type="text"></span>
+
+
+                    </li>
+                    <li class="field-item">
+                        <script type="text/javascript">
+                       // <![CDATA[
+
+                            $(document).ready(function () {
+                                $('a.add-reply').click(function () {
+                                    postComment(this);
+                                    return false;
+                                });
+                            });
+                            function postComment(anchor) {
+                                if (Page_ClientValidate('BlogPostCommentForm-ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00')) {
+                                    $(anchor).hide();
+                                    $(anchor).parent()
+                                             .html('<a class="internal-link add-reply" style="color:#c7c7c7;"><span></span>Publishing</a>');
+                                    window.location.href = $(anchor).attr('href');
+                                    $(anchor).unbind('click');
+                                }
+                            }
+                            
+                            
+                            // ]]>
+                        </script>
+                        <span class="field-item-input">
+                            <a id="ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_btnSubmit" class="internal-link add-reply" href='javascript:WebForm_DoPostBackWithOptions(new%20WebForm_PostBackOptions("ctl00$content$ctl00$w_52320$_b3586d$ctl00$ctl00$ctl00$ctl05$bpCommentForm$ctl05$btnSubmit",%20"",%20true,%20"BlogPostCommentForm-ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00",%20"",%20false,%20true))'><span></span>Post</a>
+                        </span>
+                    </li>
+                </ul>
+            </fieldset>
+            <div class="field-list-footer"></div>
+            
+        
+    
+</div>
+<div class="content-fragment-footer"></div>
+<div class="content-fragment-bottom msdn-content-fragment-bottom"><div class="r1 msdn-r1"></div><div class="r2 msdn-r2"></div><div class="r3 msdn-r3"></div><div class="r4 msdn-r4"></div></div></div></div>
+</div>
+</div>
+</div>
+<div class="layout-footer"></div>
+</div></div>
+
+			<div class="footer-fragments-header"></div>
+<div class="footer-fragments"><div class="footer-fragment copyright-info" id="footer-fragment-1402503690">
+
+<ul class="footer-fragment-links">
+    <li class="message copyright">© 2013 Microsoft Corporation.</li>
+	<li class="message termsOfService"><a href="http://msdn.microsoft.com/cc300389">Terms of Use</a> </li>
+    <li class="message trademarks"><a href="http://www.microsoft.com/library/toolbar/3.0/trademarks/en-us.mspx">Trademarks</a> </li>
+    <li class="message privacy"><a href="http://go.microsoft.com/fwlink/?LinkId=248681">Privacy Statement</a> </li>
+    <li class="message abuse">
+    
+            <a id="ctl00_footer_fragment_1402503690__b3586d_ctl00_ctl00_ctl01_lnkAbuse" href='javascript:WebForm_DoPostBackWithOptions(new%20WebForm_PostBackOptions("ctl00$footer_fragment_1402503690$_b3586d$ctl00$ctl00$ctl01$lnkAbuse",%20"",%20true,%20"",%20"",%20false,%20true))'>Report Abuse</a>
+        
+    </li>
+    
+    <li class="message version">5.6.322.403</li>
+</ul></div><div class="footer-fragment omniture-footer-fragment" id="footer-fragment-1402503691">
+
+
+<script src="Test%20your%20ASP.NET%20MVC%20or%20WebForms%20Application%20on%20IIS%207%20in%2030%20seconds%20-%20RickAndMSFT%20on%20Azure%20&amp;%20MVC%20-%20Site%20Home%20-%20MSDN%20Blogs_files/2569210a296af7a76a1f0a41cafcfd42-0504c0fa449b909ab2cb1f133555.js" type="text/javascript"></script>        <noscript><a href="http://www.omniture.com" title="Web Analytics"><img
+        src="http://msstomsdnblogs.112.2O7.net/b/ss/msstomsdnblogs/1/H.20.2--NS/0"
+        height="1" width="1" border="0" alt="" /></a></noscript>
+
+</div></div>
+<div class="footer-fragments-footer"></div>
+		
+<script type="text/javascript">
+//<![CDATA[
+var Page_Validators =  new Array(document.getElementById("ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbNameRFV"), document.getElementById("ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbCommentRFV"), document.getElementById("ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbCommentREV"), document.getElementById("ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_invisibleCaptcha"));
+//]]>
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+var ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbNameRFV = document.all ? document.all["ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbNameRFV"] : document.getElementById("ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbNameRFV");
+ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbNameRFV.controltovalidate = "ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbName";
+ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbNameRFV.display = "Dynamic";
+ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbNameRFV.validationGroup = "BlogPostCommentForm-ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00";
+ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbNameRFV.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbNameRFV.initialvalue = "";
+var ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbCommentRFV = document.all ? document.all["ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbCommentRFV"] : document.getElementById("ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbCommentRFV");
+ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbCommentRFV.controltovalidate = "ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbComment";
+ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbCommentRFV.display = "Dynamic";
+ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbCommentRFV.validationGroup = "BlogPostCommentForm-ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00";
+ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbCommentRFV.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbCommentRFV.initialvalue = "";
+var ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbCommentREV = document.all ? document.all["ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbCommentREV"] : document.getElementById("ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbCommentREV");
+ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbCommentREV.controltovalidate = "ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbComment";
+ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbCommentREV.display = "Dynamic";
+ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbCommentREV.validationGroup = "BlogPostCommentForm-ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00";
+ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbCommentREV.evaluationfunction = "RegularExpressionValidatorEvaluateIsValid";
+ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbCommentREV.validationexpression = "^[\\s\\S]{0,3072}$";
+var ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_invisibleCaptcha = document.all ? document.all["ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_invisibleCaptcha"] : document.getElementById("ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_invisibleCaptcha");
+ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_invisibleCaptcha.errormessage = "*";
+ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_invisibleCaptcha.display = "Dynamic";
+ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_invisibleCaptcha.validationGroup = "BlogPostCommentForm-ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00";
+//]]>
+</script>
+
+<script type="text/javascript">
+// <![CDATA[
+ctl00_content_ctl00 = new ContentFragmentPageCustomCallback('ctl00_content_ctl00',new Function('mode','parameters','callback','errorCallback','context','ctl00_content_ctl00_ctl00._doCallback(mode+\':\'+parameters,callback,context,errorCallback);'));
+// ]]>
+</script>
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+xmlns:dc="http://purl.org/dc/elements/1.1/"
+xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+<rdf:Description
+rdf:about="http://blogs.msdn.com/b/rickandy/archive/2011/04/22/test-you-asp-net-mvc-or-webforms-application-on-iis-7-in-30-seconds.aspx"
+dc:identifier="http://blogs.msdn.com/b/rickandy/archive/2011/04/22/test-you-asp-net-mvc-or-webforms-application-on-iis-7-in-30-seconds.aspx"
+dc:title="Test your ASP.NET MVC or WebForms Application on IIS 7 in 30 seconds"
+trackback:ping="http://blogs.msdn.com/b/rickandy/trackback.ashx?WeblogPostID=10157260" />
+</rdf:RDF>
+-->
+<script type="text/javascript">
+// <![CDATA[
+Telligent_Modal.Configure('\/utility\/loading.htm',['modal'],['modal-title','modal-title-2','modal-title-3','modal-title-4'],['modal-close'],['modal-content','modal-content-2'],['modal-footer','modal-footer-2','modal-footer-3'],['modal-resize'],['modal-mask'],10000,false,true,true);
+// ]]>
+</script><script type="text/javascript">
+// <![CDATA[
+window.ctl00_content_ctl00_ctl00 = new Telligent_CallbackManager('ctl00_content_ctl00_ctl00','ctl00$content$ctl00$ctl00','aspnetForm');
+// ]]>
+</script><script type="text/javascript">
+// <![CDATA[
+var ctl00_content_ctl00_w_52317__b3586d_ctl00_ctl01=new RateableContentRating('ctl00_content_ctl00_w_52317__b3586d_ctl00_ctl01','ctl00_content_ctl00_w_52317__b3586d_ctl00_ctl01','ctl00_content_ctl00_w_52317__b3586d_ctl00_ctl01_Value', 5, '/Utility/images/', false, 'rating','rating active','rating readonly',['Terrible','Poor','Fair','Average','Good','Excellent'],true,true);
+// ]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+
+WebForm_InitCallback();//]]>
+</script>
+<script type="text/javascript">
+				// <![CDATA[
+				var ctl00_content_ctl00_w_52317__b3586d_ctl00_ctl01_ajax={"SaveRating":function(rating,successFunction,failureFunction){WebForm_DoCallback('ctl00$content$ctl00$w_52317$_b3586d$ctl00$ctl01',rating,successFunction,rating,failureFunction,true)}};
+				// ]]>
+				</script><script type="text/javascript">
+// <![CDATA[
+$('#ctl00_content_ctl00_w_52317__b3586d_ctl00_ctl15_ctl01_Container input[value="Save"]').attr('onclick','').removeAttr('onclick').click( function(){ try { var tagText = $('#ctl00_content_ctl00_w_52317__b3586d_ctl00_ctl15_ctl01_Tags').val(); if (!tagText) return false;var tagList = tagText.replace(';',',').split(','); var isValid = true; for (var i=0,l=tagList.length;i<l;i++) {isValid = /^[ -~]{0,100}$/ig.test(tagList[i]); if (!isValid) { alert(tagList[i] + ' : is not valide'); return false; } }ctl00_content_ctl00_w_52317__b3586d_ctl00_ctl15_ctl01.Save();}catch(ex){ } return false; });
+// ]]>
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+
+var Page_ValidationActive = false;
+if (typeof(ValidatorOnLoad) == "function") {
+    ValidatorOnLoad();
+}
+
+function ValidatorOnSubmit() {
+    if (Page_ValidationActive) {
+        return ValidatorCommonOnSubmit();
+    }
+    else {
+        return true;
+    }
+}
+        $('#ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbComment').autoResize({animate : false,extraSpace : 0,limit : 3000});//]]>
+</script>
+<script type="text/javascript">
+subtext_invisible_captcha_hideFromJavascriptEnabledBrowsers('ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_invisibleCaptcha_subtext_captcha');
+</script><script type="text/javascript">
+subtext_invisible_captcha_setAnswer(3, 3, 'ctl00_content_ctl00_w_52320__b3586d_ctl00_ctl00_ctl00_ctl05_bpCommentForm_ctl05_invisibleCaptcha_answer');
+</script></form>
+       
+    <script type="text/javascript">
+        $(window).load(function () {
+            $.getScript('http://widgets.membership.s-msft.com/v1/loader.js?brand=msdn&lang=en-US', function () {
+            });
+        });
+    </script>
+    
+	
+        <script type="text/javascript">$('div.breadcrumb-list span:last a').addClass('last');</script>
+
+</body></html>

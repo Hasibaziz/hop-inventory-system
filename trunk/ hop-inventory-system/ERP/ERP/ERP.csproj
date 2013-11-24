@@ -1,0 +1,680 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{38A58559-A8AC-49B8-B1DD-D9131D02C321}</ProjectGuid>
+    <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ERP</RootNamespace>
+    <AssemblyName>ERP</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Web, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.4.1.10331.0\lib\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\DLL\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ObjectBuilder, Version=1.0.51205.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL\Microsoft.Practices.ObjectBuilder.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\Json50r6\Bin\Net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=3.2.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\DLL\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Telerik.Web.Mvc">
+      <HintPath>..\DLL\Telerik.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AssignJobController.cs" />
+    <Compile Include="Controllers\BarCodeController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ConfigurationController.cs" />
+    <Compile Include="Controllers\DevicesController.cs" />
+    <Compile Include="Controllers\HelpsController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HRMController.cs" />
+    <Compile Include="Controllers\InventoryController.cs" />
+    <Compile Include="Controllers\OpexController.cs" />
+    <Compile Include="Controllers\ReportController.cs" />
+    <Compile Include="Controllers\SalesController.cs" />
+    <Compile Include="Controllers\UpddevicesController.cs" />
+    <Compile Include="Controllers\UpdusersController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="DAL\User.cs" />
+    <Compile Include="Extensions\HtmlExtension.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="HelperClasses\Code39BarCode.cs" />
+    <Compile Include="HelperClasses\ControllerExtensions.cs" />
+    <Compile Include="HelperClasses\ImageResult.cs" />
+    <Compile Include="Mail\MailManager.cs" />
+    <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\BarcodeDemoModel.cs" />
+    <Compile Include="Models\InventorydetailsEntity.cs" />
+    <Compile Include="Models\SalesCarList.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\GetpassissueReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GetpassissueReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\GetpassissueRPTEntity.cs" />
+    <Compile Include="Reports\PCInvreportEntity.cs" />
+    <Compile Include="Reports\Subreport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Subreport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+    <Content Include="Content\images\Slideimg\Img05.jpg" />
+    <Content Include="Content\images\Slideimg\Img06.jpg" />
+    <Content Include="Reports\WebForm1.aspx" />
+    <Content Include="Scripts\SimpleDialog\jquery.simpledialog.js" />
+    <Compile Include="Utility\AppConstants.cs" />
+    <Compile Include="Utility\AppExcel.cs" />
+    <Compile Include="Utility\AppSettingReader.cs" />
+    <Compile Include="Utility\Autovalue.cs" />
+    <Compile Include="Utility\ChartmodelUtility.cs" />
+    <Compile Include="Utility\ConfigReader.cs" />
+    <Compile Include="Utility\Encdecript.cs" />
+    <Compile Include="Utility\JavascriptResult.cs" />
+    <Compile Include="Utility\WebUtil.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Common.css" />
+    <Content Include="Content\Common\Icons\Ajax\Editor.png" />
+    <Content Include="Content\Common\Icons\Ajax\Grid.png" />
+    <Content Include="Content\Common\Icons\Ajax\Scheduler.png" />
+    <Content Include="Content\Common\Icons\Computer\laptop.png" />
+    <Content Include="Content\Common\Icons\Computer\monitor.png" />
+    <Content Include="Content\Common\Icons\Computer\monitor24.png" />
+    <Content Include="Content\Common\Icons\Computer\print.png" />
+    <Content Include="Content\Common\Icons\Computer\print24.png" />
+    <Content Include="Content\Common\Icons\Computer\server.png" />
+    <Content Include="Content\Common\Icons\Computer\server24.png" />
+    <Content Include="Content\Common\Icons\Computer\UPS.png" />
+    <Content Include="Content\Common\Icons\delete.png" />
+    <Content Include="Content\Common\Icons\edit.png" />
+    <Content Include="Content\Common\Icons\favicon.png" />
+    <Content Include="Content\Common\Icons\folder.png" />
+    <Content Include="Content\Common\Icons\monitor.png" />
+    <Content Include="Content\Common\Icons\Mvc\Grid.png" />
+    <Content Include="Content\Common\Icons\Mvc\Menu.png" />
+    <Content Include="Content\Common\Icons\Mvc\PanelBar.png" />
+    <Content Include="Content\Common\Icons\Mvc\pc.png" />
+    <Content Include="Content\Common\Icons\Mvc\TabStrip.png" />
+    <Content Include="Content\Common\Icons\page_white_text.png" />
+    <Content Include="Content\Common\Icons\Sl\Chart.gif" />
+    <Content Include="Content\Common\Icons\Sl\Docking.gif" />
+    <Content Include="Content\Common\Icons\Sl\GridView.gif" />
+    <Content Include="Content\Common\Icons\Sl\Scheduler.gif" />
+    <Content Include="Content\Common\Icons\Suites\ajax.png" />
+    <Content Include="Content\Common\Icons\Suites\Multi.png" />
+    <Content Include="Content\Common\Icons\Suites\mvc.png" />
+    <Content Include="Content\Common\Icons\Suites\Onlineups.png" />
+    <Content Include="Content\Common\Icons\Suites\orm.png" />
+    <Content Include="Content\Common\Icons\Suites\pc.png" />
+    <Content Include="Content\Common\Icons\Suites\rep.png" />
+    <Content Include="Content\Common\Icons\Suites\sitefinity.png" />
+    <Content Include="Content\Common\Icons\Suites\sl.png" />
+    <Content Include="Content\Common\Icons\Suites\Switch.png" />
+    <Content Include="Content\Common\Icons\Suites\test.png" />
+    <Content Include="Content\Common\Icons\Suites\UserCreate.png" />
+    <Content Include="Content\Common\Icons\Suites\win.png" />
+    <Content Include="Content\Common\Icons\Suites\wpf.png" />
+    <Content Include="Content\Common\Icons\wave.png" />
+    <Content Include="Content\ControlStyle.css" />
+    <Content Include="Content\DashboardStyle.css" />
+    <Content Include="Content\highlight.css" />
+    <Content Include="Content\images\1pix.gif" />
+    <Content Include="Content\images\9999.JPG" />
+    <Content Include="Content\images\admin-gvw-bg.gif" />
+    <Content Include="Content\images\admin-header-bg.gif" />
+    <Content Include="Content\images\admin-menu-bg.gif" />
+    <Content Include="Content\images\ajax-loading.gif" />
+    <Content Include="Content\images\background.gif" />
+    <Content Include="Content\images\blue_button_bg.gif" />
+    <Content Include="Content\images\cancel-uploading.png" />
+    <Content Include="Content\images\ErrorMessage.gif" />
+    <Content Include="Content\images\excel.jpg" />
+    <Content Include="Content\images\favicon.ico" />
+    <Content Include="Content\images\FooterBg.png" />
+    <Content Include="Content\images\Footerimg.jpg" />
+    <Content Include="Content\images\GoogleMaps.gif" />
+    <Content Include="Content\images\grey_button_bg.gif" />
+    <Content Include="Content\images\grid_header_back.png" />
+    <Content Include="Content\images\Header.jpg" />
+    <Content Include="Content\images\ico-blacklist.png" />
+    <Content Include="Content\images\ico-catalog.png" />
+    <Content Include="Content\images\ico-configuration.png" />
+    <Content Include="Content\images\ico-content.png" />
+    <Content Include="Content\images\ico-customers.png" />
+    <Content Include="Content\images\ico-dashboard.png" />
+    <Content Include="Content\images\ico-help.gif" />
+    <Content Include="Content\images\ico-help.png" />
+    <Content Include="Content\images\ico-news.gif" />
+    <Content Include="Content\images\ico-promotions.png" />
+    <Content Include="Content\images\ico-sales.png" />
+    <Content Include="Content\images\ico-stat1.gif" />
+    <Content Include="Content\images\ico-system.png" />
+    <Content Include="Content\images\ico-warnings.gif" />
+    <Content Include="Content\images\Icon48.png" />
+    <Content Include="Content\images\logo-bg.png" />
+    <Content Include="Content\images\logo.gif" />
+    <Content Include="Content\images\menu-item-left.png" />
+    <Content Include="Content\images\menu-item-right.png" />
+    <Content Include="Content\images\menu_bg.jpg" />
+    <Content Include="Content\images\Menu_bg.png" />
+    <Content Include="Content\images\Menu_red.png" />
+    <Content Include="Content\images\Misc\note.png" />
+    <Content Include="Content\images\Misc\phone.png" />
+    <Content Include="Content\images\Slideimg\Img01.jpg" />
+    <Content Include="Content\images\Slideimg\Img03.jpg" />
+    <Content Include="Content\images\Slideimg\Img04.jpg" />
+    <Content Include="Content\images\spinner.gif" />
+    <Content Include="Content\images\SuccessMessage.gif" />
+    <Content Include="Content\images\tab-line.png" />
+    <Content Include="Content\images\tab.png" />
+    <Content Include="Content\images\Themes\blue.png" />
+    <Content Include="Content\images\Themes\green.png" />
+    <Content Include="Content\images\Themes\Menu\Black.png" />
+    <Content Include="Content\images\Themes\Menu\Default.png" />
+    <Content Include="Content\images\Themes\Menu\Forest.png" />
+    <Content Include="Content\images\Themes\Menu\Hay.png" />
+    <Content Include="Content\images\Themes\Menu\Metro.png" />
+    <Content Include="Content\images\Themes\Menu\Office2007.png" />
+    <Content Include="Content\images\Themes\Menu\Office2010Black.png" />
+    <Content Include="Content\images\Themes\Menu\Office2010Blue.png" />
+    <Content Include="Content\images\Themes\Menu\Office2010Silver.png" />
+    <Content Include="Content\images\Themes\Menu\Outlook.png" />
+    <Content Include="Content\images\Themes\Menu\Simple.png" />
+    <Content Include="Content\images\Themes\Menu\Sitefinity.png" />
+    <Content Include="Content\images\Themes\Menu\Sunset.png" />
+    <Content Include="Content\images\Themes\Menu\Telerik.png" />
+    <Content Include="Content\images\Themes\Menu\Transparent.png" />
+    <Content Include="Content\images\Themes\Menu\Vista.png" />
+    <Content Include="Content\images\Themes\Menu\Web20.png" />
+    <Content Include="Content\images\Themes\Menu\WebBlue.png" />
+    <Content Include="Content\images\Themes\Menu\Windows7.png" />
+    <Content Include="Content\images\Themes\purple.png" />
+    <Content Include="Content\images\Themes\red.png" />
+    <Content Include="Content\images\TitileBg.png" />
+    <Content Include="Content\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\images\ui-bg_flat_55_fbec88_40x100.png" />
+    <Content Include="Content\images\ui-bg_glass_75_d0e5f5_1x400.png" />
+    <Content Include="Content\images\ui-bg_glass_85_dfeffc_1x400.png" />
+    <Content Include="Content\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\images\ui-bg_gloss-wave_55_5c9ccc_500x100.png" />
+    <Content Include="Content\images\ui-bg_inset-hard_100_f5f8f9_1x100.png" />
+    <Content Include="Content\images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="Content\images\ui-icons_217bc0_256x240.png" />
+    <Content Include="Content\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\images\ui-icons_469bdd_256x240.png" />
+    <Content Include="Content\images\ui-icons_6da8d5_256x240.png" />
+    <Content Include="Content\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="Content\images\ui-icons_f9bd01_256x240.png" />
+    <Content Include="Content\images\warnings-ajax-loader.gif" />
+    <Content Include="Content\images\warnings-cross.png" />
+    <Content Include="Content\images\warnings-tick.png" />
+    <Content Include="Content\images\warnings-warning.png" />
+    <Content Include="Content\jquery-ui-1.8.16.custom.css" />
+    <Content Include="Content\jquery-ui-1.8.9.custom.css" />
+    <Content Include="Content\jquery-ui-1.9.0.custom.min.css" />
+    <Content Include="Content\Loginstyle.css" />
+    <Content Include="Content\NewUserStyle.css" />
+    <Content Include="Content\styles.css" />
+    <Content Include="Content\telerik.common.css" />
+    <Content Include="Content\telerik.examples.min.css" />
+    <Content Include="Content\telerik.vista.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\redmond\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\redmond\images\ui-bg_flat_55_fbec88_40x100.png" />
+    <Content Include="Content\themes\redmond\images\ui-bg_glass_75_d0e5f5_1x400.png" />
+    <Content Include="Content\themes\redmond\images\ui-bg_glass_85_dfeffc_1x400.png" />
+    <Content Include="Content\themes\redmond\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\redmond\images\ui-bg_gloss-wave_55_5c9ccc_500x100.png" />
+    <Content Include="Content\themes\redmond\images\ui-bg_inset-hard_100_f5f8f9_1x100.png" />
+    <Content Include="Content\themes\redmond\images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="Content\themes\redmond\images\ui-icons_217bc0_256x240.png" />
+    <Content Include="Content\themes\redmond\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\redmond\images\ui-icons_469bdd_256x240.png" />
+    <Content Include="Content\themes\redmond\images\ui-icons_6da8d5_256x240.png" />
+    <Content Include="Content\themes\redmond\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\redmond\images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="Content\themes\redmond\images\ui-icons_f9bd01_256x240.png" />
+    <Content Include="Content\themes\redmond\jquery-ui-1.8.16.custom.css" />
+    <Content Include="Content\TopMenu\Images\arrow.gif" />
+    <Content Include="Content\TopMenu\Images\back.png" />
+    <Content Include="Content\TopMenu\Images\header.gif" />
+    <Content Include="Content\TopMenu\Images\header_active.gif" />
+    <Content Include="Content\TopMenu\Images\header_bg.gif" />
+    <Content Include="Content\TopMenu\Images\pix.gif" />
+    <Content Include="Content\TopMenu\Images\pointer.gif" />
+    <Content Include="Content\TopMenu\menu.css" />
+    <Content Include="Content\Treview\images\ajax-loader.gif" />
+    <Content Include="Content\Treview\images\file.gif" />
+    <Content Include="Content\Treview\images\folder-closed.gif" />
+    <Content Include="Content\Treview\images\folder.gif" />
+    <Content Include="Content\Treview\images\minus.gif" />
+    <Content Include="Content\Treview\images\plus.gif" />
+    <Content Include="Content\Treview\images\treeview-black-line.gif" />
+    <Content Include="Content\Treview\images\treeview-black.gif" />
+    <Content Include="Content\Treview\images\treeview-default-line.gif" />
+    <Content Include="Content\Treview\images\treeview-default.gif" />
+    <Content Include="Content\Treview\images\treeview-famfamfam-line.gif" />
+    <Content Include="Content\Treview\images\treeview-famfamfam.gif" />
+    <Content Include="Content\Treview\images\treeview-gray-line.gif" />
+    <Content Include="Content\Treview\images\treeview-gray.gif" />
+    <Content Include="Content\Treview\images\treeview-red-line.gif" />
+    <Content Include="Content\Treview\images\treeview-red.gif" />
+    <Content Include="Content\Treview\screen.css" />
+    <Content Include="Content\Treview\jquery.treeview.css" />
+    <Content Include="Content\uploadify.css" />
+    <Content Include="Content\Vista\editor.png" />
+    <Content Include="Content\Vista\imagebrowser.png" />
+    <Content Include="Content\Vista\loading.gif" />
+    <Content Include="Content\Vista\slider-h.gif" />
+    <Content Include="Content\Vista\slider-v.gif" />
+    <Content Include="Content\Vista\sprite-vertical.png" />
+    <Content Include="Content\Vista\sprite.png" />
+    <Content Include="EmailTemplates\Common.Html" />
+    <Content Include="Global.asax" />
+    <EmbeddedResource Include="hibernate.cfg.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <Content Include="Scripts\AccCommon.js" />
+    <Content Include="Scripts\jquery-1.5.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.5.1.js" />
+    <Content Include="Scripts\jquery-1.5.1.min.js" />
+    <Content Include="Scripts\jquery-1.6.4.min.js" />
+    <Content Include="Scripts\jquery-ui-1.8.11.js" />
+    <Content Include="Scripts\jquery-ui-1.8.11.min.js" />
+    <Content Include="Scripts\jquery-ui-1.8.16.custom.min.js" />
+    <Content Include="Scripts\jquery.cycle.all.js" />
+    <Content Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jtablesite.js" />
+    <Content Include="Scripts\jtable\extensions\jquery.jtable.aspnetpagemethods.js" />
+    <Content Include="Scripts\jtable\extensions\jquery.jtable.aspnetpagemethods.min.js" />
+    <Content Include="Scripts\jtable\external\json2.js" />
+    <Content Include="Scripts\jtable\external\json2.min.js" />
+    <Content Include="Scripts\jtable\jquery.jtable.js" />
+    <Content Include="Scripts\jtable\jquery.jtable.min.js" />
+    <Content Include="Scripts\jtable\themes\empty\jtable_empty.css" />
+    <Content Include="Scripts\jtable\themes\standard\blue\header-bg.gif" />
+    <Content Include="Scripts\jtable\themes\standard\blue\jtable_blue.css" />
+    <Content Include="Scripts\jtable\themes\standard\blue\loading.gif" />
+    <Content Include="Scripts\jtable\themes\standard\blue\title-bg.png" />
+    <Content Include="Scripts\jtable\themes\standard\close.png" />
+    <Content Include="Scripts\jtable\themes\standard\column-asc.png" />
+    <Content Include="Scripts\jtable\themes\standard\column-desc.png" />
+    <Content Include="Scripts\jtable\themes\standard\column-sortable.png" />
+    <Content Include="Scripts\jtable\themes\standard\delete.png" />
+    <Content Include="Scripts\jtable\themes\standard\edit.png" />
+    <Content Include="Scripts\jtable\themes\standard\green\header-bg.gif" />
+    <Content Include="Scripts\jtable\themes\standard\green\jtable_green.css" />
+    <Content Include="Scripts\jtable\themes\standard\green\loading.gif" />
+    <Content Include="Scripts\jtable\themes\standard\green\title-bg.png" />
+    <Content Include="Scripts\jtable\themes\standard\jtable_standard_base.css" />
+    <Content Include="Scripts\jtable\themes\standard\purple\jtable_purple.css" />
+    <Content Include="Scripts\jtable\themes\standard\purple\loading.gif" />
+    <Content Include="Scripts\jtable\themes\standard\red\header-bg.gif" />
+    <Content Include="Scripts\jtable\themes\standard\red\jtable_red.css" />
+    <Content Include="Scripts\jtable\themes\standard\red\loading.gif" />
+    <Content Include="Scripts\jtable\themes\standard\red\title-bg.png" />
+    <Content Include="Scripts\modernizr-1.7.js" />
+    <Content Include="Scripts\modernizr-1.7.min.js" />
+    <Content Include="Scripts\syntaxhighligher\shBrushCSharp.js" />
+    <Content Include="Scripts\syntaxhighligher\shBrushCss.js" />
+    <Content Include="Scripts\syntaxhighligher\shBrushJava.js" />
+    <Content Include="Scripts\syntaxhighligher\shBrushJScript.js" />
+    <Content Include="Scripts\syntaxhighligher\shBrushPhp.js" />
+    <Content Include="Scripts\syntaxhighligher\shBrushSql.js" />
+    <Content Include="Scripts\syntaxhighligher\shBrushXml.js" />
+    <Content Include="Scripts\syntaxhighligher\shCore.js" />
+    <Content Include="Scripts\syntaxhighligher\styles\shCore.css" />
+    <Content Include="Scripts\syntaxhighligher\styles\shThemeDefault.css" />
+    <Content Include="Scripts\telerik.common.js" />
+    <Content Include="Scripts\telerik.examples.min.js" />
+    <Content Include="Scripts\telerik.menu.js" />
+    <Content Include="Scripts\Treview\jquery.cookie.js" />
+    <Content Include="Scripts\Treview\jquery.js" />
+    <Content Include="Scripts\Treview\jquery.treeview.js" />
+    <Content Include="Scripts\uiDialog\jquery-ui-1.8.custom.min.js" />
+    <Content Include="Scripts\uiDialog\jquery.effects.core.js" />
+    <Content Include="Scripts\uiDialog\jquery.effects.fade.js" />
+    <Content Include="Scripts\validationEngine\jquery.validationEngine-en.js" />
+    <Content Include="Scripts\validationEngine\jquery.validationEngine.js" />
+    <Content Include="Scripts\validationEngine\validationEngine.jquery.css" />
+    <Content Include="UploadedImages\HomePageSliders\16_9\1440\Computer.jpg" />
+    <Content Include="UploadedImages\HomePageSliders\16_9\1440\Computer01.jpg" />
+    <Content Include="UploadedImages\HomePageSliders\16_9\1440\Computer02.jpg" />
+    <Content Include="UploadedImages\HomePageSliders\16_9\1440\Laptop.jpg" />
+    <Content Include="UploadedImages\HomePageSliders\16_9\1440\Printer.jpg" />
+    <Content Include="UploadedImages\HomePageSliders\16_9\1440\Toner.jpg" />
+    <Content Include="Views\Account\Login.aspx" />
+    <Content Include="Views\Account\_Forgetpass.ascx" />
+    <Content Include="Views\AssignJob\Index.aspx" />
+    <Content Include="Views\Configuration\LeftMenu.ascx" />
+    <Content Include="Views\Configuration\NewServiceDetails.aspx" />
+    <Content Include="Views\Configuration\ServiceDetails.aspx" />
+    <Content Include="Views\Configuration\ServiceName.aspx" />
+    <Content Include="Views\Devices\DeviceLeftMenu.ascx" />
+    <Content Include="Views\Devices\Index.aspx" />
+    <Content Include="Views\Devices\LaptopDetails.aspx" />
+    <Content Include="Views\Devices\MonitorInfo.aspx" />
+    <Content Include="Views\Devices\Newequipment.aspx" />
+    <Content Include="Views\Devices\PCDetails.aspx" />
+    <Content Include="Views\Devices\PrinterInfo.aspx" />
+    <Content Include="Views\Devices\PrinterView.aspx" />
+    <Content Include="Views\Devices\ServerDetails.aspx" />
+    <Content Include="Views\Devices\UPSInfo.aspx" />
+    <Content Include="Views\Helps\Index.aspx" />
+    <Content Include="Views\Helps\Locationinfo.aspx" />
+    <Content Include="Views\Home\BarCodeGen.aspx" />
+    <Content Include="Views\Home\HomeLeftMenu.ascx" />
+    <Content Include="Views\Home\Index.aspx" />
+    <Content Include="Views\HRM\HRMLeftMenu.ascx" />
+    <Content Include="Views\HRM\Index.aspx" />
+    <Content Include="Views\Inventory\AddFloor.aspx" />
+    <Content Include="Views\Inventory\Additemreceive.aspx" />
+    <Content Include="Views\Inventory\Additems.aspx" />
+    <Content Include="Views\Inventory\AddLine.aspx" />
+    <Content Include="Views\Inventory\Addmodels.aspx" />
+    <Content Include="Views\Inventory\AllDeviceinfo.aspx" />
+    <Content Include="Views\Inventory\Assetdist.aspx" />
+    <Content Include="Views\Inventory\Buildinginfo.aspx" />
+    <Content Include="Views\Inventory\Country.aspx" />
+    <Content Include="Views\Inventory\DepartmentInfo.aspx" />
+    <Content Include="Views\Inventory\DeviceName.aspx" />
+    <Content Include="Views\Inventory\EmployeeInfo.aspx" />
+    <Content Include="Views\Inventory\Equipmentinfo.aspx" />
+    <Content Include="Views\Inventory\Floorinfo.aspx" />
+    <Content Include="Views\Inventory\FTYStock.aspx" />
+    <Content Include="Views\Inventory\Getpassissue.aspx" />
+    <Content Include="Views\Inventory\IdleEntry.aspx" />
+    <Content Include="Views\Inventory\Index.aspx" />
+    <Content Include="Views\Inventory\Inventory.aspx" />
+    <Content Include="Views\Inventory\InventoryDetails.aspx" />
+    <Content Include="Views\Inventory\InventoryDetailsView.aspx" />
+    <Content Include="Views\Inventory\INVLeftMenu.ascx" />
+    <Content Include="Views\Inventory\Issueitems.aspx" />
+    <Content Include="Views\Inventory\Itemreceive.aspx" />
+    <Content Include="Views\Inventory\LaptopDetails.aspx" />
+    <Content Include="Views\Inventory\Laptopinfo.aspx" />
+    <Content Include="Views\Inventory\Leaveinfo.aspx" />
+    <Content Include="Views\Inventory\Lineinfo.aspx" />
+    <Content Include="Views\Inventory\Machineinfo.aspx" />
+    <Content Include="Views\Inventory\PrinterDetails.aspx" />
+    <Content Include="Views\Inventory\PrinterView.aspx" />
+    <Content Include="Views\Inventory\Receiveissue.aspx" />
+    <Content Include="Views\Inventory\ReportView.aspx" />
+    <Content Include="Views\Inventory\ServerDetails.aspx" />
+    <Content Include="Views\Inventory\Serverinfo.aspx" />
+    <Content Include="Views\Inventory\Serviceinfo.aspx" />
+    <Content Include="Views\Inventory\Stockinfo.aspx" />
+    <Content Include="Views\Inventory\Unitentry.aspx" />
+    <Content Include="Views\Inventory\Updateuserinfo.aspx" />
+    <Content Include="Views\Inventory\Usercreateinfo.aspx" />
+    <Content Include="Views\Inventory\Userissue.aspx" />
+    <Content Include="Views\Inventory\_Additemreceive.ascx" />
+    <Content Include="Views\Opex\Assetdist.aspx" />
+    <Content Include="Views\Opex\FTYStock.aspx" />
+    <Content Include="Views\Opex\Index.aspx" />
+    <Content Include="Views\Opex\Userissue.aspx" />
+    <Content Include="Views\Report\Index.aspx" />
+    <Content Include="Views\Report\Reportchart.aspx" />
+    <Content Include="Views\Report\ReportView.aspx" />
+    <Content Include="Views\Report\RLeftMenu.ascx" />
+    <Content Include="Views\Sales\Index.aspx" />
+    <Content Include="Views\Sales\LeftMenu.ascx" />
+    <Content Include="Views\Shared\Footer.ascx" />
+    <Content Include="Views\Shared\ModuleHeader\DashBordHeader.ascx" />
+    <Content Include="Views\Shared\ModuleHeader\ModuleUserControl.ascx" />
+    <Content Include="Views\Shared\ModuleMenu\Menu.ascx" />
+    <Content Include="Views\Shared\ModuleMenu\TOPEXMenu.ascx" />
+    <Content Include="Views\Shared\ModuleMenu\TelerikMenu.ascx" />
+    <Content Include="Views\Shared\ModuleMenu\TUpdusersMenu.ascx" />
+    <Content Include="Views\Shared\ModuleMenu\TUsersMenu.ascx" />
+    <Content Include="Views\Shared\ModuleMenu\UsersMenu.ascx" />
+    <Content Include="Views\Upddevices\Index.aspx" />
+    <Content Include="Views\Upddevices\LaptopDetails.aspx" />
+    <Content Include="Views\Upddevices\Locationinfo.aspx" />
+    <Content Include="Views\Upddevices\PCDetails.aspx" />
+    <Content Include="Views\Updusers\Additemreceive.aspx" />
+    <Content Include="Views\Updusers\Additems.aspx" />
+    <Content Include="Views\Updusers\Addmodels.aspx" />
+    <Content Include="Views\Updusers\AllDeviceinfo.aspx" />
+    <Content Include="Views\Updusers\FTYStock.aspx" />
+    <Content Include="Views\Updusers\Getpassissue.aspx" />
+    <Content Include="Views\Updusers\Index.aspx" />
+    <Content Include="Views\Updusers\InventoryDetails.aspx" />
+    <Content Include="Views\Updusers\InventoryDetailsView.aspx" />
+    <Content Include="Views\Updusers\Issueitems.aspx" />
+    <Content Include="Views\Updusers\Itemreceive.aspx" />
+    <Content Include="Views\Updusers\LaptopDetails.aspx" />
+    <Content Include="Views\Updusers\Laptopinfo.aspx" />
+    <Content Include="Views\Updusers\Receiveissue.aspx" />
+    <Content Include="Views\Updusers\Stockinfo.aspx" />
+    <Content Include="Views\Updusers\Userissue.aspx" />
+    <Content Include="Views\Users\AllDeviceinfo.aspx" />
+    <Content Include="Views\Users\Index.aspx" />
+    <Content Include="Views\Users\InventoryDetails.aspx" />
+    <Content Include="Views\Users\InventoryDetailsView.aspx" />
+    <Content Include="Views\Users\Laptopinfo.aspx" />
+    <Content Include="Views\Users\Locationinfo.aspx" />
+    <Content Include="Views\Users\UsersLeftMenu.ascx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\MicrosoftAjax.js" />
+    <Content Include="Scripts\MicrosoftAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
+    <Content Include="Views\Shared\Error.aspx" />
+    <Content Include="Views\Shared\LogOnUserControl.ascx" />
+    <Content Include="Views\Shared\Site.Master" />
+    <Content Include="Views\Web.config" />
+    <EmbeddedResource Include="Reports\GetpassissueReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>GetpassissueReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Subreport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Subreport.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\ERP.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ERP.Domain\ERP.Domain.csproj">
+      <Project>{154968D2-C09A-4621-BA92-077646169662}</Project>
+      <Name>ERP.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ERP.Structure\ERP.Structure.csproj">
+      <Project>{F70293DB-A59B-4046-9B39-4BA49F8CF721}</Project>
+      <Name>ERP.Structure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\Users.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\Upduser.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AppSettings.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\OPEX.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>18486</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
