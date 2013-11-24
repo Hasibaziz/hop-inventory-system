@@ -1,0 +1,9 @@
+INSERT INTO dbo.Inv_Idleentry (EID, Year, Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec ) 
+SELECT EID,'2013', '0','','','','','','','','','','','' FROM dbo.Inv_Equipmentinfo where UnitID='ad33c898-fbe1-42e2-b486-d4361e100d05'
+
+
+
+
+
+INSERT INTO dbo.Inv_Idleentry (EID, UnitID, Years, Months, Idledays) 
+SELECT EID, UnitID, '2013', 'Jan','5' FROM dbo.Inv_Equipmentinfo where UnitID='ad33c898-fbe1-42e2-b486-d4361e100d05'

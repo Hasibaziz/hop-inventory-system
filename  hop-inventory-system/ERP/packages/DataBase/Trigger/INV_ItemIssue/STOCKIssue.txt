@@ -1,0 +1,83 @@
+USE [ITInventory]
+GO
+/****** Object:  Trigger [dbo].[STOCKI]    Script Date: 09/18/2013 13:59:24 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+ALTER TRIGGER [dbo].[STOCKI]   
+ON  [ITInventory].[dbo].[INV_ItemIssue]  
+   FOR INSERT, UPDATE
+AS 
+PRINT GETDATE()
+DECLARE  @ModelID AS uniqueidentifier;
+--DECLARE  @ItemID  AS uniqueidentifier;
+--DECLARE  @TOTALRQty INT;
+--DECLARE  @TOTALIQty INT;
+DECLARE  @ISSUEQty  INT;
+DECLARE  @IDate     VARCHAR(50);
+ 
+
+select @ModelID  =i.ModelID  from inserted i;	
+select @ISSUEQty =i.IssueQty from inserted i;
+select @IDate    =i.IDate    from inserted i;
+
+--SELECT @ItemID=i.ItemID from inserted i;
+--SELECT @TOTALRQty=(SELECT sum(Quantity) FROM dbo.INV_ItemReceive WHERE ModelID=@ModelID);
+--SELECT @TOTALIQty=(SELECT sum(IssueQty) FROM dbo.INV_ItemIssue WHERE ModelID=@ModelID);
+--SELECT @BalanceQty=((SELECT sum(Quantity) FROM dbo.INV_ItemReceive WHERE ModelID=@ModelID)-(SELECT sum(IssueQty) FROM dbo.INV_ItemIssue WHERE ModelID=@ModelID));
+ 
+ 
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for trigger here
+ --  IF (NOT EXISTS(SELECT * FROM dbo.INV_Stock WHERE ModelID=@ModelID and SDate=(SELECT MAX(IDate) FROM dbo.INV_ItemIssue) ))
+   IF (NOT EXISTS(SELECT * FROM dbo.INV_Stock WHERE ModelID=@ModelID and SDate=@IDate ))
+    --IF (NOT EXISTS(SELECT * FROM dbo.INV_Stock WHERE ModelID=@ModelID and SDate=(SELECT MAX(SDate) FROM dbo.INV_Stock) ))
+     INSERT INTO dbo.INV_Stock( ItemID, ModelID, SDate, TOTALRQty, TOTALIQty, BalanceQty )
+     SELECT ItemID as ItemID, 
+            ModelID AS ModelID, 
+            --SDate=convert(date,GETDATE(),103),            
+            MAX(IDate) as SDate,
+            --(SELECT sum(Quantity) FROM dbo.INV_ItemReceive WHERE ModelID=@ModelID) as TOTALRQty, 
+            --(SELECT A.TOTALRQty+B.Quantity AS TOTALRQty from dbo.INV_Stock AS A INNER JOIN dbo.INV_ItemReceive AS B ON A.ModelID=B.ModelID WHERE A.ModelID=@ModelID and A.SDate=(select MAX(SDate) from dbo.INV_Stock) ),
+            (SELECT TOTALRQty FROM dbo.INV_Stock WHERE ModelID=@ModelID and SDate=(SELECT MAX(SDate) FROM dbo.INV_Stock) ) as TOTALRQty,
+            --(SELECT sum(IssueQty) FROM dbo.INV_ItemIssue WHERE ModelID=@ModelID) as TOTALIQty,            
+            --(SELECT A.TOTALIQty+B.IssueQty from dbo.INV_Stock AS A INNER JOIN dbo.INV_ItemIssue AS B ON A.ModelID=B.ModelID WHERE A.ModelID=@ModelID and SDate=(select MAX(SDate) from dbo.INV_Stock)) as TOTALIQty,
+            ((SELECT TOTALIQty from dbo.INV_Stock WHERE ModelID=@ModelID and SDate=(SELECT MAX(SDate) FROM dbo.INV_Stock))+( SELECT IssueQty FROM dbo.INV_ItemIssue WHERE ModelID=@ModelID and IDate=(SELECT MAX(IDate) FROM dbo.INV_ItemIssue) ) ) AS TOTALIQty,
+            
+            --((SELECT sum(Quantity) FROM dbo.INV_ItemReceive WHERE ModelID=@ModelID)-(SELECT sum(IssueQty) FROM dbo.INV_ItemIssue WHERE ModelID=@ModelID)) as BalanceQty  
+            --((SELECT A.TOTALRQty+B.Quantity from dbo.INV_Stock AS A INNER JOIN dbo.INV_ItemReceive AS B ON A.ModelID=B.ModelID WHERE A.ModelID=@ModelID and A.SDate=(select MAX(SDate) from dbo.INV_Stock) )- (SELECT A.TOTALIQty+B.IssueQty AS TOTALIQty from dbo.INV_Stock AS A INNER JOIN dbo.INV_ItemIssue AS B ON A.ModelID=B.ModelID WHERE A.ModelID=@ModelID and SDate=(select MAX(SDate) from dbo.INV_Stock) ) ) as BalanceQty
+            ((SELECT TOTALRQty FROM dbo.INV_Stock WHERE ModelID=@ModelID and SDate=(SELECT MAX(SDate) FROM dbo.INV_Stock)) 
+             - 
+            ((SELECT TOTALIQty from dbo.INV_Stock WHERE ModelID=@ModelID and SDate=(SELECT MAX(SDate) FROM dbo.INV_Stock))+( SELECT IssueQty FROM dbo.INV_ItemIssue WHERE ModelID=@ModelID and IDate=(SELECT MAX(IDate) FROM dbo.INV_ItemIssue) ) ) ) as BalanceQty           
+        
+        FROM
+        dbo.INV_ItemIssue
+        WHERE ModelID=@ModelID   
+        GROUP BY ItemID, ModelID  
+  ELSE
+     UPDATE  dbo.INV_Stock 
+     SET 
+     --TOTALIQty=(SELECT IssueQty FROM dbo.INV_ItemIssue WHERE ModelID=@ModelID and IDate=(SELECT MAX(IDate) FROM dbo.INV_ItemIssue)) ,
+     --TOTALIQty=( SELECT IssueQty FROM dbo.INV_ItemIssue WHERE ModelID=@ModelID and IDate=(SELECT MAX(IDate) FROM dbo.INV_ItemIssue) )+@ISSUEQty,
+     TOTALIQty=(TOTALIQty-(SELECT IssueQty FROM dbo.INV_ItemIssue WHERE ModelID=@ModelID and IDate=@IDate)+@ISSUEQty),
+     --BalanceQty= ((SELECT TOTALRQty FROM dbo.INV_Stock WHERE ModelID=@ModelID and SDate=(SELECT MAX(SDate) FROM dbo.INV_Stock)) 
+     --            - 
+     --            (@ISSUEQty+( SELECT IssueQty FROM dbo.INV_ItemIssue WHERE ModelID=@ModelID and IDate=(SELECT MAX(IDate) FROM dbo.INV_ItemIssue) ) ) )
+     
+      BalanceQty= ((SELECT TOTALRQty FROM dbo.INV_Stock WHERE ModelID=@ModelID and SDate=@IDate) 
+                 - 
+                 (@ISSUEQty+( SELECT IssueQty FROM dbo.INV_ItemIssue WHERE ModelID=@ModelID and IDate=@IDate ) ) )
+
+     --WHERE ModelID=@ModelID and SDate=(SELECT MAX(SDate) FROM dbo.INV_Stock)
+     WHERE ModelID=@ModelID and SDate=@IDate
+ END

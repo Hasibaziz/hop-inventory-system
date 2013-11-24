@@ -1,0 +1,12 @@
+SELECT (datediff(day,DATEADD(YEAR, DATEDIFF(YEAR, 0,DATEADD(YEAR, 0,GETDATE())), 0),GETDATE())+1) Days
+select year(current_timestamp)
+
+SELECT      DATEADD(YEAR, DATEDIFF(YEAR, 0,DATEADD(YEAR, 0,GETDATE())), 0)
+
+DECLARE @TRAVELYEARS INT = 0
+
+SELECT      DATEADD(YEAR, DATEDIFF(YEAR, 0,
+
+            DATEADD(YEAR, @TRAVELYEARS ,GETDATE())), 0),
+
+            'First Day of Year'
