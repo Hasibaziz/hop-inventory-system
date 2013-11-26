@@ -89,7 +89,7 @@
                 },               
                 SDate: {
                     title: 'Stock Date',
-                    width: '10%',
+                    width: '12%',
                     displayFormat: 'dd-mm-yy'
                 },
                 TOTALRQty: {
@@ -151,7 +151,7 @@
                 },               
                 SDate: {
                     title: 'Stock Date',
-                    width: '10%',
+                    width: '12%',
                     displayFormat: 'dd-mm-yy'
                 },
                 TOTALRQty: {
