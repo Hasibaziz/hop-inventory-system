@@ -1,0 +1,14 @@
+Web Link:
+http://www.itdeveloperzone.com/2011/03/cumulative-sum-in-sql-server.html
+
+
+
+;WITH cte AS (
+    SELECT  row_number() OVER (ORDER BY ModelID, IDate) AS rownum,* 
+    FROM    [ITInventory].[dbo].[INV_ItemIssue]
+)
+SELECT  a.ModelID, a.IDate, a.IssueQty, SUM(b.IssueQty) AS [Cumulative Sum]
+FROM    cte a
+LEFT JOIN cte b ON a.ModelID = b.ModelID AND b.rownum <= a.rownum
+GROUP   BY a.ModelID, a.rownum, a.IDate, a.IssueQty
+ORDER   BY a.ModelID, a.IDate
