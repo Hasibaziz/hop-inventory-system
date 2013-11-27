@@ -12,6 +12,8 @@ CREATE TABLE [dbo].[INV_Stock](
         [ItemID]         [uniqueidentifier]      NOT NULL,
         [ModelID]        [uniqueidentifier]      NOT NULL,
         [SDate]          [nvarchar] (50)         NOT NULL,
+        [IDate]          [nvarchar] (50)         NOT NULL,
+        [IssueQty]       [int]                       NULL,
         [TOTALRQty]      [int]                       NULL, 
         [TOTALIQty]      [int]                       NULL, 
 --        [LocID]          [uniqueidentifier]      NOT NULL,
