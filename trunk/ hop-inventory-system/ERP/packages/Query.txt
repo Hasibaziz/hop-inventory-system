@@ -1,5 +1,6 @@
 Web Link:
 http://www.itdeveloperzone.com/2011/03/cumulative-sum-in-sql-server.html
+http://stackoverflow.com/questions/11664142/cumulative-total-in-ms-sql-server
 
 
 
