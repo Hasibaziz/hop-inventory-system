@@ -1,0 +1,209 @@
+CREATE TABLE MODITAB(EMPID varchar(10), EMPNAME varchar(100), PUNCH_DATE DATE, PTIME varchar(5)) 
+(SELECT badge_data.card_no,  EmployeeInfo.EName, badge_data.punch_date, badge_data.punch_str AS PTIME
+FROM badge_data, EmployeeInfo WHERE   badge_data.card_no= EmployeeInfo.EmpID AND  badge_data.punch_date>='8/26/2012')
+
+
+
+
+
+
+
+
+
+select Attendance.Atten_Date as PDate, Attendance.Emp_Id, Employee_Info.Ename, Employee_Info.Designation, Employee_Info.Section, Attendance.IN_time, Attendance.Out_Time, Attendance.Present_Absent, Employee_Info.Grade from Attendance, Employee_Info where Attendance.Emp_Id=Employee_Info.EmpID and Employee_Info.Grade LIKE 'H2%' AND Attendance.Atten_Date BETWEEN '2012-09-02 00:00:00.000' AND '2012-09-04 00:00:00.000'  ORDER BY Attendance.Emp_Id ASC
+
+
+
+select Employee_Info.EmpID,Employee_Info.Ename,Employee_Info.Section,Employee_Info.Designation, Employee_Info.Grade FROM Employee_Info where Grade like 'H2%' ORDER BY Employee_Info.Section ASC
+
+
+
+
+
+Managers Query:
+---------------
+select convert(date,ManagerPayroll.dbo. Attendance.Atten_Date,103) AS PDate, ManagerPayroll.dbo.Attendance.Emp_Id as EMPID, ManagerPayroll.dbo.Employee_Info.Ename AS EName, ManagerPayroll.dbo.Employee_Info.Designation AS Designation, ManagerPayroll.dbo.Employee_Info.SECTION AS DeptName, (substring(ManagerPayroll.dbo.Attendance.IN_time,1,2)+'.'+substring(ManagerPayroll.dbo.Attendance.IN_time,3,4)) AS Intime, (substring(ManagerPayroll.dbo.Attendance.Out_Time,1,2)+'.'+substring(Attendance.Out_Time,3,4)) AS Outtime, ManagerPayroll.dbo.Attendance.Present_Absent as Status from ManagerPayroll.dbo.Attendance, ManagerPayroll.dbo.Employee_Info
+             Where ManagerPayroll.dbo.Attendance.Emp_Id=ManagerPayroll.dbo.Employee_Info.EmpID
+             and ManagerPayroll.dbo.employee_info.EmpID  NOT IN (SELECT EmpID FROM ManagerPayroll.dbo.Terminate_Resign)
+             ORDER BY ManagerPayroll.dbo.Employee_Info.Section ASC
+             
+             
+Appreals Query:
+---------------
+select convert(date,MappPayroll.dbo. Attendance.Atten_Date,103) AS PDate, MappPayroll.dbo.Attendance.Emp_Id as EMPID, MappPayroll.dbo.Employee_Info.Ename AS EName,
+              MappPayroll.dbo.Employee_Info.Designation AS Designation, 
+              MappPayroll.dbo.Employee_Info.SECTION AS DeptName, 
+              (substring(MappPayroll.dbo.Attendance.IN_time,1,2)+'.'+substring(MappPayroll.dbo.Attendance.IN_time,3,4)) AS Intime,
+              (substring(MappPayroll.dbo.Attendance.Out_Time,1,2)+'.'+substring(MappPayroll.dbo.Attendance.Out_Time,3,4)) AS Outtime,
+              MappPayroll.dbo.Attendance.Present_Absent as Status from MappPayroll.dbo.Attendance, MappPayroll.dbo.Employee_Info
+              Where MappPayroll.dbo.Attendance.Emp_Id=MappPayroll.dbo.Employee_Info.EmpID
+              and MappPayroll.dbo.employee_info.EmpID  NOT IN (SELECT EmpID FROM MappPayroll.dbo.Terminate_Resign)
+              ORDER BY MappPayroll.dbo.Employee_Info.EmpID  ASC
+
+
+
+
+SELECT a.userID, b.usersFirstName, b.usersLastName  FROM databaseA.dbo.TableA a inner join database B.dbo.TableB b  ON a.userID=b.userID
+
+Duplicate Value Check Between Date (Sub Query):
+----------------------------------------
+select emp_id, count(Emp_Id) from(select emp_id from Attendance where Atten_Date between '2012-09-01 00:00:00.000' and '2012-09-30 00:00:00.000' ) Attendance group by Emp_Id having count(Emp_Id)>30 
+-------------------------------------------   
+
+Sql sub query             
+--------------------------------------------------------------
+SELECT AccountID, AccountCode, BrandModel, Category, Configuration, SerialNo, Location, DeptID, EMPID, PurchDate, Remark, MonitorID, UPSID, Team, Status, HostName, ITemNo 
+FROM INV_InventoryInfo WHERE AccountID='eda58c6a-b998-4f6b-8e86-063ebe85f27a'
+(SELECT c.EMPID, A.MonitorID AS MonitorID, A.MonitorName as MonitorName, A.ModelNo AS MModelNo, A.SerialNo AS MSerialNo, A.PurchDate AS MPurchDate, A.DistDate AS MDistDate, B.UPSID AS UPSID, B.UPSName as UPSName, B.ModelNo AS UModelNo, B.SerialNo AS USerialNo, B.PurchDate AS UPurchDate, B.DistDate AS UDistDate FROM ITInventory.dbo.INV_MonitorDetails AS A, ITInventory.dbo.INV_UPSDetails AS B, ITInventory.dbo.INV_InventoryInfo AS C WHERE A.EmpID=B.EmpID AND A.EmpID=C.EmpID)
+------------------------------------------------------------------
+
+
+
+Query   with inner join:
+------------------------------------------------------------------------------
+SELECT D.AccountID as AccountID, D.AccountCode as AccountCode, D.BrandModel AS BrandModel, D.Category AS Category, D.Configuration AS Configuration, D.SerialNo AS SerialNo, D.Location AS Location, D.DeptID AS DeptID, D.EMPID AS EMPID, D.PurchDate AS PurchDate, D.Remark AS Remark, D.Team AS Team, D.Status AS Status, D.HostName AS HostName, D.ITemNo  AS ITemNo,
+ 
+ A.MonitorID AS MonitorID, A.MonitorName as MonitorName, A.ModelNo AS MModelNo, A.SerialNo AS MSerialNo, A.PurchDate AS MPurchDate, A.DistDate AS MDistDate, 
+ B.UPSID AS UPSID, B.UPSName as UPSName, B.ModelNo AS UModelNo, B.SerialNo AS USerialNo, B.PurchDate AS UPurchDate, B.DistDate AS UDistDate 
+
+ FROM ITInventory.dbo.INV_MonitorDetails AS A inner join ITInventory.dbo.INV_UPSDetails AS B on A.EmpID=B.EmpID   join ITInventory.dbo.INV_InventoryInfo AS d on
+   b.EmpID=d.EmpID AND D.AccountID='afe2670d-722a-4107-883d-39f5376267d0'
+---------------------------------------------------------------------------------------
+
+Outer Join:
+----------------------------------------------------------------------------------------------------------
+SELECT A.AccountID, A.AccountCode, A.BrandModel, A.Category, A.Configuration, A.SerialNo, A.Location, A.DeptID, A.EMPID, A.PurchDate, A.Remark, B.SerialNo AS MonitorID, C.SerialNo AS UPSID, A.Team, A.Status, A.HostName, A.ITemNo, A.DeviceID 
+FROM ITInventory.dbo.INV_InventoryInfo as A 
+Left Join  ITInventory.dbo.INV_MonitorDetails AS B on A.EMPID=B.EMPID 
+LEFT join  ITInventory.dbo.INV_UPSDetails AS C on A.EMPID=C.EMPID
+----------------------------------------------------------------------------------------
+
+
+Insert from One Table to Another
+---------------------------------------------------------------------------------------------------------
+INSERT INTO INV_EmployeeInfo(EmpNo, EmpName, DeptID, Location, JoinDate ) SELECT Employee.EmpNO, Employee.EmpName,Inv_department.DeptID, Employee.Location, Employee.JoinDate FROM Employee, Inv_department where Employee.DeptID=Inv_department.DeptNo
+INSERT INTO INV_EmployeeInfo(EmpNo, EmpName, DeptID, Location, JoinDate ) SELECT EMPNT.EMPNO, EMPNT.EMPNAME, EMPNT.DEPTID,  EMPNT.LOCATION,  EMPNT.JOINDATE FROM EMPNT
+INSERT INTO INV_EmployeeInfo(EmpNo, EmpName, DeptID, Location, JoinDate ) SELECT EMPManager.EMPid, EMPManager.ENAME, INV_Department.DEPTID,  EMPManager.Designation,  EMPManager.J_DATE FROM EMPManager,INV_Department  where EMPManager.section=INV_Department.DeptName
+----------------------------------------------------------------------------------------------------------
+
+--------------------------- PC Sub Query with Insertion ------------------------------------------------------
+INSERT INTO [ITInventory].[dbo].[Inv_InventoryInfo]([AccountCode],[BrandModel],[Category],[Configuration],[SerialNo],[Location],[EMPID],[PurchDate],[Remark],[DeptID],[Team],[Status],[HostName],[ITemNo],[DeviceID])
+SELECT [AccountCode],[BrandModel], [Category], [Configuration], [SerialNo],[UserPC].Location, INV_EmployeeInfo.EmpID,[PurchDate], [Remark], INV_EmployeeInfo.DeptID, [Team],[Status],[HostName], [ITE No], [Device] FROM [ITInventory].[dbo].[UserPC], INV_EmployeeInfo where UserPC.[User] = INV_EmployeeInfo.EmpName
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------- Laptop ------------------------------------------------------------------------------------------------------------------
+INSERT INTO [ITInventory].[dbo].[Inv_InventoryInfo]([AccountCode],[BrandModel],[Category],[Configuration],[SerialNo],[Location],[EMPID],[PurchDate],[Remark],[DeptID],[Team],[Status],[HostName],[ITemNo],[DeviceID])
+SELECT [AccountCode],[BrandModel], [Category], [Configuration], [SerialNo],[Laptop].Location, INV_EmployeeInfo.EmpID,[PurchDate], [Remarks] , INV_EmployeeInfo.DeptID, [Team],[Status],[HostName], [ITENo], [Device] FROM [ITInventory].[dbo].[Laptop], INV_EmployeeInfo where Laptop.[User] = INV_EmployeeInfo.EmpName
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------Duplicate------------------------------------------------------------------------------------------------------------------------------------------
+SELECT  [EmpNo]  FROM [ITInventory].[dbo].[INV_EmployeeInfo] GROUP BY EmpNo HAVING COUNT(EmpNo)>1
+-----------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------UpDate------------------------------------------------------------------------------------------------------
+UPDATE UserPC SET USERID=INV_EmployeeInfo.EmpNo FROM UserPC,INV_EmployeeInfo WHERE UserPC.[User]= INV_EmployeeInfo.EmpName 
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+--------------------------------------------Monitor Entry ----------------------------------------------------------------
+INSERT INTO [ITInventory].[dbo].[INV_MonitorDetails] ( [ModelNo],[SerialNo],[PurchDate],[DeptID],[EmpID])
+SELECT MACODE  AS ModelNo, MSL as SerialNo, PurchDate as PurchDate,INV_EmployeeInfo.DeptID as DeptID , INV_EmployeeInfo.EmpID as EmpID FROM UserPC, INV_EmployeeInfo WHERE INV_EmployeeInfo.EmpNo=UserPC.UserID     
+SELECT MonitorAccCode   AS ModelNo , MonitorSL as SerialNo, PurchDate as PurchDate,INV_EmployeeInfo.DeptID as DeptID , INV_EmployeeInfo.EmpID as EmpID, INV_EmployeeInfo.EmpNo FROM PC, INV_EmployeeInfo WHERE INV_EmployeeInfo.EmpName=PC.[User] and   MonitorAccCode is not null order by INV_EmployeeInfo.EmpNo asc  
+---------------------------------------------------------------------------------------------------------------
+--------------------------------------------UPS ENTRY-----------------------------------------------------------------------
+INSERT INTO [ITInventory].[dbo].[INV_UPSDetails]([ModelNo],[SerialNo],[PurchDate],[DeptID],[EmpID] )
+SELECT UACODE  AS ModelNo, USL as SerialNo, PurchDate as PurchDate,INV_EmployeeInfo.DeptID as DeptID , INV_EmployeeInfo.EmpID as EmpID FROM UserPC, INV_EmployeeInfo WHERE INV_EmployeeInfo.EmpNo=UserPC.UserID     
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------   
+--------------------------------------------Delete Null Value-----------------------------------------------------------------------------
+delete from INV_UPSDetails WHERE MODELNO is null
+--------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------- Printer Entry Details --------------------------------------------------------------------------
+INSERT INTO INV_PrinterDetails ([AccountCode] ,[PrinterName],[ModelNo],[SerialNo],[PurchDate],[DeptID],[Type],[Totaluser],[Dailyppage],[DeviceID])
+SELECT [AccountCode],[BrandModel] AS PrinterName,[BrandModel],[SerialNo],[PurchDate], INV_Department.DeptID,[Type], [Totaluser], [Dailyppage], [Device]   FROM Printer, INV_Department where INV_Department.DeptName=Printer.Department
+-------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------- Server Insert --------------------------------------------------------------------------------------
+INSERT INTO [ITInventory].[dbo].[Inv_InventoryInfo]([AccountCode],[BrandModel],[Category],[Configuration],[SerialNo],[Location],[EMPID],[PurchDate],[Remark],[DeptID],[Team],[Status],[HostName],[ITemNo],[DeviceID])
+SELECT [AccountCode],[BrandModel], [Category], [Configuration], [SerialNo], Server01.Location, INV_EmployeeInfo.EmpID,[PurchDate], [Remarks] , INV_EmployeeInfo.DeptID, [Team],[Status],[HostName], [ITEmNo], [DeviceID] FROM Server01, INV_EmployeeInfo where Server01.Location = INV_EmployeeInfo.EmpName
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------- pc Left Outer Join ------------------------------------------------------------------------------------------------
+SELECT A.AccountID, A.AccountCode, A.BrandModel, A.Category, A.Configuration, A.SerialNo, A.Location, A.DeptID, A.EMPID, A.PurchDate, A.Remark, 
+B.SerialNo AS MonitorID, 
+C.SerialNo AS UPSID, 
+A.Team, A.Status, A.HostName, A.ITemNo, A.DeviceID
+FROM ITInventory.dbo.INV_InventoryInfo as A 
+ LEFT OUTER JOIN
+ ITInventory.dbo.INV_MonitorDetails AS B ON A.EMPID=B.EMPID 
+ LEFT OUTER JOIN ITInventory.dbo.INV_UPSDetails AS C
+ON A.EMPID=C.EMPID 
+WHERE A.DeviceID='22fc4927-cf7c-4e72-8575-2780eec97126'
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+------------------------------------------------ Day Convertion in Day/Month/year------------------------------------------------------------
+      ,(DATEDIFF(MONTH, PurchDate, GETDATE())/12) as Year
+      ,(DATEDIFF(MONTH, PurchDate, GETDATE())%12) as Month
+      , DATEDIFF( dd, DATEADD( mm, DATEDIFF( mm, PurchDate, GETDATE()), PurchDate), GETDATE()) as day
+      ,DATEDIFF( dd, DATEADD( mm, DATEDIFF( mm, GETDATE(),PurchDate), GETDATE()), PurchDate) as day01
+      ,(DATEDIFF(MONTH, GETDATE(),PurchDate)/12) +(DATEDIFF(MONTH, GETDATE(), PurchDate)%12)+ DATEDIFF( dd, DATEADD( mm, DATEDIFF( mm, GETDATE(),PurchDate), GETDATE()), PurchDate) as Duration
+  FROM [ITInventory].[dbo].[Inv_InventoryInfo]
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+
+************************************************Date conversion Query*************************************************************************
+select ( CAST(DATEPART(YY,ManagerPayroll.dbo.Attendance.Atten_Date) AS VARCHAR(10))
++LEFT('/0' + CAST(DATEPART(mm, ManagerPayroll.dbo.Attendance.Atten_Date) AS VARCHAR(10)), 4)
++LEFT('/0' + CAST(DATEPART(dd, ManagerPayroll.dbo.Attendance.Atten_Date) AS VARCHAR(10)), 4)
+) AS PDate, 
+
+ManagerPayroll.dbo.Attendance.Emp_Id as EMPID, ManagerPayroll.dbo.Employee_Info.Ename AS EName, ManagerPayroll.dbo.Employee_Info.Designation AS Designation, ManagerPayroll.dbo.Employee_Info.SECTION AS DeptName, (substring(ManagerPayroll.dbo.Attendance.IN_time,1,2)+'.'+substring(ManagerPayroll.dbo.Attendance.IN_time,3,4)) AS Intime, (substring(ManagerPayroll.dbo.Attendance.Out_Time,1,2)+'.'+substring(ManagerPayroll.dbo.Attendance.Out_Time,3,4)) AS Outtime, ManagerPayroll.dbo.Attendance.Present_Absent as Status from ManagerPayroll.dbo.Attendance, ManagerPayroll.dbo.Employee_Info Where ManagerPayroll.dbo.Attendance.Emp_Id=ManagerPayroll.dbo.Employee_Info.EmpID and ManagerPayroll.dbo.Employee_Info.EmpID NOT IN (SELECT ManagerPayroll.dbo.Terminate_Resign.EmpID FROM ManagerPayroll.dbo.Terminate_Resign) and ManagerPayroll.dbo.Employee_Info.Grade LIKE 'H%' AND ManagerPayroll.dbo.Attendance.Atten_Date BETWEEN convert(date,'01/04/2013',103) AND convert(date,'01/04/2013',103) ORDER BY CONVERT(DATE,ManagerPayroll.dbo.Attendance.Atten_Date,103) ASC, ManagerPayroll.dbo.Employee_Info.empid ASC
+------------------------------------------------------------------------------------------------------------------------------------------------
+select * from SchoolStudents where roll = @roll
+if exists(select * from SchoolStudents where roll = @roll) set @result = 1
+else set @result = 0
+
+-------------------------------------------------------------------------------------------------------------------
+-------------------------------------------To know the SQL Server Version------------------------------------------
+SELECT
+SERVERPROPERTY('Edition') AS Edition,
+SERVERPROPERTY('ProductVersion') AS ProductVersion,
+SERVERPROPERTY('ProductLevel') AS ProductLevel
+-------------------------------------------------------------------------------------------------------------------
+
+----------------------------------------- Sum/Difference Calculation-----------------------------------------------
+SELECT SUM(Quantity) AS ReceiveQty, 
+(SELECT SUM(IssueQty) 
+  FROM [ITInventory].[dbo].[INV_ItemIssue] 
+  WHERE ModelID='5b3a3fcd-2d51-4a5a-9d90-a43e6c5a754f' group by ModelID) AS TotalissueQty
+,  (SUM(Quantity)- (SELECT SUM(IssueQty) 
+  FROM [ITInventory].[dbo].[INV_ItemIssue] 
+  WHERE ModelID='5b3a3fcd-2d51-4a5a-9d90-a43e6c5a754f' group by ModelID)) AS BalanceQty 
+FROM [ITInventory].[dbo].[INV_ItemReceive] 
+WHERE ModelID='5b3a3fcd-2d51-4a5a-9d90-a43e6c5a754f' 
+group by  ModelID
+--------------------------------------------------------------------------------------------------------------------
+--When the IDate is nvarchar(50)
+SELECT MAX(convert(date,IDate,103))from dbo.INV_ItemIssue
+--------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------- Adding a Field value with and Existing Value---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+IF (NOT EXISTS(SELECT * FROM ITInventory.dbo.INV_ItemIssue where  ModelID=@ModelID and  IDate=@IDate and LocID=@LocID)) BEGIN   INSERT INTO INV_ItemIssue ( ItemID, ModelID, IDate , ReceiverName, LocID, IssueQty ) VALUES ( @ItemID, @ModelID, @IDate, @ReceiverName, @LocID, @IssueQty )  END ELSE BEGIN  UPDATE ITInventory.dbo.INV_ItemIssue SET IssueQty=IssueQty+1 where ModelID=@ModelID and  IDate=@IDate and LocID=@LocID END 
+-----------------------------------------------------------------------------------------------------------
+-----------------------------------****** Sum of Days from a Specific Date******---------------------------------
+SELECT (datediff(day,'01/01/2013',GETDATE())+1) Days
+---------------------------------------------****Sum of Days from a Current Year First Day******--------------------------------------------------------------------
+SELECT (datediff(day,DATEADD(YEAR, DATEDIFF(YEAR, 0,DATEADD(YEAR, 0,GETDATE())), 0),GETDATE())+1) Days
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------****** Find Current Year First Day(Ex-01/01/2013)*******---------------------------------------------------------------
+SELECT      DATEADD(YEAR, DATEDIFF(YEAR, 0,DATEADD(YEAR, 0,GETDATE())), 0)
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+select year(current_timestamp)
+-----------------------------------------***Find Current Year****----------------------------------------------------------------------------------------------------
+SELECT DATENAME(Year,GETDATE())
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------****Find Total Days from a specific Month****--------------------------------------------------------------------------------
+SELECT (datediff(day,DATEADD(YEAR, DATEDIFF(YEAR, 0,DATEADD(YEAR, 0,CONVERT(DATE, '08/31/2013'))), 0),CONVERT(DATE, '08/31/2013'))+1)
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------BETWEEN DATE IF THE FIELD IS VARCHAR---------------------------------------------------------------------------------
+SELECT SID, convert(date,SDate,103), TOTALRQty, TOTALIQty, BalanceQty FROM ITInventory.dbo.INV_Stock
+	WHERE convert(date,SDate,103)  >=convert(date,'07-09-2013',103) AND convert(date,SDate,103)<=convert(date,'30-11-2013',103) order by SDate  ASC
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
