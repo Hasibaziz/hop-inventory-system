@@ -1,0 +1,59 @@
+Gridview Application:
+http://demos.kendoui.com/web/grid/index.html
+
+http://docs.jquery.com/Downloading_jQuery#Download_jQuery
+
+
+Jquery for message:
+---------------------------------------------------------
+http://jquerymsgbox.ibrahimkalyoncu.com/
+
+Session Information
+-----------------------------------------------------------------------
+http://msdn.microsoft.com/en-us/library/87069683%28v=VS.80%29.aspx
+
+
+
+Razor View
+-----------------------------------------------------------------------
+http://www.dotnet-tricks.com/Tutorial/mvc/2IKW160912-Partial-View-in-Asp.net-MVC3-Razor.html
+http://www.dotnet-tricks.com/Tutorial/mvc/4R5c050113-Understanding-Caching-in-Asp.Net-MVC-with-example.html
+
+Slide Show:
+--------------------------------------------------------------------------------------------
+http://www.devcurry.com/2010/03/simple-image-slideshow-using-jquery.html
+
+
+
+Web Hits Counts:
+---------------------------------------------------------------------------------
+http://stackoverflow.com/questions/11592741/asp-net-mvc3-connected-clients-count
+
+
+About WCF:
+-------------------------------------------------------------------------------------
+http://wcftutorial.net/WCF-Getting-Started.aspx
+
+
+IIS Configuration:
+-------------------------------------------------------------------------------------
+http://www.it-notebook.org/iis/software.htm
+
+Slide Show:
+-------------------------------------------------------------------------------------
+http://www.devcurry.com/2010/03/simple-image-slideshow-using-jquery.html
+
+
+
+iis Configuration:
+--------------------------------------------------------------------------------------
+http://blogs.msdn.com/b/rickandy/archive/2011/04/22/test-you-asp-net-mvc-or-webforms-application-on-iis-7-in-30-seconds.aspx
+
+Chart Creation
+-----------------------------------------------------------------------------------------
+http://weblogs.asp.net/gunnarpeipman/archive/2010/10/10/asp-net-mvc-3-beta-built-in-support-for-charts.aspx
+http://documentation.devexpress.com/#XtraReports/CustomDocument9974
+----------------------------------------------------------------------------------------------------------
+Date: Info in Sql Server 2008
+http://www.codeproject.com/Articles/38998/Most-Commonly-Used-Functions-in-SQL-Server-2005-20
+
