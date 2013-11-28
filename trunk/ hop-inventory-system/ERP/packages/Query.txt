@@ -1,9 +1,20 @@
 Web Link:
-http://www.itdeveloperzone.com/2011/03/cumulative-sum-in-sql-server.html
+
 http://stackoverflow.com/questions/11664142/cumulative-total-in-ms-sql-server
 
 
+http://www.codeproject.com/Articles/300785/Calculating-simple-running-totals-in-SQL-Server
+-------------------------------------------------------------------------------------------
+SELECT a.IDate, a.IssueQty, (SELECT SUM(b.IssueQty)
+                       FROM dbo.INV_ItemIssue b
+                       WHERE b.IDate <= a.IDate)
+FROM  dbo.INV_ItemIssue  a
+ORDER BY a.IDate
+-------------------------------------------------------------------------------------------
 
+
+http://www.itdeveloperzone.com/2011/03/cumulative-sum-in-sql-server.html
+-------------------------------------------------------------------------------------------
 ;WITH cte AS (
     SELECT  row_number() OVER (ORDER BY ModelID, IDate) AS rownum,* 
     FROM    [ITInventory].[dbo].[INV_ItemIssue]
