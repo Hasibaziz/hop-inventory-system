@@ -24,3 +24,9 @@ FROM    cte a
 LEFT JOIN cte b ON a.ModelID = b.ModelID AND b.rownum <= a.rownum
 GROUP   BY a.ModelID, a.rownum, a.IDate, a.IssueQty
 ORDER   BY a.ModelID, a.IDate
+
+
+
+
+-------------------------------------max(date) and previous max(date) of a Table------------
+http://www.orafaq.com/forum/t/154950/
