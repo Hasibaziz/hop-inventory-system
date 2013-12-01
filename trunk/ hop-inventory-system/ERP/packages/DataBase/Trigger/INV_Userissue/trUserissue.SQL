@@ -1,6 +1,6 @@
 USE [ITInventory]
 GO
-/****** Object:  Trigger [dbo].[trUserissue]    Script Date: 09/04/2013 14:31:12 ******/
+/****** Object:  Trigger [dbo].[trUserissue]    Script Date: 12/01/2013 12:16:23 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
