@@ -24,7 +24,17 @@ namespace ERP.Domain.Model
            set;
            get;
        }
+       public string IDate
+       {
+           set;
+           get;
+       }
        public string SDate
+       {
+           get;
+           set;
+       }
+       public string IssueQty
        {
            get;
            set;
