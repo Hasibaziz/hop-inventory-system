@@ -89,12 +89,21 @@
                 },               
                 SDate: {
                     title: 'Stock Date',
+                    width: '14%',
+                    displayFormat: 'dd-mm-yy'
+                },
+                IDate:{
+                    title: 'Issue Date',
                     width: '12%',
                     displayFormat: 'dd-mm-yy'
                 },
+                IssueQty: {
+                    title: 'Issue Qty',
+                    width: '8%'
+                },
                 TOTALRQty: {
-                    title: 'Receiver Qty',
-                    width: '10%'
+                    title: 'Total ReceiverQty',
+                    width: '12%'
                 },
 //                LocID: {
 //                     title: 'Location',
@@ -103,7 +112,7 @@
 //                     //options: { 'HLNT': 'HLNT', 'HLAP': 'HLAP', 'HLBD': 'HLBD', 'HLRC': 'HLRC', 'HLWF': 'HLWF', 'HYBD': 'HYBD', 'HLST': 'HLST' }
 //                 },
                 TOTALIQty: {
-                    title: 'Issue Qty',
+                    title: 'Total IssueQty',
                     width: '10%'
                 },               
                 BalanceQty: {
@@ -151,12 +160,21 @@
                 },               
                 SDate: {
                     title: 'Stock Date',
+                    width: '14%',
+                    displayFormat: 'dd-mm-yy'
+                }, 
+                IDate:{
+                    title: 'Issue Date',
                     width: '12%',
                     displayFormat: 'dd-mm-yy'
                 },
+                IssueQty: {
+                    title: 'Issue Qty',
+                    width: '8%'
+                },
                 TOTALRQty: {
-                    title: 'Receiver Qty',
-                    width: '10%'
+                    title: 'Total ReceiverQty',
+                    width: '12%'
                 },
 //                LocID: {
 //                     title: 'Location',
@@ -165,7 +183,7 @@
 //                     //options: { 'HLNT': 'HLNT', 'HLAP': 'HLAP', 'HLBD': 'HLBD', 'HLRC': 'HLRC', 'HLWF': 'HLWF', 'HYBD': 'HYBD', 'HLST': 'HLST' }
 //                 },
                 TOTALIQty: {
-                    title: 'Issue Qty',
+                    title: 'Total IssueQty',
                     width: '10%'
                 },               
                 BalanceQty: {
