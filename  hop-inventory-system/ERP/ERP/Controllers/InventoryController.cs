@@ -2671,6 +2671,8 @@ namespace ERP.Controllers
                                 ModelID = dr["ModelID"].ToString(),
                                 ItemID = dr["ItemID"].ToString(),                              
                                 SDate = dr["SDate"].ToString(),
+                                IDate = dr["IDate"].ToString(),
+                                IssueQty = dr["IssueQty"].ToString(),
                                 TOTALRQty = dr["TOTALRQty"].ToString(),
                                 TOTALIQty = dr["TOTALIQty"].ToString(),                               
                                 BalanceQty = dr["BalanceQty"].ToString()
@@ -2717,6 +2719,8 @@ namespace ERP.Controllers
                                 ModelID = dr["ModelID"].ToString(),
                                 ItemID = dr["ItemID"].ToString(),
                                 SDate = dr["SDate"].ToString(),
+                                IDate = dr["IDate"].ToString(),
+                                IssueQty = dr["IssueQty"].ToString(),
                                 TOTALRQty = dr["TOTALRQty"].ToString(),
                                 TOTALIQty = dr["TOTALIQty"].ToString(),
                                 BalanceQty = dr["BalanceQty"].ToString()
