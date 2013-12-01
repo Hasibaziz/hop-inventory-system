@@ -34,7 +34,10 @@ namespace ERP.Utility
             /// </summary>
             public string Title { get; set; }
 
-
+            ///<summary>
+            ///Footer of the Export Excel
+            ///</summary>
+            public string Footer { get; set; }
             /// <summary>
             /// Konstruktor
             /// </summary>
@@ -54,6 +57,8 @@ namespace ERP.Utility
                 : base("application/ms-excel")
             {
                 this.dt = dt;
+                Title = "Excel Report ";
+                Footer = "Powered By: Hasib, IT Department";
                 TitleExportDate = "Export Date: {0}";
                 this.tableStyle = tableStyle;
                 this.headerStyle = headerStyle;
@@ -130,6 +135,21 @@ namespace ERP.Utility
                 }
 
                 tw.RenderEndTag(); //  /table
+
+                ///<summary>
+                ///The Footer Parts of the Excel Reports
+                ///<!summary>
+                tw.RenderBeginTag(HtmlTextWriterTag.Tr);
+                tw.AddAttribute(HtmlTextWriterAttribute.Colspan, (dt.Columns.Count - 2).ToString());
+                tw.RenderBeginTag(HtmlTextWriterTag.Td);
+                //tw.WriteLineNoTabs(Footer);
+                tw.RenderEndTag();
+                tw.AddAttribute(HtmlTextWriterAttribute.Colspan, "2");
+                tw.RenderBeginTag(HtmlTextWriterTag.Td);
+                if (TitleExportDate != string.Empty)
+                    tw.WriteLineNoTabs(Footer);
+                tw.RenderEndTag();
+
 
                 // Write result to output-stream
                 Stream outputStream = response.OutputStream;
