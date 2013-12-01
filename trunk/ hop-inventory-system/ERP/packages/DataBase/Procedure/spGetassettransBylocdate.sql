@@ -1,20 +1,20 @@
 USE [ITInventory]
 GO
-/****** Object:  StoredProcedure [dbo].[spGetassettransBylocdate]    Script Date: 08/25/2013 10:42:10 ******/
+/****** Object:  StoredProcedure [dbo].[spGetassettransBylocdate]    Script Date: 12/01/2013 12:25:10 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 -- =============================================
--- Author:		<Author,,Name>
+-- Author:		<Author,,Hasib>
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
 ALTER PROCEDURE [dbo].[spGetassettransBylocdate]	
-				  @ItemID AS nvarchar(100)
-				, @IssueDate AS nvarchar(100)
-				,@Location AS nvarchar(100)
-				,@Userstatus as nvarchar(100)
+				   @ItemID AS nvarchar(100)
+				  ,@IssueDate AS nvarchar(100)
+				  ,@Location AS nvarchar(100)
+				  ,@Userstatus as nvarchar(100)
 				
 AS
 --IF((@Location='HLNT' and @Userstatus='Normal' OR (@Location='HLAP' and @Userstatus='Normal')OR (@Location='HLBD' and @Userstatus='Normal') OR (@Location='HLRC' and @Userstatus='Normal') OR (@Location='HLWF' and @Userstatus='Normal') OR (@Location='HYBD' and @Userstatus='Normal'))
