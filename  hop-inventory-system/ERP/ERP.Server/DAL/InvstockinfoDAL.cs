@@ -15,7 +15,7 @@ namespace ERP.Server.DAL
       public DataTable GetstockinfoListRecord(object param)
       {
           Database db = DatabaseFactory.CreateDatabase();
-          string sql = "SELECT SID, ItemID, ModelID, SDate, TOTALRQty, TOTALIQty, BalanceQty FROM ITInventory.dbo.INV_Stock ORDER BY convert(date,SDate,103) DESC";
+          string sql = "SELECT A.SID, A.ItemID, A.ModelID, A.SDate, A.IDate, A.IssueQty, A.TOTALRQty, A.TOTALIQty, A.BalanceQty FROM ITInventory.dbo.INV_Stock AS A, ITInventory.dbo.INV_Models AS B WHERE A.ModelID=B.ModelID  ORDER BY B.ModelName, convert(date,SDate,103) DESC";
           DbCommand dbCommand = db.GetSqlStringCommand(sql);
           DataSet ds = db.ExecuteDataSet(dbCommand);
           return ds.Tables[0];
@@ -39,8 +39,8 @@ namespace ERP.Server.DAL
       {
           InvallstockEntity obj = (InvallstockEntity)param;
           Database db = DatabaseFactory.CreateDatabase();
-          string sql = "SELECT B.ItemName AS 'Item Name', C.ModelName AS 'Model Name', A.SDate as 'Date', A.TOTALRQty as 'Receive Qty', A.TOTALIQty as 'Issue Qty', A.BalanceQty as 'Balance Qty' FROM ITInventory.dbo.INV_Stock as A, ITInventory.dbo.INV_Items AS B, ITInventory.dbo.INV_Models AS C";
-          sql = sql + " WHERE (A.ItemID=B.ItemID AND A.ModelID=C.ModelID) AND (A.SDate BETWEEN ('" + obj.StartDate + "') AND ('" + obj.EndDate + "'))";
+          string sql = "SELECT B.ItemName AS 'Item Name', C.ModelName AS 'Model Name',CONVERT(DATE, A.SDate, 103) as 'Date', A.IDate AS 'Issue Date', A.IssueQty, A.TOTALRQty as 'Receive Qty', A.TOTALIQty as 'Issue Qty', A.BalanceQty as 'Balance Qty' FROM ITInventory.dbo.INV_Stock as A, ITInventory.dbo.INV_Items AS B, ITInventory.dbo.INV_Models AS C";
+          sql = sql + " WHERE (A.ItemID=B.ItemID AND A.ModelID=C.ModelID) AND (CONVERT(DATE, A.SDate, 103) BETWEEN CONVERT(DATE, ('" + obj.StartDate + "'), 103) AND CONVERT (DATE, ('" + obj.EndDate + "'), 103))";
           sql = sql + " and A.ItemID='" + obj.ItemID + "' and A.ModelID='" + obj.ModelID + "'";
           sql = sql + " ORDER BY convert(date, A.SDate,103) DESC";
           DbCommand dbCommand = db.GetSqlStringCommand(sql);
