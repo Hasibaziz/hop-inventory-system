@@ -1,6 +1,6 @@
 USE [ITInventory]
 GO
-/****** Object:  StoredProcedure [dbo].[spGetLoctionDeptBySearch]    Script Date: 08/25/2013 10:45:12 ******/
+/****** Object:  StoredProcedure [dbo].[spGetLoctionDeptBySearch]    Script Date: 12/01/2013 12:26:04 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
