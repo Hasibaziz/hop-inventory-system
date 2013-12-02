@@ -99,5 +99,14 @@ namespace ERP.Server.BLL
         //    }
         //    return retObj;
         //}       
+
+        public object GettotalitemreceiveListRecord(object param)
+        {
+            object retObj = null;
+            InvitemreceiveDAL IRDAL = new InvitemreceiveDAL();
+            retObj = (object)IRDAL.GettotalitemreceiveListRecord(param);
+            return retObj;
+        }
+
     }
 }
