@@ -164,7 +164,7 @@ namespace ERP.Structure
         public const string AG_GetitemreceiveListRecord = "AG_GetitemreceiveListRecord";
         public const string AG_SaveitemreceiveRecord = "AG_SaveitemreceiveRecord";
         public const string AG_UpdateitemreceiveRecord = "AG_UpdateitemreceiveRecord";
-        //public const string AG_DeleteitemreceiveRecordById = "AG_DeleteitemreceiveRecordById";      
+        public const string AG_GettotalitemreceiveListRecord = "AG_GettotalitemreceiveListRecord";      
         #endregion
 
         #region Auto Generated - ReceiveIssue
