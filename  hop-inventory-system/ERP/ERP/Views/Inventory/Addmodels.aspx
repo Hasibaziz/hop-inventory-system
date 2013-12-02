@@ -73,19 +73,19 @@
                  },
                  ModelName: {
                      title: 'Model',
-                     width: '15%'
+                     width: '25%'
                  },
                  ModelDate: {
                      title: 'Date of Entry',
                      type: 'date',
                      displayFormat: 'dd-mm-yy',
-                     width: '25%'
+                     width: '15%'
                  },
                  EXDate: {
                      title: 'Date/Expair',
                      type: 'date',
                      displayFormat: 'dd-mm-yy',
-                     width: '25%'
+                     width: '15%'
                  },
                  TPage: {
                      title: 'To/Page',                    
