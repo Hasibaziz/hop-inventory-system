@@ -460,11 +460,11 @@ namespace ERP.Structure.TaskManager
                 case ERPTask.AG_UpdateitemreceiveRecord:
                     IRBLL = new InvitemreceiveBLL();
                     return IRBLL.UpdateInvitemsreceiveRecord(param);
-                    break;               
-                //case ERPTask.AG_DeleteInvmodelRecordById:
-                //    ModelsBLL = new InvmodelBLL();
-                //    return ModelsBLL.DeletemodelsById(param);
-                //    break;              
+                    break;
+                case ERPTask.AG_GettotalitemreceiveListRecord:
+                    IRBLL = new InvitemreceiveBLL();
+                    return IRBLL.GettotalitemreceiveListRecord(param);
+                    break;              
                 #endregion
 
                 #region Auto Generated - ReceiveissueList
