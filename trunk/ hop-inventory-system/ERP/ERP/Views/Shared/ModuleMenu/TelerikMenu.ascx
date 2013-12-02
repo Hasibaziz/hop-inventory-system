@@ -81,6 +81,7 @@
                     .Items(item =>
                     {
                         item.Add().Text("Equipment Chart Report").ImageUrl("~/Content/Common/Icons/Suites/orm.png").Url("~/Report/Reportchart");
+                        item.Add().Text("Overall Receive Report").ImageUrl("~/Content/Common/Icons/Suites/wpf.png").Url("~/Inventory/Receiverpt");
                         item.Add().Text("OPEX Overall Stock Info").ImageUrl("~/Content/Common/Icons/Suites/test.png").Url("~/Inventory/Stockinfo");
                         item.Add().Text("OPEX Factory Wise Stock").ImageUrl("~/Content/Common/Icons/Suites/win.png").Url("~/Inventory/FTYStock");
                         item.Add().Text("Factory Wise Issue Report").ImageUrl("~/Content/Common/Icons/Suites/wpf.png").Url("~/Inventory/Getpassissue");
