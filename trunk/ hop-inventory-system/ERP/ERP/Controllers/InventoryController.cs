@@ -2637,6 +2637,59 @@ namespace ERP.Controllers
         }
     
     /////////////////////////////////////*********************************** Stock Information***********************//////////////////////////////////////
+        public ActionResult Receiverpt()
+        {
+            Invlocation LocEntity = new Invlocation();
+            ViewData["Location"] = GetLocation(LocEntity);
+            return View();
+        }
+        [HttpPost]
+        public JsonResult TotalItemreceiveList(int jtStartIndex = 0, int jtPageSize = 0, string jtSorting = null)
+        {
+            try
+            {
+                try
+                {
+                    DataTable dt = (DataTable)ExecuteDB(ERPTask.AG_GettotalitemreceiveListRecord, null);
+                    List<InvitemreceiveEntity> ItemList = null;
+                    ItemList = new List<InvitemreceiveEntity>();
+                    int iCount = 0;
+                    int offset = 0;
+                    offset = jtStartIndex / jtPageSize;
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        if (iCount >= jtStartIndex && iCount < (jtPageSize * (offset + 1)))
+                        {
+                            ItemList.Add(new InvitemreceiveEntity()
+                            {
+                                IRID = dr["IRID"].ToString(),
+                                ModelID = dr["ModelID"].ToString(),
+                                ItemID = dr["ItemID"].ToString(),
+                                RDate = dr["RDate"].ToString(),
+                                Chlanno = dr["Chlanno"].ToString(),
+                                Suppliername = dr["Suppliername"].ToString(),
+                                LocID = dr["LocID"].ToString(),
+                                Quantity = dr["Quantity"].ToString(),
+                                RTotalQty = dr["RTotalQty"].ToString()
+                            });
+                        }
+                        iCount += 1;
+                    }
+                    var RecordCount = dt.Rows.Count;
+                    var Record = ItemList;
+                    return Json(new { Result = "OK", Records = Record, TotalRecordCount = RecordCount });
+                }
+                catch (Exception ex)
+                {
+                    return Json(new { Result = "ERROR", Message = ex.Message });
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(new { Result = "ERROR", Message = ex.Message });
+            }
+        }
+
 
         public ActionResult Stockinfo()
         {
