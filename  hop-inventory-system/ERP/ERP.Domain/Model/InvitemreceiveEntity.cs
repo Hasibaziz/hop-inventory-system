@@ -56,5 +56,10 @@ namespace ERP.Domain.Model
            set;
            get;
        }
+       public string RTotalQty
+       {
+           set;
+           get;
+       }
     }
 }
