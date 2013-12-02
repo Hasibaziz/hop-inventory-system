@@ -62,6 +62,15 @@ namespace ERP.Server.DAL
         //    db.ExecuteNonQuery(dbCommand, transaction);
         //    return true;
         //}
+
+        public DataTable GettotalitemreceiveListRecord(object param)
+        {
+            Database db = DatabaseFactory.CreateDatabase();
+            string sql = "SELECT A.[IRID], A.[ItemID], A.[ModelID], A.[RDate], A.[Chlanno], A.[Suppliername], A.[LocID], A.[Quantity], (SELECT SUM(B.[Quantity]) FROM [ITInventory].[dbo].[INV_ItemReceive] B WHERE B.[RDate]<= A.[RDate] AND A.ModelID=B.ModelID) AS RTotalQty FROM [ITInventory].[dbo].[INV_ItemReceive] A ORDER BY  A.ModelID, A.[RDate] DESC";
+            DbCommand dbCommand = db.GetSqlStringCommand(sql);
+            DataSet ds = db.ExecuteDataSet(dbCommand);
+            return ds.Tables[0];
+        }
        
     }
 }
