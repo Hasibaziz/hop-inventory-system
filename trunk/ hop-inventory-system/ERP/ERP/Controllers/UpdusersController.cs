@@ -992,6 +992,10 @@ namespace ERP.Controllers
             ViewData["ItemName"] = GetAllitemsName(items);
             InvmodelEntity models = new InvmodelEntity();
             ViewData["ModelName"] = GetAllmodelsName(models);
+            Invlocation LocEntity = new Invlocation();
+            //LocEntity.Location = CurrentLocation;
+           // LocEntity.Userstatus = CurrentUserstatus;
+            ViewData["Location"] = GetLocation(LocEntity);
             return View();
         }
         [HttpPost]
@@ -1015,10 +1019,13 @@ namespace ERP.Controllers
                         {
                             ItemList.Add(new InvallstockEntity()
                             {
-                                SID = dr["SID"].ToString(),
+                               // SID = dr["SID"].ToString(),
                                 ModelID = dr["ModelID"].ToString(),
                                 ItemID = dr["ItemID"].ToString(),
+                                LocID = dr["LocID"].ToString(), 
                                 SDate = dr["SDate"].ToString(),
+                                IDate = dr["IDate"].ToString(),
+                                IssueQty = dr["IssueQty"].ToString(),
                                 TOTALRQty = dr["TOTALRQty"].ToString(),
                                 TOTALIQty = dr["TOTALIQty"].ToString(),
                                 BalanceQty = dr["BalanceQty"].ToString()
@@ -1061,10 +1068,13 @@ namespace ERP.Controllers
                         {
                             ItemList.Add(new InvallstockEntity()
                             {
-                                SID = dr["SID"].ToString(),
+                                //SID = dr["SID"].ToString(),
                                 ModelID = dr["ModelID"].ToString(),
                                 ItemID = dr["ItemID"].ToString(),
+                                LocID = dr["LocID"].ToString(), 
                                 SDate = dr["SDate"].ToString(),
+                                IDate = dr["IDate"].ToString(),
+                                IssueQty = dr["IssueQty"].ToString(),
                                 TOTALRQty = dr["TOTALRQty"].ToString(),
                                 TOTALIQty = dr["TOTALIQty"].ToString(),
                                 BalanceQty = dr["BalanceQty"].ToString()
