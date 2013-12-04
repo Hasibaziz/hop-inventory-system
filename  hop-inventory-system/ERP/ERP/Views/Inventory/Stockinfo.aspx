@@ -71,12 +71,12 @@
                 //listAction: '/Inventory/InventoryDetailsListbyDid?DNAME=' + $("#DeptID").val()
             },
             fields: {
-                SID: {
-                    key: true,
-                    create: false,
-                    edit: false,
-                    list: false
-                },
+//                SID: {
+//                    key: true,
+//                    create: false,
+//                    edit: false,
+//                    list: false
+//                },
                 ItemID: {
                     title: 'Item Name',
                     width: '10%',
@@ -84,8 +84,13 @@
                 },
                 ModelID: {
                     title: 'Model Name',
-                    width: '25%',
+                    width: '20%',
                     options: '<%=Url.Content("~/Inventory/AllListModels") %>'
+                },
+                LocID: {
+                    title: 'Location',
+                    width: '5%',
+                    options: '<%=Url.Content("~/Updusers/AllLocation") %>'                   
                 },               
                 SDate: {
                     title: 'Stock Date',
@@ -117,7 +122,7 @@
                 },               
                 BalanceQty: {
                     title: 'Balance Qty',
-                    width: '10%'
+                    width: '12%'
                 }
             }
         });
@@ -142,12 +147,12 @@
                 //updateAction: '<%=Url.Content("~/Inventory/Additemreceive") %>'
             },
             fields: {
-                SID: {
-                    key: true,
-                    create: false,
-                    edit: false,
-                    list: false
-                },
+//                SID: {
+//                    key: true,
+//                    create: false,
+//                    edit: false,
+//                    list: false
+//                },
                 ItemID: {
                     title: 'Item Name',
                     width: '10%',
@@ -155,9 +160,14 @@
                 },
                 ModelID: {
                     title: 'Model Name',
-                    width: '25%',
+                    width: '20%',
                     options: '<%=Url.Content("~/Inventory/AllListModels") %>'
-                },               
+                },
+                LocID: {
+                    title: 'Location',
+                    width: '5%',
+                    options: '<%=Url.Content("~/Updusers/AllLocation") %>'                   
+                },                
                 SDate: {
                     title: 'Stock Date',
                     width: '14%',
@@ -188,7 +198,7 @@
                 },               
                 BalanceQty: {
                     title: 'Balance Qty',
-                    width: '10%'
+                    width: '12%'
                 }
             }
         });

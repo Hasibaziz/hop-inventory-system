@@ -100,21 +100,6 @@
              }
              return true;
          }
-//         function MailCheck(inputField, helpText) {
-//             if (inputField.email.value == "") {
-//                 helpText.innerHTML = "Please enter a valid email address";
-//                 form.email.focus();
-//                 return false;
-//             }
-//             else {
-//                 if ((inputField.email.value.indexOf('@', 0) == -1) || (form.email.value.indexOf('.') == -1)) {
-//                     helpText.innerHTML = "Email address is required";
-//                     return false;
-//                 }
-//             }
-//             return true;
-//         } 
-
         
 </script>
 

@@ -24,6 +24,11 @@ namespace ERP.Domain.Model
            set;
            get;
        }
+       public string LocID
+       {
+           set;
+           get;
+       }
        public string IDate
        {
            set;

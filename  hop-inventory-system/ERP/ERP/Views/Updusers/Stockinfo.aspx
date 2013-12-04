@@ -69,12 +69,12 @@
                 //listAction: '/Inventory/InventoryDetailsListbyDid?DNAME=' + $("#DeptID").val()
             },
             fields: {
-                SID: {
-                    key: true,
-                    create: false,
-                    edit: false,
-                    list: false
-                },
+//                SID: {
+//                    key: true,
+//                    create: false,
+//                    edit: false,
+//                    list: false
+//                },
                 ItemID: {
                     title: 'Item Name',
                     width: '10%',
@@ -82,17 +82,36 @@
                 },
                 ModelID: {
                     title: 'Model Name',
-                    width: '25%',
+                    width: '20%',
                     options: '<%=Url.Content("~/Inventory/AllListModels") %>'
                 },
+                LocID: {
+                    title: 'Location',
+                    width: '7%',
+                    options: '<%=Url.Content("~/Updusers/AllLocation") %>'
+                }, 
                 SDate: {
                     title: 'Stock Date',
                     width: '10%',
                     displayFormat: 'dd-mm-yy'
                 },
+                LocID: {
+                    title: 'Location',
+                    width: '5%',
+                    options: '<%=Url.Content("~/Updusers/AllLocation") %>'
+                }, 
+                IDate: {
+                    title: 'Issue Date',
+                    width: '12%',
+                    displayFormat: 'dd-mm-yy'
+                },
+                IssueQty: {
+                    title: 'Issue Qty',
+                    width: '8%'
+                },
                 TOTALRQty: {
-                    title: 'Receiver Qty',
-                    width: '10%'
+                    title: 'Total ReceiverQty',
+                    width: '12%'
                 },
                 //                LocID: {
                 //                     title: 'Location',
@@ -101,12 +120,12 @@
                 //                     //options: { 'HLNT': 'HLNT', 'HLAP': 'HLAP', 'HLBD': 'HLBD', 'HLRC': 'HLRC', 'HLWF': 'HLWF', 'HYBD': 'HYBD', 'HLST': 'HLST' }
                 //                 },
                 TOTALIQty: {
-                    title: 'Issue Qty',
+                    title: 'Total IssueQty',
                     width: '10%'
                 },
                 BalanceQty: {
                     title: 'Balance Qty',
-                    width: '10%'
+                    width: '12%'
                 }
             }
         });
@@ -131,12 +150,12 @@
                 //updateAction: '<%=Url.Content("~/Inventory/Additemreceive") %>'
             },
             fields: {
-                SID: {
-                    key: true,
-                    create: false,
-                    edit: false,
-                    list: false
-                },
+//                SID: {
+//                    key: true,
+//                    create: false,
+//                    edit: false,
+//                    list: false
+//                },
                 ItemID: {
                     title: 'Item Name',
                     width: '10%',
@@ -144,25 +163,39 @@
                 },
                 ModelID: {
                     title: 'Model Name',
-                    width: '25%',
+                    width: '20%',
                     options: '<%=Url.Content("~/Updusers/AllListModels") %>'
+                }, 
+                LocID: {
+                    title: 'Location',
+                    width: '5%',
+                    options: '<%=Url.Content("~/Updusers/AllLocation") %>'                   
                 },               
                 SDate: {
                     title: 'Stock Date',
                     width: '10%',
                     displayFormat: 'dd-mm-yy'
                 },
+                IDate:{
+                    title: 'Issue Date',
+                    width: '12%',
+                    displayFormat: 'dd-mm-yy'
+                },
+                IssueQty: {
+                    title: 'Issue Qty',
+                    width: '8%'
+                },
                 TOTALRQty: {
-                    title: 'Receiver Qty',
-                    width: '10%'
+                    title: 'Total ReceiverQty',
+                    width: '12%'
                 },
                 TOTALIQty: {
-                    title: 'Issue Qty',
+                    title: 'Total IssueQty',
                     width: '10%'
                 },               
                 BalanceQty: {
                     title: 'Balance Qty',
-                    width: '10%'
+                    width: '12%'
                 }
             }
         });

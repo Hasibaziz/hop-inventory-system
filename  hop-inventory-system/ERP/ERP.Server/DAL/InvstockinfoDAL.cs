@@ -15,7 +15,13 @@ namespace ERP.Server.DAL
       public DataTable GetstockinfoListRecord(object param)
       {
           Database db = DatabaseFactory.CreateDatabase();
-          string sql = "SELECT A.SID, A.ItemID, A.ModelID, A.SDate, A.IDate, A.IssueQty, A.TOTALRQty, A.TOTALIQty, A.BalanceQty FROM ITInventory.dbo.INV_Stock AS A, ITInventory.dbo.INV_Models AS B WHERE A.ModelID=B.ModelID  ORDER BY B.ModelName, convert(date,SDate,103) DESC";
+          //string sql = "SELECT A.SID, A.ItemID, A.ModelID, A.SDate, A.IDate, A.IssueQty, A.TOTALRQty, A.TOTALIQty, A.BalanceQty FROM ITInventory.dbo.INV_Stock AS A, ITInventory.dbo.INV_Models AS B WHERE A.ModelID=B.ModelID  ORDER BY B.ModelName, convert(date,SDate,103) DESC";
+          string sql = "SELECT a.ItemID, a.ModelID, a.LocID, a.IDate as SDate, a.IDate, a.IssueQty" +
+                        ",(SELECT sum(Quantity) FROM dbo.INV_ItemReceive WHERE ModelID=a.ModelID) as TOTALRQty" +
+                        ", (SELECT SUM(b.IssueQty) FROM dbo.INV_ItemIssue b   WHERE CONVERT(DATE,b.IDate, 103) <= CONVERT(DATE,a.IDate, 103) AND b.ModelID=a.ModelID) as TOTALIQty" +
+                        ",((SELECT sum(Quantity) FROM dbo.INV_ItemReceive WHERE ModelID=a.ModelID)-(SELECT SUM(b.IssueQty) FROM dbo.INV_ItemIssue b   WHERE CONVERT(DATE,b.IDate, 103) <= CONVERT(DATE,a.IDate, 103) AND b.ModelID=a.ModelID)) as BalanceQty" +
+                        " FROM  ITInventory.dbo.INV_ItemIssue  a " +
+                        " ORDER BY a.ModelID, CONVERT(DATE,a.IDate, 103) DESC";
           DbCommand dbCommand = db.GetSqlStringCommand(sql);
           DataSet ds = db.ExecuteDataSet(dbCommand);
           return ds.Tables[0];
@@ -39,10 +45,20 @@ namespace ERP.Server.DAL
       {
           InvallstockEntity obj = (InvallstockEntity)param;
           Database db = DatabaseFactory.CreateDatabase();
-          string sql = "SELECT B.ItemName AS 'Item Name', C.ModelName AS 'Model Name',CONVERT(DATE, A.SDate, 103) as 'Date', A.IDate AS 'Issue Date', A.IssueQty, A.TOTALRQty as 'Receive Qty', A.TOTALIQty as 'Issue Qty', A.BalanceQty as 'Balance Qty' FROM ITInventory.dbo.INV_Stock as A, ITInventory.dbo.INV_Items AS B, ITInventory.dbo.INV_Models AS C";
-          sql = sql + " WHERE (A.ItemID=B.ItemID AND A.ModelID=C.ModelID) AND (CONVERT(DATE, A.SDate, 103) BETWEEN CONVERT(DATE, ('" + obj.StartDate + "'), 103) AND CONVERT (DATE, ('" + obj.EndDate + "'), 103))";
-          sql = sql + " and A.ItemID='" + obj.ItemID + "' and A.ModelID='" + obj.ModelID + "'";
-          sql = sql + " ORDER BY convert(date, A.SDate,103) DESC";
+          //string sql = "SELECT B.ItemName AS 'Item Name', C.ModelName AS 'Model Name',CONVERT(DATE, A.SDate, 103) as 'Date', A.IDate AS 'Issue Date', A.IssueQty, A.TOTALRQty as 'Receive Qty', A.TOTALIQty as 'Issue Qty', A.BalanceQty as 'Balance Qty' FROM ITInventory.dbo.INV_Stock as A, ITInventory.dbo.INV_Items AS B, ITInventory.dbo.INV_Models AS C";
+          //sql = sql + " WHERE (A.ItemID=B.ItemID AND A.ModelID=C.ModelID) AND (CONVERT(DATE, A.SDate, 103) BETWEEN CONVERT(DATE, ('" + obj.StartDate + "'), 103) AND CONVERT (DATE, ('" + obj.EndDate + "'), 103))";
+          //sql = sql + " and A.ItemID='" + obj.ItemID + "' and A.ModelID='" + obj.ModelID + "'";
+          //sql = sql + " ORDER BY convert(date, A.SDate,103) DESC";
+          string sql = " SELECT I.ItemName AS 'Item Name', M.ModelName AS 'Model Name', L.Location AS 'Location', a.IDate as SDate, a.IDate, a.IssueQty" +
+                      ",(SELECT sum(Quantity) FROM dbo.INV_ItemReceive WHERE ModelID=a.ModelID) as TOTALRQty" +
+                      ",(SELECT SUM(b.IssueQty) FROM dbo.INV_ItemIssue b   WHERE CONVERT(DATE,b.IDate, 103) <= CONVERT(DATE,a.IDate, 103) AND b.ModelID=a.ModelID) as TOTALIQty" +
+                      ",((SELECT sum(Quantity) FROM dbo.INV_ItemReceive WHERE ModelID=a.ModelID)-(SELECT SUM(b.IssueQty) FROM dbo.INV_ItemIssue b   WHERE CONVERT(DATE,b.IDate, 103) <= CONVERT(DATE,a.IDate, 103) AND b.ModelID=a.ModelID)) as BalanceQty" +
+                      " FROM  dbo.INV_ItemIssue  a,  dbo.INV_Items I, dbo.INV_Models M, dbo.INV_Location L" +
+                      " WHERE (a.ItemID=I.ItemID AND A.ModelID=M.ModelID AND a.LocID=L.LocID) AND " +
+                      " convert(date,a.IDate,103)  >=convert(date, ('" + obj.StartDate + "'),103) AND convert(date,IDate,103)<=convert(date,('" + obj.EndDate + "'),103)" +
+                      " AND a.ItemID='" + obj.ItemID + "' and a.ModelID='" + obj.ModelID + "'" +
+                      " ORDER BY a.ModelID, CONVERT(DATE,a.IDate, 103) DESC";
+
           DbCommand dbCommand = db.GetSqlStringCommand(sql);
           DataSet ds = db.ExecuteDataSet(dbCommand);
           return ds.Tables[0];

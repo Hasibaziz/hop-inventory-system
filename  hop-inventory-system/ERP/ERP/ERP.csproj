@@ -518,6 +518,7 @@
     <Content Include="Views\Inventory\PrinterDetails.aspx" />
     <Content Include="Views\Inventory\PrinterView.aspx" />
     <Content Include="Views\Inventory\Receiveissue.aspx" />
+    <Content Include="Views\Inventory\Receiverpt.aspx" />
     <Content Include="Views\Inventory\ReportView.aspx" />
     <Content Include="Views\Inventory\ServerDetails.aspx" />
     <Content Include="Views\Inventory\Serverinfo.aspx" />
