@@ -2188,10 +2188,15 @@ namespace ERP.Controllers
             {
                 if (!ModelState.IsValid)
                 {
-                    return Json(new { Result = "ERROR", Message = "Form is not valid! Please correct it and try again." });
+                    //return Json(new { Result = "ERROR", Message = "Form is not valid! Please correct it and try again." });
+                    InvreceivenissueEntity RIEntity = new InvreceivenissueEntity();
+                    InvitemsEntity items = new InvitemsEntity();
+                    ViewData["ItemName"] = GetAllitemsName(items);
+                    Invlocation LocEntity = new Invlocation();
+                    ViewData["Location"] = GetLocation(LocEntity);
+                    return View(RIEntity);
                 }
-
-
+                
                 bool isUpdate = false;
                 if (_Model.RIssueID == null)
                 {
@@ -2697,6 +2702,10 @@ namespace ERP.Controllers
             ViewData["ItemName"] = GetAllitemsName(items);
             InvmodelEntity models = new InvmodelEntity();
             ViewData["ModelName"] = GetAllmodelsName(models);
+            Invlocation LocEntity = new Invlocation();
+            //LocEntity.Location = CurrentLocation;
+            //LocEntity.Userstatus = CurrentUserstatus;
+            ViewData["Location"] = GetLocation(LocEntity);
             return View();
         }
         [HttpPost]
@@ -2720,9 +2729,10 @@ namespace ERP.Controllers
                         {
                             ItemList.Add(new InvallstockEntity()
                             {
-                                SID = dr["SID"].ToString(),
+                               // SID = dr["SID"].ToString(),
                                 ModelID = dr["ModelID"].ToString(),
-                                ItemID = dr["ItemID"].ToString(),                              
+                                ItemID = dr["ItemID"].ToString(),
+                                LocID = dr["LocID"].ToString(), 
                                 SDate = dr["SDate"].ToString(),
                                 IDate = dr["IDate"].ToString(),
                                 IssueQty = dr["IssueQty"].ToString(),
@@ -2768,9 +2778,10 @@ namespace ERP.Controllers
                         {
                             ItemList.Add(new InvallstockEntity()
                             {
-                                SID = dr["SID"].ToString(),
+                                //SID = dr["SID"].ToString(),
                                 ModelID = dr["ModelID"].ToString(),
                                 ItemID = dr["ItemID"].ToString(),
+                                LocID = dr["LocID"].ToString(), 
                                 SDate = dr["SDate"].ToString(),
                                 IDate = dr["IDate"].ToString(),
                                 IssueQty = dr["IssueQty"].ToString(),
