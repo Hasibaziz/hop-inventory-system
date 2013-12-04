@@ -1,6 +1,6 @@
 USE [ITInventory]
 GO
-/****** Object:  StoredProcedure [dbo].[spGetstockinfoRecordByDate]    Script Date: 12/01/2013 12:26:30 ******/
+/****** Object:  StoredProcedure [dbo].[spGetstockinfoRecordByDate]    Script Date: 12/04/2013 11:53:12 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -24,46 +24,66 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	SELECT SID, ItemID, ModelID, convert(date,SDate,103) as SDate, IDate, IssueQty, TOTALRQty, TOTALIQty, BalanceQty FROM ITInventory.dbo.INV_Stock
-	WHERE (convert(date,SDate,103)>=convert(date, @StartDate,103))
-	--WHERE (SDate BETWEEN (@StartDate) AND (@EndDate))
-	--and ItemID=@ItemID and ModelID=@ModelID
-	ORDER BY convert(date, SDate,103) DESC
+	SELECT a.ItemID, a.ModelID, a.IDate as SDate, a.IDate, a.IssueQty
+       ,(SELECT sum(Quantity) FROM dbo.INV_ItemReceive WHERE ModelID=a.ModelID) as TOTALRQty
+       ,(SELECT SUM(b.IssueQty) FROM dbo.INV_ItemIssue b   WHERE CONVERT(DATE,b.IDate, 103) <= CONVERT(DATE,a.IDate, 103) AND b.ModelID=a.ModelID) as TOTALIQty
+       ,((SELECT sum(Quantity) FROM dbo.INV_ItemReceive WHERE ModelID=a.ModelID)-(SELECT SUM(b.IssueQty) FROM dbo.INV_ItemIssue b   WHERE CONVERT(DATE,b.IDate, 103) <= CONVERT(DATE,a.IDate, 103) AND b.ModelID=a.ModelID)) as BalanceQty
+    FROM  dbo.INV_ItemIssue  a 
+    WHERE convert(date,a.IDate,103)  >=convert(date,@StartDate,103) 
+    --AND convert(date,IDate,103)<=convert(date,@EndDate,103)
+    --AND a.ItemID=@ItemID and a.ModelID=@ModelID
+    ORDER BY a.ModelID, CONVERT(DATE,a.IDate, 103) DESC
 END
 ELSE IF ((@StartDate!=' ') and (@EndDate!=' ') and (@ItemID=' ') and (@ModelID=' '))
 BEGIN
-    SELECT SID, ItemID, ModelID, convert(date,SDate,103) as SDate, IDate, IssueQty, TOTALRQty, TOTALIQty, BalanceQty FROM ITInventory.dbo.INV_Stock
-	WHERE convert(date,SDate,103)  >=convert(date,@StartDate,103) AND convert(date,SDate,103)<=convert(date,@EndDate,103)
-	--and ItemID=@ItemID and ModelID=@ModelID
-	ORDER BY convert(date, SDate,103) DESC
+    SELECT a.ItemID, a.ModelID, a.IDate as SDate, a.IDate, a.IssueQty
+       ,(SELECT sum(Quantity) FROM dbo.INV_ItemReceive WHERE ModelID=a.ModelID) as TOTALRQty
+       ,(SELECT SUM(b.IssueQty) FROM dbo.INV_ItemIssue b   WHERE CONVERT(DATE,b.IDate, 103) <= CONVERT(DATE,a.IDate, 103) AND b.ModelID=a.ModelID) as TOTALIQty
+       ,((SELECT sum(Quantity) FROM dbo.INV_ItemReceive WHERE ModelID=a.ModelID)-(SELECT SUM(b.IssueQty) FROM dbo.INV_ItemIssue b   WHERE CONVERT(DATE,b.IDate, 103) <= CONVERT(DATE,a.IDate, 103) AND b.ModelID=a.ModelID)) as BalanceQty
+    FROM  dbo.INV_ItemIssue  a 
+    WHERE convert(date,a.IDate,103)  >=convert(date,@StartDate,103) AND convert(date,IDate,103)<=convert(date,@EndDate,103)
+    --AND a.ItemID=@ItemID and a.ModelID=@ModelID
+    ORDER BY a.ModelID, CONVERT(DATE,a.IDate, 103) DESC
 END
 ELSE IF ((@StartDate!=' ') and (@EndDate!=' ') and (@ItemID!=' ') and (@ModelID=' '))
 BEGIN
-    SELECT SID, ItemID, ModelID, convert(date,SDate,103) as SDate, IDate, IssueQty, TOTALRQty, TOTALIQty, BalanceQty FROM ITInventory.dbo.INV_Stock
-	WHERE convert(date,SDate,103)  >=convert(date,@StartDate,103) AND convert(date,SDate,103)<=convert(date,@EndDate,103)
-	and ItemID=@ItemID
-	--and ItemID=@ItemID and ModelID=@ModelID
-	ORDER BY convert(date, SDate,103) DESC
+    SELECT a.ItemID, a.ModelID, a.IDate as SDate, a.IDate, a.IssueQty
+       ,(SELECT sum(Quantity) FROM dbo.INV_ItemReceive WHERE ModelID=a.ModelID) as TOTALRQty
+       ,(SELECT SUM(b.IssueQty) FROM dbo.INV_ItemIssue b   WHERE CONVERT(DATE,b.IDate, 103) <= CONVERT(DATE,a.IDate, 103) AND b.ModelID=a.ModelID) as TOTALIQty
+       ,((SELECT sum(Quantity) FROM dbo.INV_ItemReceive WHERE ModelID=a.ModelID)-(SELECT SUM(b.IssueQty) FROM dbo.INV_ItemIssue b   WHERE CONVERT(DATE,b.IDate, 103) <= CONVERT(DATE,a.IDate, 103) AND b.ModelID=a.ModelID)) as BalanceQty
+    FROM  dbo.INV_ItemIssue  a 
+    WHERE convert(date,a.IDate,103)  >=convert(date,@StartDate,103) AND convert(date,IDate,103)<=convert(date,@EndDate,103)
+    AND a.ItemID=@ItemID 
+    --and a.ModelID=@ModelID
+    ORDER BY a.ModelID, CONVERT(DATE,a.IDate, 103) DESC
 END
 ELSE IF ((@StartDate=' ') and (@EndDate=' ') and (@ItemID=' ') and (@ModelID!=' '))
 BEGIN
-    SELECT SID, ItemID, ModelID, convert(date,SDate,103) as SDate, IDate, IssueQty, TOTALRQty, TOTALIQty, BalanceQty FROM ITInventory.dbo.INV_Stock
-	--WHERE (SDate BETWEEN (@StartDate) AND (@EndDate))
-	--and ItemID=@ItemID and ModelID=@ModelID
-	WHERE ModelID=@ModelID
-	ORDER BY convert(date, SDate,103) DESC
+    SELECT a.ItemID, a.ModelID, a.IDate as SDate, a.IDate, a.IssueQty
+       ,(SELECT sum(Quantity) FROM dbo.INV_ItemReceive WHERE ModelID=a.ModelID) as TOTALRQty
+       ,(SELECT SUM(b.IssueQty) FROM dbo.INV_ItemIssue b   WHERE CONVERT(DATE,b.IDate, 103) <= CONVERT(DATE,a.IDate, 103) AND b.ModelID=a.ModelID) as TOTALIQty
+       ,((SELECT sum(Quantity) FROM dbo.INV_ItemReceive WHERE ModelID=a.ModelID)-(SELECT SUM(b.IssueQty) FROM dbo.INV_ItemIssue b   WHERE CONVERT(DATE,b.IDate, 103) <= CONVERT(DATE,a.IDate, 103) AND b.ModelID=a.ModelID)) as BalanceQty
+    FROM  dbo.INV_ItemIssue  a 
+    WHERE a.ModelID=@ModelID
+    ORDER BY a.ModelID, CONVERT(DATE,a.IDate, 103) DESC
 END
 ELSE IF ((@StartDate!=' ') and (@EndDate!=' ') and (@ItemID!=' ') and (@ModelID!=' '))
 BEGIN
-    SELECT SID, ItemID, ModelID, convert(date,SDate,103) as SDate, IDate, IssueQty, TOTALRQty, TOTALIQty, BalanceQty FROM ITInventory.dbo.INV_Stock
-	WHERE convert(date,SDate,103)  >=convert(date,@StartDate,103) AND convert(date,SDate,103)<=convert(date,@EndDate,103)
-	and ItemID=@ItemID and ModelID=@ModelID
-	ORDER BY convert(date, SDate,103) DESC
+    SELECT a.ItemID, a.ModelID, a.IDate as SDate, a.IDate, a.IssueQty
+       ,(SELECT sum(Quantity) FROM dbo.INV_ItemReceive WHERE ModelID=a.ModelID) as TOTALRQty
+       ,(SELECT SUM(b.IssueQty) FROM dbo.INV_ItemIssue b   WHERE CONVERT(DATE,b.IDate, 103) <= CONVERT(DATE,a.IDate, 103) AND b.ModelID=a.ModelID) as TOTALIQty
+       ,((SELECT sum(Quantity) FROM dbo.INV_ItemReceive WHERE ModelID=a.ModelID)-(SELECT SUM(b.IssueQty) FROM dbo.INV_ItemIssue b   WHERE CONVERT(DATE,b.IDate, 103) <= CONVERT(DATE,a.IDate, 103) AND b.ModelID=a.ModelID)) as BalanceQty
+    FROM  dbo.INV_ItemIssue  a 
+    WHERE convert(date,a.IDate,103)  >=convert(date,@StartDate,103) AND convert(date,IDate,103)<=convert(date,@EndDate,103)
+    AND  a.ItemID=@ItemID and a.ModelID=@ModelID
+    ORDER BY a.ModelID, CONVERT(DATE,a.IDate, 103) DESC
 END
 ELSE
 BEGIN
-    SELECT SID, ItemID, ModelID, convert(date,SDate,103) as SDate, IDate, IssueQty, TOTALRQty, TOTALIQty, BalanceQty FROM ITInventory.dbo.INV_Stock
-	--WHERE (SDate BETWEEN (@StartDate) AND (@EndDate))
-	--and ItemID=@ItemID and ModelID=@ModelID
-	ORDER BY convert(date, SDate,103) DESC
+   SELECT a.ItemID, a.ModelID, a.IDate as SDate, a.IDate, a.IssueQty
+       ,(SELECT sum(Quantity) FROM dbo.INV_ItemReceive WHERE ModelID=a.ModelID) as TOTALRQty
+       , (SELECT SUM(b.IssueQty) FROM dbo.INV_ItemIssue b   WHERE CONVERT(DATE,b.IDate, 103) <= CONVERT(DATE,a.IDate, 103) AND b.ModelID=a.ModelID) as TOTALIQty
+       ,((SELECT sum(Quantity) FROM dbo.INV_ItemReceive WHERE ModelID=a.ModelID)-(SELECT SUM(b.IssueQty) FROM dbo.INV_ItemIssue b   WHERE CONVERT(DATE,b.IDate, 103) <= CONVERT(DATE,a.IDate, 103) AND b.ModelID=a.ModelID)) as BalanceQty
+   FROM  dbo.INV_ItemIssue  a 
+   ORDER BY a.ModelID, CONVERT(DATE,a.IDate, 103) DESC
 END
