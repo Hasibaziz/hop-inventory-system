@@ -111,60 +111,16 @@
 </div>
  
 </fieldset>
-<%--
-      <div class="editor-label01">
-            <label for="IssueDate">Issue Date:</label>
-        </div>
-        <div class="editor-field01">
-            <%: Html.EditorFor(model => model.IssueDate) %>
-            <%: Html.ValidationMessageFor(model => model.IssueDate) %>
-        </div>
+<% } %>
 
-        <div class="editor-label01">
-            <label for="ITRFNo">Ref.(ITRF No.):</label>
-        </div>
-        <div class="editor-field01">
-            <%: Html.EditorFor(model => model.ITRFNo) %>
-            <%: Html.ValidationMessageFor(model => model.ITRFNo) %>
-        </div>
-
-        <div class="editor-label01">
-            <label for="Location">Location:</label>
-        </div>
-        <div class="editor-field01">
-            <%: Html.DropDownListFor(m => m.Location, new SelectList(new[] { "HLNT", "HLAP", "HLBD", "HLRC", "HLWF", "HYBD" }), "Select")%>
-            <%: Html.ValidationMessageFor(model => model.Location) %>
-        </div>
-
-        <div class="editor-label01">
-            <label for="IssueQty">New Issue Quantity:</label>
-        </div>
-        <div class="editor-field01">
-            <%: Html.EditorFor(model => model.IssueQty)%>
-            <%: Html.ValidationMessageFor(model => model.IssueQty) %>
-        </div>
-
-        <div class="editor-label01">
-            <label for="NewbalanceQty">New Balance Quantity:</label>
-        </div>
-        <div class="editor-field01">
-            <%: Html.TextBoxFor(model => model.NewbalanceQty, new { @readonly = "readonly" })%>
-           <%-- <%: Html.TextBoxFor(model => model.NewbalanceQty, new { @readonly = "readonly", onfocus = "this.blur()" })%>           
-            <%: Html.ValidationMessageFor(model => model.NewbalanceQty)%>
-        </div>
-
-        <p>
-            <input type="submit" value="Save" />
-        </p>
-        <% } %>
- </fieldset>
-</div>--%>
 <%--//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////--%>
 
         <!-- ui-dialog -->
-
-<div id="dialog" title="Issue for Factory">
-   <div id="Div1" title="Factory Issue">
+<div id="validation">
+<% using (Html.BeginForm("Issueitems", "Inventory", FormMethod.Post, new { id = "Ajaxform" }))
+ {%>   
+  <div id="dialog" title="Issue for Factory">
+    <div id="Div1" title="Factory Issue">
     <%: Html.ValidationSummary(true) %> 
         
         <%--<div><span id="Asset" >Hello</span></div>--%>
@@ -174,37 +130,43 @@
         </div>
         <div class="editor-field01">
             <%--<%: Html.EditorFor(model => model.ReceiverName)%>--%>
-            <%: Html.DropDownListFor(m => m.ReceiverName, new SelectList(new[] { "Mahidul", "Nayan", "Rezwan", "Sakahawat", "Safiul", "Shaikat", "Wares" }), "Select Name")%>
+            <%: Html.DropDownListFor(m => m.ReceiverName, new SelectList(new[] { "Mahidul", "Nayan", "Rezwan", "Sakahawat", "Safiul", "Shaikat", "Wares" }), "Select Name", new { @onblur = "javascript:UserCheck(this, document.getElementById('Usermsg'))" })%>
             <%: Html.ValidationMessageFor(model => model.ReceiverName)%>
+            <span style="color:Red;" id="Usermsg" ></span>
         </div> 
         <div class="editor-label01">
             <label for="ITRFNo">Receiver Email:</label>
         </div>
         <div class="editor-field01">
-            <%: Html.EditorFor(model => model.ReceiverEmail)%>
+            <%: Html.DropDownListFor(m => m.ReceiverEmail, new SelectList(new[] { "mahidul@hoplunbd.com", "nayan@hoplunbd.com", "rezwan@hoplunbd.com", "sakahawat@hoplunbd.com", "safiul@hoplunbd.com", "shaikat@hoplunbd.com", "wares@hoplunbd.com" }), "Select Mail Address", new { @onblur = "javascript:MailCheck(this, document.getElementById('Mailmsg'))" })%>
+            <%--<%: Html.EditorFor(model => model.ReceiverEmail)%>--%>
             <%: Html.ValidationMessageFor(model => model.ReceiverEmail)%>
+            <span style="color:Red;" id="Mailmsg" ></span>
         </div> 
          <div class="editor-label01">
             <label for="ITRFNo">Transport No:</label>
         </div>
         <div class="editor-field01">
-            <%: Html.EditorFor(model => model.Transportno)%>
+            <%: Html.TextBoxFor(model => model.Transportno, new { @onblur = "javascript:TransCheck(this, document.getElementById('Message'))" })%>
             <%: Html.ValidationMessageFor(model => model.Transportno)%>
+            <span style="color:Red;" id="Message" ></span>
         </div>         
         <div class="editor-label01">
             <label for="IssueDate">Issue Date:</label>
         </div>
         <div class="editor-field01">
-            <%: Html.EditorFor(model => model.IssueDate) %>
+            <%: Html.TextBoxFor(model => model.IssueDate, new { @onblur = "javascript:IdateCheck(this, document.getElementById('Issuedatemsg'))" })%>
             <%: Html.ValidationMessageFor(model => model.IssueDate) %>
+            <span style="color:Red;" id="Issuedatemsg" ></span>
         </div>
         <div class="editor-label01">
             <label for="Location">Location:</label>
         </div>
         <div class="editor-field01">
-            <%: Html.DropDownListFor(m => m.LocID, (List<SelectListItem>)ViewData["Location"], "Location", new { @readonly = "true", @class = "Width=250" })%>
+            <%: Html.DropDownListFor(m => m.LocID, (List<SelectListItem>)ViewData["Location"], "Location", new { @onblur = "javascript:LocCheck(this, document.getElementById('Locmsg'))" })%>
             <%--<%: Html.DropDownListFor(m => m.Location, new SelectList(new[] { "HLNT", "HLAP", "HLBD", "HLRC", "HLWF", "HYBD" }), "Select")%>--%>
             <%: Html.ValidationMessageFor(model => model.LocID)%>
+            <span style="color:Red;" id="Locmsg" ></span>
         </div>
 
         <div class="editor-label01">
@@ -224,70 +186,12 @@
             <%: Html.ValidationMessageFor(model => model.NewbalanceQty)%>
         </div>
    </div>
-   <div style="color:Red;"><span id="Message" ></span></div>
+   <%--<div style="color:Red;"><span id="Message" ></span></div>--%>
  </div>
-<%--///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////--%>
-<%--<div id="dialogusers" title="Issue for Users">
-   <div id="Div3" title="Receive Item">
-    <%: Html.ValidationSummary(true) %>  
-        <div class="editor-label01">
-           <label for="ItemID">Item Name:</label>
-        </div>
-        <div class="editor-field01">
-            <%: Html.DropDownListFor(model => model.ItemID, (List<SelectListItem>)ViewData["ItemName"], "Select Item", new { @readonly = "true", @class = "Width=250" })%>
-            <%: Html.ValidationMessageFor(model => model.ItemID) %>
-        </div>
- 
-        <div class="editor-label01">
-           <label for="ModelID">Model Name:</label>
-        </div>
-        <div class="editor-field01">
-            <%--<%: Html.DropDownListFor(model => model.ModelID, (List<SelectListItem>)ViewData["ModelName"], "Select Model", new { @readonly = "true", @class = "Width=250" }) %>
-            <%: Html.DropDownListFor(model => model.ModelID, new SelectList(new[] { " " }),"Select Model") %>
-            <%: Html.ValidationMessageFor(model => model.ModelID) %>
-        </div>           
-         <div class="editor-label01">
-            <label for="ITRFNo">Employee ID:</label>
-        </div>
-        <div class="editor-field01">
-            <%: Html.EditorFor(model => model.EmpID) %>
-            <%: Html.ValidationMessageFor(model => model.EmpID)%>
-        </div>    
-         <div class="editor-label01">
-            <label for="ITRFNo">Department Name:</label>
-        </div>
-        <div class="editor-field01">
-            <%: Html.EditorFor(model => model.DeptID) %>
-            <%: Html.ValidationMessageFor(model => model.DeptID)%>
-        </div>      
-        <div class="editor-label01">
-            <label for="IssueDate">Issue Date:</label>
-        </div>
-        <div class="editor-field01">
-            <%: Html.EditorFor(model => model.IssueDate) %>
-            <%: Html.ValidationMessageFor(model => model.IssueDate) %>
-        </div>
-        <div class="editor-label01">
-            <label for="Location">Location:</label>
-        </div>
-        <div class="editor-field01">
-            <%: Html.DropDownListFor(m => m.Location, new SelectList(new[] { "HLNT", "HLAP", "HLBD", "HLRC", "HLWF", "HYBD" }), "Select")%>
-            <%: Html.ValidationMessageFor(model => model.Location) %>
-        </div>
-
-        <div class="editor-label01">
-            <label for="IssueQty">Issue Quantity:</label>
-        </div>
-        <div class="editor-field01">
-            <%: Html.EditorFor(model => model.IssueQty)%>
-            <%: Html.ValidationMessageFor(model => model.IssueQty) %>
-        </div>       
-   </div>
- </div>--%>
-
-<%--    <p><input type="submit" value="Save" /> </p>   --%> 
 <% } %>
-    
+</div>
+<%--///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////--%>
+
 <fieldset>
  <legend>Issue Entry</legend>
         <div style=" margin: 1em .5cm 0px .5cm;">
@@ -306,35 +210,13 @@
    
  <script type="text/javascript" language="javascript">
      $(document).ready(function () {
-         var name = $("#Message"),
-             email = $("#email");
-
-         function checkLength(o, n, min, max) {
-             if (o.val().length > max || o.val().length < min) {
-                 o.addClass("ui-state-error");
-                 updateTips("Length of " + n + " must be between " + min + " and " + max + ".");
-                 return false;
-             } else {
-                 return true;
-             }
-         }
-         function checkRegexp(o, regexp, n) {
-             if (!(regexp.test(o.val()))) {
-                 o.addClass("ui-state-error");
-                 updateTips(n);
-                 return false;
-             } else {
-                 return true;
-             }
-         }
-
-         // Dialog
+     // Dialog
          $('#dialog').dialog({
              autoOpen: false,
              width: 600,
              modal: true,
              buttons: {
-                 "Save": function () {                                     
+                 "Save": function () {
                      $.ajax({
                          type: 'POST',
                          //url: '@(Url.Action("Issueitems", "Inventory"))',  
@@ -351,7 +233,7 @@
                              Location: $("#Location").val(),
                              IssueQty: $("#IssueQty").val(),
                              NewbalanceQty: $("#NewbalanceQty").val(),
-                            
+
                              IDate: $("#IDate").val(),
                              ITRFNo: $("#ITRFNo").val(),
                              LocID: $("#LocID").val(),
@@ -360,29 +242,31 @@
                          success: function (Result) {
                              //$.validator.unobtrusive.parse("#{target}");                             
                              $('#Message').html("Save Successful");
-                             $('#dialog').dialog("close");   //For Closing POPUP Window
+                             //$('#dialog').dialog("close");   //For Closing POPUP Window
                              window.parent.location.href = window.parent.location.href; //For Refresh the Parent Form
-                             return false;
+                             // return false;
                              //$(target).html(response);
                              //                             $("#Message").hide().html('Record saved').fadeIn(300, function () {
                              //                                 var e = this;
                              //                                 setTimeout(function () { $(e).fadeOut(400); }, 2500);
                              //                             });                            
                              //////////////////////////////////////////////////////////////////////////////
-                         
+//                             $('#Ajaxform').html(data);
+//                             $.validator.unobtrusive.parse($("#validation"));
+//                             $.validator.unobtrusive.parse("#Ajaxform");
                              var bValid = true;
                              allFields.removeClass("ui-state-error");
-
-                             bValid = bValid && checkLength(name, "ReceiverName", 3, 16);
-                             bValid = bValid && checkLength(email, "ReceiverEmail", 6, 80);
-                             bValid = bValid && checkRegexp(name, /^[a-z]([0-9a-z_])+$/i, "Username may consist of a-z, 0-9, underscores, begin with a letter.");
+                            
+                             bValid = checkLength(ReceiverName, "ReceiverName", 3, 16);
+                             bValid = bValid && checkLength(ReceiverEmail, "ReceiverEmail", 6, 80);
+                             bValid = bValid && checkRegexp(ReceiverName, /^[a-z]([0-9a-z_])+$/i, "Username may consist of a-z, 0-9, underscores, begin with a letter.");
                              // From jquery.validate.js (by joern), contributed by Scott Gonzalez: http://projects.scottsplayground.com/email_address_validation/
-                             bValid = bValid && checkRegexp(email, /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i, "eg. ui@jquery.com");
-                             
+                             bValid = bValid && checkRegexp(ReceiverEmail, /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i, "eg. ui@jquery.com");
+
                              //$("#product").text($("#DropDownList1").val());   //Passing Dropdown List Value                           
-                                                        
+
                              if (bValid) {
-                                 $(this).dialog("close");
+                                 $('#dialog').dialog("close");
                              }
                              //////////////////////////////////////////////////////////////////////////////////
                          },
@@ -402,66 +286,73 @@
              $('#dialog').dialog('open');
              return false;
          });
-
      });
+     function UserCheck(inputField, helpText) {
+         if (inputField.value == "Select Name") {
+                 helpText.innerHTML = "Select User Name";
+                 return false;
+             }
+             else {
+                 if (helpText != null)
+                     helpText.innerHTML = "";
+                 return true;
+             }
+             return true;
+         }
+     function MailCheck(inputField, helpText) {
+         var mail = /^\w+@\w+\.\w{2,3}$/;
+         if (inputField.value == "Select Mail Address") {
+             helpText.innerHTML = "Email address is required";
+             return false;
+         }
+         else if (!mail.test(inputField.value)) {
+             helpText.innerHTML = "Please Select a valid email address";
+             return false;
+         }
+         else {
+             if (helpText != null)
+                 helpText.innerHTML = "";
+             return true;
+         }
+         return true;
+     }
 
-//     ////////////////////////////////////////////////// User Popup Windows//////////////////////////////////////////////////////
-//     $(document).ready(function () {
-//         // Dialog
-//         $('#dialogusers').dialog({
-//             autoOpen: false,
-//             width: 600,
-//             modal: true,
-//             buttons: {
-//                 "Save": function () {
-//                     $.ajax({
-//                         type: 'POST',
-//                         //url: '/Inventory/Issueitems',
-//                         // dataType: "json",
-//                         data: {
-//                             ItemID: $("#ItemID").val(),
-//                             ModelID: $("#ModelID").val(),
-//                             ReceiveQty: $("#ReceiveQty").val(),
-//                             IssueDate: $("#IssueDate").val(),
-//                             ITRFNo: $("#ITRFNo").val(),
-//                             Location: $("#Location").val(),
-//                             IssueQty: $("#IssueQty").val(),
-//                             NewbalanceQty: $("#NewbalanceQty").val(),
-
-//                             IDate: $("#IDate").val(),
-//                             ITRFNo: $("#ITRFNo").val(),
-//                             Location: $("#Location").val(),
-//                             IssueQty: $("#IssueQty").val()
-//                         },
-//                         success: function (data) {
-//                             $(this).dialog("close");
-//                         },
-//                         error: function (data) {
-//                             alert("Error " + data.Success);
-//                         }
-//                     });
-//                     return false;
-//                 },
-//                 "Cancel": function () {
-//                     $(this).dialog("close");
-//                 }
-//             }
-//         });
-//         // Dialog Link
-//         $('#dialoglink_users').click(function () {
-//             $('#dialogusers').dialog('open');
-//             return false;
-//         });
-
-//         //hover states on the static widgets
-//         //            $('#dialog_link, ul#icons li').hover(
-//         //				function () { $(this).addClass('ui-state-hover'); },
-//         //				function () { $(this).removeClass('ui-state-hover'); }
-//         //			);
-//     });
-
-
-
+     function TransCheck(inputField, helpText) {         
+         if (inputField.value == "") {
+             helpText.innerHTML = "Enter Transport No";
+             return false;
+         }         
+         else {
+             if (helpText != null)
+                 helpText.innerHTML = "";
+             return true;
+         }
+         return true;
+     }
+     function IdateCheck(inputField, helpText) {
+         if (inputField.value == "") {
+             helpText.innerHTML = "Select Issue Date";
+             return false;
+         }
+         else {
+             if (helpText != null)
+                 helpText.innerHTML = "";
+             return true;
+         }
+         return true;
+     }
+  function LocCheck(inputField, helpText) {
+      if (inputField.value == "Location") {
+             helpText.innerHTML = "Enter Location";
+             return false;
+         }
+         else {
+             if (helpText != null)
+                 helpText.innerHTML = "";
+             return true;
+         }
+         return true;
+     }
 </script>
 
 <%--////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////--%>

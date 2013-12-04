@@ -40,3 +40,8 @@ D:\HOP\ERP\ERP.Domain\bin\Debug\NHibernate.dll
 D:\HOP\ERP\ERP.Domain\obj\Debug\ResolveAssemblyReference.cache
 D:\HOP\ERP\ERP.Domain\obj\Debug\ERP.Domain.dll
 D:\HOP\ERP\ERP.Domain\obj\Debug\ERP.Domain.pdb
+E:\ITInventory\ERP\ERP.Domain\bin\Debug\ERP.Domain.dll
+E:\ITInventory\ERP\ERP.Domain\bin\Debug\ERP.Domain.pdb
+E:\ITInventory\ERP\ERP.Domain\obj\Debug\ResolveAssemblyReference.cache
+E:\ITInventory\ERP\ERP.Domain\obj\Debug\ERP.Domain.dll
+E:\ITInventory\ERP\ERP.Domain\obj\Debug\ERP.Domain.pdb

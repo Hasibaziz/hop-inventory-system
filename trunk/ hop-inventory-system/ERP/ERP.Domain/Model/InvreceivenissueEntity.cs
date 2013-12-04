@@ -35,6 +35,8 @@ namespace ERP.Domain.Model
             set;
             get;
         }
+        [Required(ErrorMessage = "{0} is required!")]
+        [Display(Name = "Receiver Name ")]
         public string ReceiverName
         {
             set;

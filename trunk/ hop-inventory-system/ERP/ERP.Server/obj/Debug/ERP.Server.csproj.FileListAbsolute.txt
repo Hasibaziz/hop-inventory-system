@@ -58,3 +58,10 @@ D:\HOP\ERP\ERP.Server\bin\Debug\ERP.Domain.pdb
 D:\HOP\ERP\ERP.Server\obj\Debug\ResolveAssemblyReference.cache
 D:\HOP\ERP\ERP.Server\obj\Debug\ERP.Server.dll
 D:\HOP\ERP\ERP.Server\obj\Debug\ERP.Server.pdb
+E:\ITInventory\ERP\ERP.Server\bin\Debug\ERP.Server.dll
+E:\ITInventory\ERP\ERP.Server\bin\Debug\ERP.Server.pdb
+E:\ITInventory\ERP\ERP.Server\bin\Debug\ERP.Domain.dll
+E:\ITInventory\ERP\ERP.Server\bin\Debug\ERP.Domain.pdb
+E:\ITInventory\ERP\ERP.Server\obj\Debug\ResolveAssemblyReference.cache
+E:\ITInventory\ERP\ERP.Server\obj\Debug\ERP.Server.dll
+E:\ITInventory\ERP\ERP.Server\obj\Debug\ERP.Server.pdb
