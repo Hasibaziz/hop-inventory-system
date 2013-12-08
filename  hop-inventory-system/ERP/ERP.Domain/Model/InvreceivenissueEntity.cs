@@ -42,7 +42,10 @@ namespace ERP.Domain.Model
             set;
             get;
         }
+       
+        [RegularExpression(@"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$", ErrorMessage = "Please enter a valid e-mail adress")]
         [Required(ErrorMessage = "{0} is required!")]
+        [DataType(DataType.EmailAddress)]
         [Display(Name = "Email Address")]
         public string ReceiverEmail
         {

@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <publishData>
   <publishProfile publishUrl="E:\Invent" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FileSystem" replaceMatchingFiles="True" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="Content/styles.css" publishTime="11/24/2013 12:31:21" />
     <file relUrl="Views/Users/Locationinfo.aspx" publishTime="11/24/2013 12:19:39" />
     <file relUrl="Content/images/Themes/Menu/Sitefinity.png" publishTime="11/24/2013 12:30:32" />
     <file relUrl="Content/Common/Icons/page_white_text.png" publishTime="11/24/2013 12:27:16" />
@@ -17,22 +18,23 @@
     <file relUrl="Content/images/Slideimg/Img05.jpg" publishTime="11/24/2013 12:30:48" />
     <file relUrl="Scripts/uiDialog/jquery.effects.core.js" publishTime="11/24/2013 12:25:47" />
     <file relUrl="Content/images/ui-bg_glass_75_d0e5f5_1x400.png" publishTime="11/24/2013 12:31:11" />
+    <file relUrl="Content/images/Themes/purple.png" publishTime="11/24/2013 12:30:36" />
     <file relUrl="Views/Inventory/InventoryDetails.aspx" publishTime="11/24/2013 12:19:38" />
     <file relUrl="Views/Inventory/Leaveinfo.aspx" publishTime="11/24/2013 12:19:38" />
     <file relUrl="Content/themes/redmond/images/ui-bg_glass_85_dfeffc_1x400.png" publishTime="01/26/2012 18:17:12" />
     <file relUrl="UploadedImages/HomePageSliders/16_9/1440/Laptop.jpg" publishTime="11/24/2013 12:18:30" />
     <file relUrl="Scripts/jtable/themes/standard/green/title-bg.png" publishTime="11/24/2013 12:25:49" />
     <file relUrl="Content/images/warnings-cross.png" publishTime="11/24/2013 12:31:11" />
+    <file relUrl="Content/images/ui-icons_6da8d5_256x240.png" publishTime="11/24/2013 12:31:11" />
     <file relUrl="Content/Common/Icons/folder.png" publishTime="11/24/2013 12:27:35" />
     <file relUrl="Content/images/ico-content.png" publishTime="11/24/2013 12:31:11" />
-    <file relUrl="Content/Common/Icons/Suites/Onlineups.png" publishTime="11/24/2013 12:27:33" />
     <file relUrl="Content/Treview/screen.css" publishTime="11/24/2013 12:27:15" />
     <file relUrl="Content/images/ui-bg_gloss-wave_55_5c9ccc_500x100.png" publishTime="11/24/2013 12:30:48" />
     <file relUrl="Content/highlight.css" publishTime="11/24/2013 12:30:21" />
     <file relUrl="Content/images/GoogleMaps.gif" publishTime="11/24/2013 12:31:11" />
     <file relUrl="Scripts/MicrosoftMvcAjax.js" publishTime="11/24/2013 12:26:07" />
     <file relUrl="Views/Shared/ModuleHeader/DashBordHeader.ascx" publishTime="11/24/2013 12:19:40" />
-    <file relUrl="Content/themes/redmond/images/ui-bg_flat_0_aaaaaa_40x100.png" publishTime="01/26/2012 18:17:12" />
+    <file relUrl="Content/Common/Icons/Suites/Onlineups.png" publishTime="11/24/2013 12:27:33" />
     <file relUrl="Content/Common/Icons/Mvc/Grid.png" publishTime="11/24/2013 12:27:17" />
     <file relUrl="Scripts/uiDialog/jquery.effects.fade.js" publishTime="11/24/2013 12:25:47" />
     <file relUrl="Content/images/ico-blacklist.png" publishTime="11/24/2013 12:31:11" />
@@ -41,6 +43,8 @@
     <file relUrl="Views/Inventory/_Additemreceive.ascx" publishTime="11/24/2013 12:19:38" />
     <file relUrl="Scripts/jtable/themes/empty/jtable_empty.css" publishTime="11/24/2013 12:25:50" />
     <file relUrl="Scripts/validationEngine/validationEngine.jquery.css" publishTime="11/24/2013 12:25:59" />
+    <file relUrl="Scripts/jtable/themes/standard/blue/jtable_blue.css" publishTime="11/24/2013 12:25:49" />
+    <file relUrl="Views/Updusers/Stockinfo.aspx" publishTime="12/04/2013 15:20:19" />
     <file relUrl="Content/images/excel.jpg" publishTime="11/24/2013 12:30:32" />
     <file relUrl="Views/Upddevices/Locationinfo.aspx" publishTime="11/24/2013 12:19:34" />
     <file relUrl="Scripts/jtable/external/json2.js" publishTime="11/24/2013 12:25:48" />
@@ -48,23 +52,21 @@
     <file relUrl="Content/telerik.examples.min.css" publishTime="11/24/2013 12:31:21" />
     <file relUrl="Views/Shared/OPEX.Master" publishTime="11/24/2013 12:19:39" />
     <file relUrl="Content/images/Themes/Menu/Windows7.png" publishTime="11/24/2013 12:30:32" />
-    <file relUrl="Content/Common/Icons/Sl/GridView.gif" publishTime="11/24/2013 12:27:34" />
     <file relUrl="Content/images/admin-menu-bg.gif" publishTime="11/24/2013 12:31:11" />
     <file relUrl="Content/Common/Icons/Computer/monitor24.png" publishTime="11/24/2013 12:27:35" />
     <file relUrl="Content/themes/base/jquery.ui.tabs.css" publishTime="11/24/2013 12:27:14" />
     <file relUrl="Content/images/Misc/note.png" publishTime="11/24/2013 12:30:21" />
-    <file relUrl="Content/jquery-ui-1.8.16.custom.css" publishTime="11/24/2013 12:31:21" />
     <file relUrl="Scripts/jtable/themes/standard/green/header-bg.gif" publishTime="11/24/2013 12:25:49" />
     <file relUrl="Content/images/ico-stat1.gif" publishTime="01/20/2012 13:55:32" />
     <file relUrl="Content/images/ui-bg_glass_85_dfeffc_1x400.png" publishTime="11/24/2013 12:30:21" />
     <file relUrl="Scripts/MicrosoftAjax.debug.js" publishTime="11/24/2013 12:25:59" />
-    <file relUrl="Content/images/ui-icons_2e83ff_256x240.png" publishTime="01/20/2012 13:55:32" />
     <file relUrl="Content/images/ui-icons_217bc0_256x240.png" publishTime="11/24/2013 12:31:11" />
-    <file relUrl="Scripts/syntaxhighligher/styles/shCore.css" publishTime="01/26/2012 18:10:00" />
-    <file relUrl="Scripts/jquery.cycle.all.js" publishTime="11/24/2013 12:26:07" />
+    <file relUrl="Content/images/Misc/phone.png" publishTime="11/24/2013 12:30:21" />
+    <file relUrl="Content/Treview/images/minus.gif" publishTime="11/24/2013 12:27:15" />
     <file relUrl="Content/TopMenu/Images/pointer.gif" publishTime="11/24/2013 12:27:15" />
     <file relUrl="Views/Devices/LaptopDetails.aspx" publishTime="11/24/2013 12:19:34" />
     <file relUrl="Content/themes/redmond/images/ui-bg_inset-hard_100_fcfdfd_1x100.png" publishTime="01/26/2012 18:17:12" />
+    <file relUrl="Content/Common/Icons/Suites/win.png" publishTime="11/24/2013 12:27:33" />
     <file relUrl="Scripts/jquery-1.5.1.min.js" publishTime="11/24/2013 12:25:59" />
     <file relUrl="Scripts/modernizr-1.7.min.js" publishTime="11/24/2013 12:26:07" />
     <file relUrl="Views/Upddevices/PCDetails.aspx" publishTime="11/24/2013 12:19:34" />
@@ -76,11 +78,12 @@
     <file relUrl="Content/themes/base/images/ui-bg_flat_75_ffffff_40x100.png" publishTime="11/24/2013 12:27:13" />
     <file relUrl="Content/themes/redmond/jquery-ui-1.8.16.custom.css" publishTime="01/26/2012 18:17:12" />
     <file relUrl="Views/Inventory/DeviceName.aspx" publishTime="11/24/2013 12:19:38" />
+    <file relUrl="Views/Upddevices/Index.aspx" publishTime="11/24/2013 12:19:34" />
     <file relUrl="Views/Inventory/Inventory.aspx" publishTime="11/24/2013 12:19:38" />
     <file relUrl="Content/Treview/images/folder-closed.gif" publishTime="11/24/2013 12:27:15" />
     <file relUrl="Content/images/Icon48.png" publishTime="01/07/2013 14:23:48" />
-    <file relUrl="Views/Inventory/Stockinfo.aspx" publishTime="12/04/2013 15:20:20" />
-    <file relUrl="Views/Inventory/ReportView.aspx" publishTime="11/24/2013 12:19:38" />
+    <file relUrl="Scripts/jtable/themes/standard/jtable_standard_base.css" publishTime="11/24/2013 12:25:49" />
+    <file relUrl="Content/images/Themes/red.png" publishTime="11/24/2013 12:30:37" />
     <file relUrl="Content/themes/base/jquery.ui.dialog.css" publishTime="11/24/2013 12:27:13" />
     <file relUrl="Scripts/telerik.menu.js" publishTime="11/24/2013 12:26:07" />
     <file relUrl="Scripts/jquery.validate-vsdoc.js" publishTime="11/24/2013 12:26:07" />
@@ -90,27 +93,30 @@
     <file relUrl="Content/images/ico-catalog.png" publishTime="11/24/2013 12:31:11" />
     <file relUrl="Views/Inventory/Serverinfo.aspx" publishTime="11/24/2013 12:19:38" />
     <file relUrl="Views/Inventory/ServerDetails.aspx" publishTime="11/24/2013 12:19:38" />
-    <file relUrl="Scripts/Treview/jquery.js" publishTime="11/24/2013 12:25:34" />
+    <file relUrl="Content/Treview/images/treeview-gray-line.gif" publishTime="11/24/2013 12:27:15" />
     <file relUrl="Scripts/syntaxhighligher/shBrushXml.js" publishTime="11/24/2013 12:26:01" />
     <file relUrl="Content/Treview/images/treeview-black-line.gif" publishTime="11/24/2013 12:27:15" />
+    <file relUrl="Scripts/jquery-ui-1.8.16.custom.min.js" publishTime="11/24/2013 12:25:47" />
     <file relUrl="Content/themes/redmond/images/ui-icons_d8e7f3_256x240.png" publishTime="01/26/2012 18:17:12" />
-    <file relUrl="Views/Shared/ModuleMenu/UsersMenu.ascx" publishTime="11/24/2013 12:19:39" />
     <file relUrl="Content/images/Themes/Menu/Telerik.png" publishTime="11/24/2013 12:30:32" />
-    <file relUrl="Scripts/MicrosoftMvcValidation.debug.js" publishTime="11/24/2013 12:25:47" />
     <file relUrl="Views/Inventory/Machineinfo.aspx" publishTime="11/24/2013 12:19:38" />
     <file relUrl="Content/Common/Icons/Computer/laptop.png" publishTime="11/24/2013 12:27:35" />
     <file relUrl="Scripts/MicrosoftMvcAjax.debug.js" publishTime="11/24/2013 12:25:34" />
+    <file relUrl="Views/Helps/Locationinfo.aspx" publishTime="11/24/2013 12:19:42" />
     <file relUrl="Views/Inventory/IdleEntry.aspx" publishTime="11/24/2013 12:19:38" />
     <file relUrl="Views/Sales/LeftMenu.ascx" publishTime="11/24/2013 12:19:40" />
+    <file relUrl="Content/themes/base/jquery.ui.accordion.css" publishTime="11/24/2013 12:27:13" />
     <file relUrl="Content/Common/Icons/Mvc/PanelBar.png" publishTime="11/24/2013 12:27:17" />
+    <file relUrl="Content/themes/base/images/ui-bg_glass_75_e6e6e6_1x400.png" publishTime="11/24/2013 12:27:13" />
     <file relUrl="Content/DashboardStyle.css" publishTime="11/24/2013 12:31:35" />
     <file relUrl="Views/Shared/ModuleMenu/TelerikMenu.ascx" publishTime="12/02/2013 09:05:53" />
     <file relUrl="Content/images/ui-bg_flat_55_fbec88_40x100.png" publishTime="01/20/2012 13:55:32" />
     <file relUrl="Views/Inventory/AddFloor.aspx" publishTime="11/24/2013 12:19:38" />
     <file relUrl="Views/Inventory/Getpassissue.aspx" publishTime="11/24/2013 12:19:38" />
     <file relUrl="Views/Inventory/EmployeeInfo.aspx" publishTime="11/24/2013 12:19:38" />
+    <file relUrl="Content/Vista/slider-v.gif" publishTime="11/24/2013 12:31:21" />
+    <file relUrl="Views/Devices/Newequipment.aspx" publishTime="11/24/2013 12:19:34" />
     <file relUrl="Content/Treview/images/treeview-red-line.gif" publishTime="11/24/2013 12:27:15" />
-    <file relUrl="Content/Treview/images/treeview-black.gif" publishTime="11/24/2013 12:27:15" />
     <file relUrl="Content/images/Themes/blue.png" publishTime="11/24/2013 12:30:36" />
     <file relUrl="Views/Users/Index.aspx" publishTime="11/24/2013 12:19:39" />
     <file relUrl="Content/Common/Icons/Ajax/Scheduler.png" publishTime="11/24/2013 12:27:16" />
@@ -132,18 +138,15 @@
     <file relUrl="bin/NHibernate.dll" publishTime="11/24/2013 12:34:18" />
     <file relUrl="Views/Shared/ModuleMenu/Menu.ascx" publishTime="11/24/2013 12:19:39" />
     <file relUrl="Views/Opex/Index.aspx" publishTime="11/24/2013 12:19:42" />
-    <file relUrl="Scripts/jtable/external/json2.min.js" publishTime="11/24/2013 12:25:48" />
     <file relUrl="Content/Common/Icons/wave.png" publishTime="11/24/2013 12:27:33" />
     <file relUrl="Content/themes/redmond/images/ui-icons_2e83ff_256x240.png" publishTime="01/26/2012 18:17:12" />
-    <file relUrl="UploadedImages/HomePageSliders/16_9/1440/Computer01.jpg" publishTime="11/24/2013 12:18:30" />
     <file relUrl="bin/Iesi.Collections.dll" publishTime="11/24/2013 12:34:18" />
     <file relUrl="Content/images/admin-gvw-bg.gif" publishTime="11/24/2013 12:30:21" />
     <file relUrl="Content/themes/base/images/ui-icons_454545_256x240.png" publishTime="11/24/2013 12:27:13" />
     <file relUrl="Content/themes/redmond/images/ui-bg_flat_55_fbec88_40x100.png" publishTime="01/26/2012 18:17:12" />
+    <file relUrl="Views/Configuration/NewServiceDetails.aspx" publishTime="11/24/2013 12:19:40" />
     <file relUrl="Scripts/validationEngine/jquery.validationEngine-en.js" publishTime="11/24/2013 12:25:59" />
-    <file relUrl="bin/Microsoft.Practices.EnterpriseLibrary.Data.dll" publishTime="11/24/2013 12:33:21" />
     <file relUrl="Scripts/jtable/jquery.jtable.js" publishTime="11/24/2013 12:25:51" />
-    <file relUrl="Content/images/Themes/Menu/WebBlue.png" publishTime="11/24/2013 12:30:32" />
     <file relUrl="Content/images/spinner.gif" publishTime="01/20/2012 13:55:32" />
     <file relUrl="Content/Treview/images/ajax-loader.gif" publishTime="11/24/2013 12:27:15" />
     <file relUrl="Content/Common/Icons/Computer/monitor.png" publishTime="11/24/2013 12:27:35" />
@@ -152,31 +155,31 @@
     <file relUrl="Content/Common.css" publishTime="11/24/2013 12:31:21" />
     <file relUrl="Views/Updusers/Laptopinfo.aspx" publishTime="11/24/2013 12:19:42" />
     <file relUrl="Content/themes/base/jquery.ui.slider.css" publishTime="11/24/2013 12:27:13" />
-    <file relUrl="Views/Upddevices/Index.aspx" publishTime="11/24/2013 12:19:34" />
+    <file relUrl="Content/images/grey_button_bg.gif" publishTime="11/24/2013 12:31:11" />
     <file relUrl="Global.asax" publishTime="11/24/2013 12:26:17" />
+    <file relUrl="Content/themes/redmond/images/ui-bg_gloss-wave_55_5c9ccc_500x100.png" publishTime="01/26/2012 18:17:12" />
     <file relUrl="Content/themes/base/jquery.ui.all.css" publishTime="11/24/2013 12:27:14" />
     <file relUrl="Views/Inventory/Updateuserinfo.aspx" publishTime="11/24/2013 12:19:38" />
-    <file relUrl="Content/themes/base/jquery.ui.resizable.css" publishTime="11/24/2013 12:27:13" />
     <file relUrl="Views/Inventory/Additems.aspx" publishTime="11/24/2013 12:19:38" />
     <file relUrl="Content/Common/Icons/Suites/Multi.png" publishTime="11/24/2013 12:27:34" />
-    <file relUrl="bin/ERP.Domain.dll" publishTime="12/04/2013 15:20:21" />
+    <file relUrl="bin/ERP.Domain.dll" publishTime="12/07/2013 11:22:28" />
     <file relUrl="Views/Inventory/Equipmentinfo.aspx" publishTime="11/24/2013 12:19:38" />
     <file relUrl="Views/Web.config" publishTime="11/24/2013 12:19:34" />
     <file relUrl="UploadedImages/HomePageSliders/16_9/1440/Computer02.jpg" publishTime="11/24/2013 12:18:30" />
-    <file relUrl="Content/images/warnings-ajax-loader.gif" publishTime="11/24/2013 12:31:11" />
     <file relUrl="Content/Common/Icons/Computer/server.png" publishTime="11/24/2013 12:27:35" />
     <file relUrl="Views/Report/Index.aspx" publishTime="11/24/2013 12:19:42" />
     <file relUrl="Scripts/jtable/themes/standard/blue/loading.gif" publishTime="11/24/2013 12:25:49" />
     <file relUrl="Views/Report/ReportView.aspx" publishTime="11/24/2013 12:19:42" />
     <file relUrl="Content/images/tab-line.png" publishTime="11/24/2013 12:31:11" />
+    <file relUrl="Content/images/Themes/green.png" publishTime="11/24/2013 12:30:32" />
     <file relUrl="Scripts/SimpleDialog/jquery.simpledialog.js" publishTime="11/24/2013 12:26:07" />
     <file relUrl="Scripts/telerik.common.js" publishTime="11/24/2013 12:25:48" />
+    <file relUrl="Scripts/Treview/jquery.js" publishTime="11/24/2013 12:25:34" />
     <file relUrl="Views/AssignJob/Index.aspx" publishTime="11/24/2013 12:19:33" />
-    <file relUrl="Scripts/modernizr-1.7.js" publishTime="11/24/2013 12:26:07" />
+    <file relUrl="Scripts/jquery.validate.unobtrusive.js" publishTime="11/24/2013 12:25:59" />
     <file relUrl="Views/Inventory/Floorinfo.aspx" publishTime="11/24/2013 12:19:38" />
-    <file relUrl="EmailTemplates/Common.Html" publishTime="11/24/2013 12:27:03" />
     <file relUrl="Content/themes/redmond/images/ui-icons_cd0a0a_256x240.png" publishTime="01/26/2012 18:17:12" />
-    <file relUrl="Scripts/jtable/themes/standard/column-sortable.png" publishTime="11/24/2013 12:25:49" />
+    <file relUrl="Content/Loginstyle.css" publishTime="11/24/2013 12:31:21" />
     <file relUrl="Content/Common/Icons/edit.png" publishTime="11/24/2013 12:27:33" />
     <file relUrl="Views/Inventory/Country.aspx" publishTime="11/24/2013 12:19:38" />
     <file relUrl="Views/Updusers/FTYStock.aspx" publishTime="11/24/2013 12:19:42" />
@@ -188,10 +191,10 @@
     <file relUrl="Views/Inventory/Serviceinfo.aspx" publishTime="11/24/2013 12:19:38" />
     <file relUrl="Views/Home/Index.aspx" publishTime="11/24/2013 12:19:34" />
     <file relUrl="Views/Helps/Index.aspx" publishTime="11/24/2013 12:19:42" />
+    <file relUrl="Content/images/ico-help.gif" publishTime="11/24/2013 12:31:11" />
     <file relUrl="Scripts/jtable/themes/standard/green/jtable_green.css" publishTime="11/24/2013 12:25:49" />
-    <file relUrl="bin/ERP.Server.dll" publishTime="12/04/2013 15:20:21" />
+    <file relUrl="bin/ERP.Server.dll" publishTime="12/07/2013 11:22:28" />
     <file relUrl="Content/images/1pix.gif" publishTime="11/24/2013 12:30:21" />
-    <file relUrl="Content/images/ico-configuration.png" publishTime="11/24/2013 12:31:11" />
     <file relUrl="Content/TopMenu/menu.css" publishTime="11/24/2013 12:27:15" />
     <file relUrl="Reports/WebForm1.aspx" publishTime="11/24/2013 12:26:17" />
     <file relUrl="Views/Sales/Index.aspx" publishTime="11/24/2013 12:19:40" />
@@ -200,13 +203,15 @@
     <file relUrl="Scripts/jquery-ui-1.8.11.min.js" publishTime="11/24/2013 12:25:59" />
     <file relUrl="Views/Inventory/InventoryDetailsView.aspx" publishTime="11/24/2013 12:19:38" />
     <file relUrl="Scripts/uiDialog/jquery-ui-1.8.custom.min.js" publishTime="11/24/2013 12:25:47" />
-    <file relUrl="Scripts/jtable/extensions/jquery.jtable.aspnetpagemethods.min.js" publishTime="11/24/2013 12:25:48" />
+    <file relUrl="Content/images/Themes/Menu/Default.png" publishTime="11/24/2013 12:30:32" />
     <file relUrl="Content/images/ErrorMessage.gif" publishTime="11/24/2013 12:31:11" />
-    <file relUrl="Views/Inventory/Lineinfo.aspx" publishTime="11/24/2013 12:19:38" />
+    <file relUrl="Content/images/Themes/Menu/Forest.png" publishTime="11/24/2013 12:30:32" />
     <file relUrl="Content/images/Slideimg/Img01.jpg" publishTime="11/24/2013 12:30:48" />
-    <file relUrl="Content/images/ui-icons_cd0a0a_256x240.png" publishTime="11/24/2013 12:30:21" />
+    <file relUrl="Scripts/jtable/themes/standard/red/title-bg.png" publishTime="11/24/2013 12:25:49" />
     <file relUrl="Content/jquery-ui-1.8.9.custom.css" publishTime="11/24/2013 12:31:35" />
     <file relUrl="Content/images/ico-help.png" publishTime="11/24/2013 12:31:11" />
+    <file relUrl="Scripts/jquery.cycle.all.js" publishTime="11/24/2013 12:26:07" />
+    <file relUrl="Content/images/ico-promotions.png" publishTime="11/24/2013 12:31:11" />
     <file relUrl="Content/images/Themes/Menu/Office2007.png" publishTime="11/24/2013 12:30:32" />
     <file relUrl="Views/Updusers/Receiveissue.aspx" publishTime="11/24/2013 12:19:42" />
     <file relUrl="Content/Common/Icons/Suites/pc.png" publishTime="11/24/2013 12:27:33" />
@@ -214,20 +219,23 @@
     <file relUrl="Scripts/jquery.unobtrusive-ajax.min.js" publishTime="11/24/2013 12:26:00" />
     <file relUrl="bin/EntityFramework.dll" publishTime="11/24/2013 12:36:17" />
     <file relUrl="Content/Common/Icons/Suites/Switch.png" publishTime="11/24/2013 12:27:33" />
+    <file relUrl="Scripts/jtable/themes/standard/green/loading.gif" publishTime="11/24/2013 12:25:49" />
     <file relUrl="Scripts/telerik.examples.min.js" publishTime="11/24/2013 12:26:07" />
+    <file relUrl="Views/Inventory/ReportView.aspx" publishTime="11/24/2013 12:19:38" />
     <file relUrl="Content/images/FooterBg.png" publishTime="11/24/2013 12:30:21" />
     <file relUrl="UploadedImages/HomePageSliders/16_9/1440/Computer.jpg" publishTime="11/24/2013 12:18:30" />
-    <file relUrl="Content/Treview/images/treeview-gray-line.gif" publishTime="11/24/2013 12:27:15" />
+    <file relUrl="Scripts/jquery-1.5.1-vsdoc.js" publishTime="11/24/2013 12:26:07" />
     <file relUrl="Content/images/Themes/Menu/Transparent.png" publishTime="11/24/2013 12:30:32" />
-    <file relUrl="Content/images/grey_button_bg.gif" publishTime="11/24/2013 12:31:11" />
     <file relUrl="Scripts/jquery-1.5.1.js" publishTime="11/24/2013 12:25:47" />
     <file relUrl="Content/Vista/editor.png" publishTime="11/24/2013 12:31:21" />
     <file relUrl="Views/Inventory/Userissue.aspx" publishTime="11/24/2013 12:19:38" />
     <file relUrl="Content/images/warnings-warning.png" publishTime="11/24/2013 12:31:11" />
     <file relUrl="Views/Shared/Footer.ascx" publishTime="11/24/2013 12:19:40" />
+    <file relUrl="Views/Devices/MonitorInfo.aspx" publishTime="11/24/2013 12:19:34" />
     <file relUrl="Scripts/jtable/themes/standard/delete.png" publishTime="11/24/2013 12:25:49" />
-    <file relUrl="Views/Shared/ModuleMenu/TUpdusersMenu.ascx" publishTime="11/24/2013 12:19:39" />
+    <file relUrl="Scripts/jtable/extensions/jquery.jtable.aspnetpagemethods.min.js" publishTime="11/24/2013 12:25:48" />
     <file relUrl="bin/hibernate.cfg.xml" publishTime="11/24/2013 12:26:17" />
+    <file relUrl="Scripts/jtable/themes/standard/red/jtable_red.css" publishTime="11/24/2013 12:25:49" />
     <file relUrl="Views/Inventory/INVLeftMenu.ascx" publishTime="11/24/2013 12:19:38" />
     <file relUrl="Views/Shared/ModuleMenu/TOPEXMenu.ascx" publishTime="11/24/2013 12:19:39" />
     <file relUrl="Views/Inventory/Usercreateinfo.aspx" publishTime="11/24/2013 12:19:38" />
@@ -239,32 +247,27 @@
     <file relUrl="UploadedImages/HomePageSliders/16_9/1440/Toner.jpg" publishTime="11/24/2013 12:18:30" />
     <file relUrl="Content/TopMenu/Images/arrow.gif" publishTime="11/24/2013 12:27:15" />
     <file relUrl="Views/Home/BarCodeGen.aspx" publishTime="11/24/2013 12:19:34" />
-    <file relUrl="bin/ERP.pdb" publishTime="12/04/2013 15:20:23" />
     <file relUrl="Scripts/jtable/themes/standard/red/header-bg.gif" publishTime="11/24/2013 12:25:49" />
     <file relUrl="Content/Common/Icons/Computer/print.png" publishTime="11/24/2013 12:27:35" />
-    <file relUrl="Views/Updusers/Additemreceive.aspx" publishTime="11/24/2013 12:19:42" />
-    <file relUrl="Content/Common/Icons/Mvc/pc.png" publishTime="11/24/2013 12:27:17" />
-    <file relUrl="bin/ERP.Structure.dll" publishTime="12/04/2013 15:20:22" />
+    <file relUrl="Content/images/Themes/Menu/Hay.png" publishTime="11/24/2013 12:30:32" />
+    <file relUrl="Views/Account/Login.aspx" publishTime="12/05/2013 15:45:55" />
+    <file relUrl="bin/ERP.Structure.dll" publishTime="12/07/2013 11:22:29" />
     <file relUrl="Views/Inventory/Buildinginfo.aspx" publishTime="11/24/2013 12:19:38" />
-    <file relUrl="Content/images/warnings-tick.png" publishTime="11/24/2013 12:31:11" />
+    <file relUrl="Content/themes/redmond/images/ui-bg_flat_0_aaaaaa_40x100.png" publishTime="01/26/2012 18:17:12" />
     <file relUrl="Views/Users/InventoryDetails.aspx" publishTime="11/24/2013 12:19:39" />
     <file relUrl="Scripts/Treview/jquery.cookie.js" publishTime="11/24/2013 12:25:34" />
     <file relUrl="Content/TopMenu/Images/header.gif" publishTime="11/24/2013 12:27:15" />
     <file relUrl="Scripts/jtable/themes/standard/close.png" publishTime="11/24/2013 12:25:49" />
-    <file relUrl="bin/ERP.Domain.pdb" publishTime="12/04/2013 15:20:21" />
+    <file relUrl="bin/ERP.Domain.pdb" publishTime="12/07/2013 11:22:27" />
     <file relUrl="Content/images/Slideimg/Img04.jpg" publishTime="11/24/2013 12:30:48" />
     <file relUrl="Views/Updusers/Additems.aspx" publishTime="11/24/2013 12:19:42" />
     <file relUrl="Views/Inventory/Receiveissue.aspx" publishTime="11/24/2013 12:19:38" />
-    <file relUrl="Scripts/jtable/themes/standard/blue/jtable_blue.css" publishTime="11/24/2013 12:25:49" />
+    <file relUrl="Content/Common/Icons/Sl/GridView.gif" publishTime="11/24/2013 12:27:34" />
     <file relUrl="Views/Devices/Index.aspx" publishTime="11/24/2013 12:19:34" />
     <file relUrl="Views/Report/RLeftMenu.ascx" publishTime="11/24/2013 12:19:42" />
-    <file relUrl="bin/ERP.Structure.pdb" publishTime="12/04/2013 15:20:22" />
     <file relUrl="Content/images/ajax-loading.gif" publishTime="11/24/2013 12:31:11" />
     <file relUrl="Content/Treview/jquery.treeview.css" publishTime="11/24/2013 12:27:15" />
-    <file relUrl="Content/Treview/images/minus.gif" publishTime="11/24/2013 12:27:15" />
-    <file relUrl="Content/images/ui-icons_d8e7f3_256x240.png" publishTime="11/24/2013 12:31:11" />
     <file relUrl="Scripts/jtable/themes/standard/edit.png" publishTime="11/24/2013 12:25:49" />
-    <file relUrl="Content/themes/base/jquery.ui.datepicker.css" publishTime="11/24/2013 12:27:14" />
     <file relUrl="Content/Common/Icons/monitor.png" publishTime="11/24/2013 12:27:33" />
     <file relUrl="Views/Shared/LogOnUserControl.ascx" publishTime="11/24/2013 12:19:40" />
     <file relUrl="Content/themes/redmond/images/ui-icons_6da8d5_256x240.png" publishTime="01/26/2012 18:17:12" />
@@ -273,12 +276,14 @@
     <file relUrl="Views/Inventory/Addmodels.aspx" publishTime="12/02/2013 09:45:07" />
     <file relUrl="Scripts/jtable/themes/standard/column-asc.png" publishTime="11/24/2013 12:25:49" />
     <file relUrl="Views/Inventory/Assetdist.aspx" publishTime="11/24/2013 12:19:38" />
+    <file relUrl="Content/images/ico-news.gif" publishTime="11/24/2013 12:30:21" />
     <file relUrl="AppSettings.config" publishTime="11/24/2013 12:27:03" />
     <file relUrl="Content/themes/base/jquery.ui.autocomplete.css" publishTime="11/24/2013 12:27:13" />
     <file relUrl="Content/Common/Icons/Suites/rep.png" publishTime="11/24/2013 12:27:34" />
     <file relUrl="Views/Shared/ERP.Master" publishTime="11/24/2013 12:19:39" />
     <file relUrl="packages.config" publishTime="11/24/2013 12:23:12" />
     <file relUrl="Content/themes/base/images/ui-bg_glass_95_fef1ec_1x400.png" publishTime="11/24/2013 12:27:13" />
+    <file relUrl="Views/Shared/ModuleMenu/TUpdusersMenu.ascx" publishTime="11/24/2013 12:19:39" />
     <file relUrl="Content/Common/Icons/Suites/UserCreate.png" publishTime="11/24/2013 12:27:33" />
     <file relUrl="Content/images/Slideimg/Img03.jpg" publishTime="11/24/2013 12:30:48" />
     <file relUrl="Scripts/syntaxhighligher/shBrushSql.js" publishTime="11/24/2013 12:26:01" />
@@ -293,9 +298,8 @@
     <file relUrl="Content/images/Themes/Menu/Black.png" publishTime="11/24/2013 12:30:32" />
     <file relUrl="Content/Site.css" publishTime="11/24/2013 12:30:21" />
     <file relUrl="Content/images/Themes/Menu/Simple.png" publishTime="11/24/2013 12:30:32" />
-    <file relUrl="Content/themes/base/images/ui-icons_cd0a0a_256x240.png" publishTime="11/24/2013 12:27:13" />
-    <file relUrl="Content/images/Themes/red.png" publishTime="11/24/2013 12:30:37" />
-    <file relUrl="Views/Inventory/Issueitems.aspx" publishTime="12/04/2013 10:09:19" />
+    <file relUrl="Content/Treview/images/plus.gif" publishTime="11/24/2013 12:27:15" />
+    <file relUrl="Views/Inventory/Issueitems.aspx" publishTime="12/07/2013 11:22:26" />
     <file relUrl="Content/Common/Icons/Suites/sl.png" publishTime="11/24/2013 12:27:33" />
     <file relUrl="Scripts/syntaxhighligher/shBrushCss.js" publishTime="11/24/2013 12:26:00" />
     <file relUrl="Content/themes/base/jquery.ui.selectable.css" publishTime="11/24/2013 12:27:13" />
@@ -304,18 +308,16 @@
     <file relUrl="Views/Configuration/ServiceName.aspx" publishTime="05/15/2012 18:00:40" />
     <file relUrl="Content/images/favicon.ico" publishTime="11/24/2013 12:31:11" />
     <file relUrl="Views/Report/Reportchart.aspx" publishTime="11/24/2013 12:19:42" />
-    <file relUrl="Scripts/jtable/themes/standard/jtable_standard_base.css" publishTime="11/24/2013 12:25:49" />
     <file relUrl="Content/images/ui-bg_glass_95_fef1ec_1x400.png" publishTime="11/24/2013 12:31:11" />
-    <file relUrl="Content/Treview/images/plus.gif" publishTime="11/24/2013 12:27:15" />
+    <file relUrl="Content/images/warnings-tick.png" publishTime="11/24/2013 12:31:11" />
     <file relUrl="Content/themes/base/jquery.ui.progressbar.css" publishTime="11/24/2013 12:27:14" />
     <file relUrl="Content/images/Menu_red.png" publishTime="11/24/2013 12:31:11" />
     <file relUrl="Views/Configuration/LeftMenu.ascx" publishTime="11/24/2013 12:19:40" />
     <file relUrl="Content/images/ico-customers.png" publishTime="11/24/2013 12:31:11" />
     <file relUrl="Content/Treview/images/treeview-famfamfam-line.gif" publishTime="11/24/2013 12:27:15" />
     <file relUrl="Views/Inventory/AllDeviceinfo.aspx" publishTime="11/24/2013 12:19:38" />
-    <file relUrl="Content/themes/base/images/ui-bg_glass_65_ffffff_1x400.png" publishTime="11/24/2013 12:27:13" />
-    <file relUrl="Scripts/jquery.validate.unobtrusive.js" publishTime="11/24/2013 12:25:59" />
-    <file relUrl="Content/images/Themes/purple.png" publishTime="11/24/2013 12:30:36" />
+    <file relUrl="Views/Inventory/Lineinfo.aspx" publishTime="11/24/2013 12:19:38" />
+    <file relUrl="Content/images/ui-icons_2e83ff_256x240.png" publishTime="01/20/2012 13:55:32" />
     <file relUrl="Views/Inventory/Additemreceive.aspx" publishTime="11/24/2013 12:19:38" />
     <file relUrl="Content/Common/Icons/Ajax/Editor.png" publishTime="11/24/2013 12:27:16" />
     <file relUrl="Content/themes/base/images/ui-icons_888888_256x240.png" publishTime="11/24/2013 12:27:13" />
@@ -323,13 +325,12 @@
     <file relUrl="Views/Updusers/AllDeviceinfo.aspx" publishTime="11/24/2013 12:19:42" />
     <file relUrl="Views/Inventory/Index.aspx" publishTime="11/24/2013 12:19:38" />
     <file relUrl="Content/images/Themes/Menu/Office2010Black.png" publishTime="11/24/2013 12:30:32" />
-    <file relUrl="Content/themes/base/jquery.ui.accordion.css" publishTime="11/24/2013 12:27:13" />
+    <file relUrl="bin/Microsoft.Practices.EnterpriseLibrary.Data.dll" publishTime="11/24/2013 12:33:21" />
     <file relUrl="Scripts/syntaxhighligher/shBrushCSharp.js" publishTime="11/24/2013 12:26:01" />
     <file relUrl="Content/Common/Icons/Suites/test.png" publishTime="11/24/2013 12:27:33" />
     <file relUrl="Content/images/9999.JPG" publishTime="11/24/2013 12:31:11" />
-    <file relUrl="Scripts/jtable/themes/standard/green/loading.gif" publishTime="11/24/2013 12:25:49" />
+    <file relUrl="Content/images/ui-icons_d8e7f3_256x240.png" publishTime="11/24/2013 12:31:11" />
     <file relUrl="Views/Devices/DeviceLeftMenu.ascx" publishTime="11/24/2013 12:19:34" />
-    <file relUrl="Views/Opex/Assetdist.aspx" publishTime="11/24/2013 12:19:42" />
     <file relUrl="Content/images/Themes/Menu/Sunset.png" publishTime="11/24/2013 12:30:32" />
     <file relUrl="Views/Inventory/Itemreceive.aspx" publishTime="11/24/2013 12:19:38" />
     <file relUrl="Content/images/Header.jpg" publishTime="11/24/2013 12:31:11" />
@@ -337,26 +338,27 @@
     <file relUrl="Content/Common/Icons/Suites/wpf.png" publishTime="11/24/2013 12:27:33" />
     <file relUrl="Content/Vista/sprite.png" publishTime="11/24/2013 12:31:21" />
     <file relUrl="Views/Shared/Error.aspx" publishTime="11/24/2013 12:19:39" />
-    <file relUrl="Scripts/syntaxhighligher/styles/shThemeDefault.css" publishTime="01/26/2012 18:10:00" />
+    <file relUrl="Views/Inventory/Receiverpt.aspx" publishTime="12/02/2013 09:19:35" />
     <file relUrl="Views/Opex/FTYStock.aspx" publishTime="11/24/2013 12:19:42" />
-    <file relUrl="Content/themes/redmond/images/ui-bg_gloss-wave_55_5c9ccc_500x100.png" publishTime="01/26/2012 18:17:12" />
+    <file relUrl="bin/ERP.Structure.pdb" publishTime="12/07/2013 11:22:29" />
     <file relUrl="Content/Common/Icons/Ajax/Grid.png" publishTime="11/24/2013 12:27:16" />
-    <file relUrl="Content/images/ico-promotions.png" publishTime="11/24/2013 12:31:11" />
+    <file relUrl="Views/Inventory/Stockinfo.aspx" publishTime="12/04/2013 15:20:20" />
     <file relUrl="Content/themes/base/jquery.ui.button.css" publishTime="11/24/2013 12:27:14" />
-    <file relUrl="Views/Account/Login.aspx" publishTime="12/04/2013 08:50:02" />
-    <file relUrl="Content/themes/base/images/ui-bg_glass_75_e6e6e6_1x400.png" publishTime="11/24/2013 12:27:13" />
+    <file relUrl="Content/Treview/images/treeview-black.gif" publishTime="11/24/2013 12:27:15" />
+    <file relUrl="Views/Upddevices/LaptopDetails.aspx" publishTime="11/24/2013 12:19:34" />
+    <file relUrl="Content/images/Themes/Menu/WebBlue.png" publishTime="11/24/2013 12:30:32" />
     <file relUrl="Content/Common/Icons/Sl/Scheduler.gif" publishTime="11/24/2013 12:27:34" />
     <file relUrl="bin/Microsoft.Practices.EnterpriseLibrary.Common.dll" publishTime="11/24/2013 12:33:21" />
-    <file relUrl="Content/images/Themes/Menu/Default.png" publishTime="11/24/2013 12:30:32" />
-    <file relUrl="Content/Common/Icons/Computer/print24.png" publishTime="11/24/2013 12:27:35" />
+    <file relUrl="UploadedImages/HomePageSliders/16_9/1440/Computer01.jpg" publishTime="11/24/2013 12:18:30" />
     <file relUrl="Views/Updusers/InventoryDetailsView.aspx" publishTime="11/24/2013 12:19:42" />
-    <file relUrl="Content/images/Themes/Menu/Hay.png" publishTime="11/24/2013 12:30:32" />
+    <file relUrl="bin/ERP.pdb" publishTime="12/07/2013 11:22:30" />
     <file relUrl="Views/Users/InventoryDetailsView.aspx" publishTime="11/24/2013 12:19:39" />
     <file relUrl="Content/Treview/images/treeview-famfamfam.gif" publishTime="11/24/2013 12:27:15" />
     <file relUrl="Views/HRM/HRMLeftMenu.ascx" publishTime="11/24/2013 12:19:34" />
     <file relUrl="Content/themes/base/jquery.ui.theme.css" publishTime="11/24/2013 12:27:13" />
     <file relUrl="Views/Account/_Forgetpass.ascx" publishTime="11/24/2013 12:19:35" />
     <file relUrl="Content/images/ui-icons_469bdd_256x240.png" publishTime="11/24/2013 12:31:11" />
+    <file relUrl="Scripts/Treview/jquery.treeview.js" publishTime="11/24/2013 12:25:34" />
     <file relUrl="Scripts/MicrosoftMvcValidation.js" publishTime="11/24/2013 12:26:07" />
     <file relUrl="Views/Inventory/DepartmentInfo.aspx" publishTime="11/24/2013 12:19:38" />
     <file relUrl="Views/Inventory/LaptopDetails.aspx" publishTime="11/24/2013 12:19:38" />
@@ -375,7 +377,7 @@
     <file relUrl="Scripts/jquery.validate.unobtrusive.min.js" publishTime="11/24/2013 12:26:07" />
     <file relUrl="Content/images/Footerimg.jpg" publishTime="11/24/2013 12:31:11" />
     <file relUrl="Scripts/jtable/themes/standard/purple/loading.gif" publishTime="11/24/2013 12:25:49" />
-    <file relUrl="Content/Common/Icons/Suites/win.png" publishTime="11/24/2013 12:27:33" />
+    <file relUrl="Scripts/jtable/themes/standard/column-sortable.png" publishTime="11/24/2013 12:25:49" />
     <file relUrl="Scripts/validationEngine/jquery.validationEngine.js" publishTime="11/24/2013 12:25:59" />
     <file relUrl="Views/Shared/ModuleHeader/ModuleUserControl.ascx" publishTime="11/24/2013 12:19:40" />
     <file relUrl="Content/images/tab.png" publishTime="11/24/2013 12:31:11" />
@@ -385,29 +387,28 @@
     <file relUrl="Views/Inventory/Laptopinfo.aspx" publishTime="11/24/2013 12:19:38" />
     <file relUrl="Content/images/ico-dashboard.png" publishTime="11/24/2013 12:31:11" />
     <file relUrl="Views/Inventory/PrinterView.aspx" publishTime="11/24/2013 12:19:38" />
-    <file relUrl="Content/images/ico-sales.png" publishTime="11/24/2013 12:31:11" />
     <file relUrl="Scripts/jquery.validate.min.js" publishTime="11/24/2013 12:25:59" />
     <file relUrl="Content/images/Themes/Menu/Metro.png" publishTime="11/24/2013 12:30:32" />
     <file relUrl="Scripts/MicrosoftAjax.js" publishTime="11/24/2013 12:25:34" />
-    <file relUrl="Content/images/SuccessMessage.gif" publishTime="11/24/2013 12:31:11" />
-    <file relUrl="Content/images/ico-help.gif" publishTime="11/24/2013 12:31:11" />
-    <file relUrl="Scripts/jtable/themes/standard/red/jtable_red.css" publishTime="11/24/2013 12:25:49" />
-    <file relUrl="Scripts/Treview/jquery.treeview.js" publishTime="11/24/2013 12:25:34" />
+    <file relUrl="Scripts/jtable/external/json2.min.js" publishTime="11/24/2013 12:25:48" />
+    <file relUrl="Content/images/ico-sales.png" publishTime="11/24/2013 12:31:11" />
+    <file relUrl="Content/themes/base/jquery.ui.resizable.css" publishTime="11/24/2013 12:27:13" />
     <file relUrl="Content/images/Themes/Menu/Office2010Silver.png" publishTime="11/24/2013 12:30:32" />
+    <file relUrl="Content/themes/base/images/ui-icons_cd0a0a_256x240.png" publishTime="11/24/2013 12:27:13" />
     <file relUrl="Content/themes/base/images/ui-icons_222222_256x240.png" publishTime="11/24/2013 12:27:13" />
     <file relUrl="Content/images/Themes/Menu/Office2010Blue.png" publishTime="11/24/2013 12:30:32" />
     <file relUrl="Views/Shared/Users.Master" publishTime="11/24/2013 12:19:40" />
     <file relUrl="Scripts/jtable/jquery.jtable.min.js" publishTime="11/24/2013 12:25:51" />
-    <file relUrl="Scripts/jtable/themes/standard/red/title-bg.png" publishTime="11/24/2013 12:25:49" />
-    <file relUrl="Content/Loginstyle.css" publishTime="11/24/2013 12:31:21" />
+    <file relUrl="Content/Common/Icons/Computer/print24.png" publishTime="11/24/2013 12:27:35" />
+    <file relUrl="Scripts/modernizr-1.7.js" publishTime="11/24/2013 12:26:07" />
     <file relUrl="Views/Updusers/Itemreceive.aspx" publishTime="11/24/2013 12:19:42" />
     <file relUrl="Content/images/ui-bg_flat_0_aaaaaa_40x100.png" publishTime="11/24/2013 12:30:48" />
-    <file relUrl="Views/Devices/MonitorInfo.aspx" publishTime="11/24/2013 12:19:34" />
+    <file relUrl="EmailTemplates/Common.Html" publishTime="11/24/2013 12:27:03" />
     <file relUrl="Scripts/jtablesite.js" publishTime="11/24/2013 12:25:48" />
     <file relUrl="Content/Vista/imagebrowser.png" publishTime="11/24/2013 12:31:21" />
     <file relUrl="Content/NewUserStyle.css" publishTime="11/24/2013 12:31:35" />
-    <file relUrl="Web.config" publishTime="12/04/2013 15:20:51" />
-    <file relUrl="Content/images/Themes/green.png" publishTime="11/24/2013 12:30:32" />
+    <file relUrl="Web.config" publishTime="12/07/2013 11:23:56" />
+    <file relUrl="Scripts/MicrosoftMvcValidation.debug.js" publishTime="11/24/2013 12:25:47" />
     <file relUrl="Content/images/menu-item-right.png" publishTime="11/24/2013 12:31:11" />
     <file relUrl="Views/Inventory/Unitentry.aspx" publishTime="11/24/2013 12:19:38" />
     <file relUrl="Content/Common/Icons/Suites/sitefinity.png" publishTime="11/24/2013 12:27:34" />
@@ -417,42 +418,41 @@
     <file relUrl="Scripts/jtable/themes/standard/blue/header-bg.gif" publishTime="11/24/2013 12:25:49" />
     <file relUrl="Views/Shared/ModuleMenu/TUsersMenu.ascx" publishTime="11/24/2013 12:19:39" />
     <file relUrl="Views/Updusers/InventoryDetails.aspx" publishTime="11/24/2013 12:19:42" />
-    <file relUrl="Content/telerik.common.css" publishTime="11/24/2013 12:31:35" />
-    <file relUrl="Scripts/jquery-ui-1.8.16.custom.min.js" publishTime="11/24/2013 12:25:47" />
-    <file relUrl="Views/Devices/Newequipment.aspx" publishTime="11/24/2013 12:19:34" />
-    <file relUrl="Content/images/Themes/Menu/Forest.png" publishTime="11/24/2013 12:30:32" />
+    <file relUrl="Scripts/syntaxhighligher/styles/shCore.css" publishTime="01/26/2012 18:10:00" />
+    <file relUrl="Content/themes/base/images/ui-bg_glass_65_ffffff_1x400.png" publishTime="11/24/2013 12:27:13" />
+    <file relUrl="Content/images/ico-configuration.png" publishTime="11/24/2013 12:31:11" />
     <file relUrl="Content/Common/Icons/Computer/UPS.png" publishTime="11/24/2013 12:27:35" />
     <file relUrl="Content/themes/redmond/images/ui-icons_469bdd_256x240.png" publishTime="01/26/2012 18:17:12" />
     <file relUrl="UploadedImages/HomePageSliders/16_9/1440/Printer.jpg" publishTime="11/24/2013 12:18:30" />
     <file relUrl="Content/Vista/loading.gif" publishTime="11/24/2013 12:31:21" />
     <file relUrl="Content/themes/redmond/images/ui-icons_f9bd01_256x240.png" publishTime="01/26/2012 18:17:12" />
     <file relUrl="Views/Inventory/PrinterDetails.aspx" publishTime="11/24/2013 12:19:38" />
-    <file relUrl="bin/ERP.Server.pdb" publishTime="12/04/2013 15:20:21" />
-    <file relUrl="bin/ERP.dll" publishTime="12/04/2013 15:20:23" />
+    <file relUrl="bin/ERP.Server.pdb" publishTime="12/07/2013 11:22:28" />
+    <file relUrl="bin/ERP.dll" publishTime="12/07/2013 11:22:30" />
     <file relUrl="Content/images/cancel-uploading.png" publishTime="11/24/2013 12:31:11" />
     <file relUrl="Content/Common/Icons/Suites/ajax.png" publishTime="11/24/2013 12:27:33" />
-    <file relUrl="Content/images/ui-icons_6da8d5_256x240.png" publishTime="11/24/2013 12:31:11" />
+    <file relUrl="Content/images/SuccessMessage.gif" publishTime="11/24/2013 12:31:11" />
     <file relUrl="Content/themes/base/images/ui-bg_flat_0_aaaaaa_40x100.png" publishTime="11/24/2013 12:27:13" />
     <file relUrl="Content/Treview/images/folder.gif" publishTime="11/24/2013 12:27:15" />
     <file relUrl="Scripts/AccCommon.js" publishTime="11/24/2013 12:26:07" />
-    <file relUrl="Views/Inventory/Receiverpt.aspx" publishTime="12/02/2013 09:19:35" />
-    <file relUrl="Content/styles.css" publishTime="11/24/2013 12:31:21" />
-    <file relUrl="Views/Helps/Locationinfo.aspx" publishTime="11/24/2013 12:19:42" />
+    <file relUrl="Content/telerik.common.css" publishTime="11/24/2013 12:31:35" />
+    <file relUrl="Content/images/warnings-ajax-loader.gif" publishTime="11/24/2013 12:31:11" />
+    <file relUrl="Views/Opex/Assetdist.aspx" publishTime="11/24/2013 12:19:42" />
     <file relUrl="Scripts/jtable/themes/standard/purple/jtable_purple.css" publishTime="11/24/2013 12:25:49" />
-    <file relUrl="Content/Vista/slider-v.gif" publishTime="11/24/2013 12:31:21" />
+    <file relUrl="Views/Updusers/Additemreceive.aspx" publishTime="11/24/2013 12:19:42" />
     <file relUrl="Content/Treview/images/treeview-gray.gif" publishTime="11/24/2013 12:27:15" />
     <file relUrl="Content/Common/Icons/Computer/server24.png" publishTime="11/24/2013 12:27:35" />
     <file relUrl="Content/images/Slideimg/Img06.jpg" publishTime="11/24/2013 12:30:48" />
-    <file relUrl="Views/Configuration/NewServiceDetails.aspx" publishTime="11/24/2013 12:19:40" />
+    <file relUrl="Content/jquery-ui-1.8.16.custom.css" publishTime="11/24/2013 12:31:21" />
     <file relUrl="Views/Configuration/ServiceDetails.aspx" publishTime="11/24/2013 12:19:40" />
-    <file relUrl="Views/Updusers/Stockinfo.aspx" publishTime="12/04/2013 15:20:19" />
-    <file relUrl="Views/Upddevices/LaptopDetails.aspx" publishTime="11/24/2013 12:19:34" />
-    <file relUrl="Content/images/Misc/phone.png" publishTime="11/24/2013 12:30:21" />
+    <file relUrl="Content/images/ui-icons_cd0a0a_256x240.png" publishTime="11/24/2013 12:30:21" />
+    <file relUrl="Content/Common/Icons/Mvc/pc.png" publishTime="11/24/2013 12:27:17" />
+    <file relUrl="Views/Shared/ModuleMenu/UsersMenu.ascx" publishTime="11/24/2013 12:19:39" />
     <file relUrl="Views/Shared/Site.Master" publishTime="11/24/2013 12:19:40" />
-    <file relUrl="Scripts/jquery-1.5.1-vsdoc.js" publishTime="11/24/2013 12:26:07" />
+    <file relUrl="Scripts/syntaxhighligher/styles/shThemeDefault.css" publishTime="01/26/2012 18:10:00" />
     <file relUrl="bin/EntityFramework.xml" publishTime="11/24/2013 12:36:17" />
     <file relUrl="Content/themes/base/jquery.ui.core.css" publishTime="11/24/2013 12:27:14" />
-    <file relUrl="Content/images/ico-news.gif" publishTime="11/24/2013 12:30:21" />
+    <file relUrl="Content/themes/base/jquery.ui.datepicker.css" publishTime="11/24/2013 12:27:14" />
     <file relUrl="Content/TopMenu/Images/back.png" publishTime="11/24/2013 12:27:15" />
   </publishProfile>
 </publishData>
