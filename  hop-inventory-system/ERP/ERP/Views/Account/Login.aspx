@@ -171,10 +171,11 @@
          <div class="page_single_column">                
             <div class="editor-field">           
               UserName<%: Html.EditorFor(model => model.UserName, new { @class = "water text-box", title = "User Name" })%>
-                      <%: Html.TextBoxFor(model => model.Location, new { @class = "text-box-Location" })%>
+                      <%--<%: Html.TextBoxFor(model => model.Location, new { @class = "text-box-Location" })%>--%>                                   
                       <div> <%: Html.ValidationMessageFor(model => model.UserName)%> </div>
             </div>           
         </div>
+         <div style="margin: 2.2em 50cm 0cm 1.2cm;  padding: 0 0 0 5cm;color: Green;"> <div><p  id="Location" ></p></div></div>
         <div class="page_single_column">            
             <div class="editor-field">
               Password   <%: Html.PasswordFor(model => model.Password, new { @class = "text-box" })%>
@@ -235,9 +236,10 @@
          //var SeleName = $(this).val();
          $.post('<%: ResolveUrl("~/Account/UserNameLOC?UName=")%>' + $("#UserName").attr("value"), function (data) {
              //alert("********* WORKING *************");
-             $('input:text[id$=Location]').val(data.Location);
+             //$('input:text[id$=Location]').val(data.Location);
              //$("#Location").val(SeleName);        
-             $('input:text[id$=Location]').attr("disabled", true);
+             //$('input:text[id$=Location]').attr("disabled", true);
+             $("#Location").html(data.Location);   
          });
 
      });
