@@ -7,7 +7,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
  <%----------------------**********For Popup Window********************--------------------------------------%>
-    <link href="<%: Url.Content("~/Content/themes/base/jquery.ui.all.css") %>" rel="stylesheet" type="text/css" />
+<%--    <link href="<%: Url.Content("~/Content/themes/base/jquery.ui.all.css") %>" rel="stylesheet" type="text/css" />
+--%>    <link href="<%: Url.Content("~/Content/themes/redmond/jquery-ui-1.8.16.custom.css") %>" rel="stylesheet" type="text/css" />
 <%--    <script src="<%: Url.Content("~/Scripts/jquery-1.5.1.js")  %>" type="text/javascript"></script> --%>
     <script src="<%: Url.Content("~/Scripts/jquery-ui-1.8.11.js")  %>" type="text/javascript"></script>     
  <%----------------------******************End***************************--------------------------------------%>
@@ -215,7 +216,7 @@
    
  <script type="text/javascript" language="javascript">
      $(document).ready(function () {
-         // Dialog
+         // Dialog       
          $('#dialog').dialog({
              autoOpen: false,
              width: 600,
@@ -226,33 +227,35 @@
                      $.ajax({
                          type: 'POST',
                          //url: '@(Url.Action("Issueitems", "Inventory"))',  
-                         url: '/Inventory/Issueitems',
-                         // dataType: "json",
+                         url: '/Inventory/Issueitems',                         
                          data: {
-                             ItemID: $("#ItemID").val(),
-                             ModelID: $("#ModelID").val(),
-                             ReceiveQty: $("#ReceiveQty").val(),
-                             IssueDate: $("#IssueDate").val(),
-                             ReceiverName: $("#ReceiverName").val(),
-                             ReceiverEmail: $("#ReceiverEmail").val(),
-                             Transportno: $("#Transportno").val(),
-                             Location: $("#Location").val(),
-                             IssueQty: $("#IssueQty").val(),
-                             NewbalanceQty: $("#NewbalanceQty").val(),
+                            ItemID: $("#ItemID").val(),
+                            ModelID: $("#ModelID").val(),
+                            ReceiveQty: $("#ReceiveQty").val(),
+                            IssueDate: $("#IssueDate").val(),
+                            ReceiverName: $("#ReceiverName").val(),
+                            ReceiverEmail: $("#ReceiverEmail").val(),
+                            Transportno: $("#Transportno").val(),
+                            Location: $("#Location").val(),
+                            IssueQty: $("#IssueQty").val(),
+                            NewbalanceQty: $("#NewbalanceQty").val(),
 
-                             IDate: $("#IDate").val(),
-                             ITRFNo: $("#ITRFNo").val(),
-                             LocID: $("#LocID").val(),
-                             IssueQty: $("#IssueQty").val()
-                         },
+                            IDate: $("#IDate").val(),
+                            ITRFNo: $("#ITRFNo").val(),
+                            LocID: $("#LocID").val(),
+                            IssueQty: $("#IssueQty").val()
+                          },
+                         //dataType: "json",
+                         //dataType: "html",
                          success: function (Result) {
-                             alert("Data: " + data.ItemID);
+                            // alert("Data: " + Result.ReceiverName);
+                             $('#Message').val(Result.ReceiverName);
                              // if (!Result.success) {
-                             if (Result.ItemID == null) {
-                                 alert("Null Value");
-                                 $('#Message').html("Please Fill up the Form");
-                             }
-                             else {
+//                             if (Result.ItemID == null) {
+//                                 alert("Null Value");
+//                                 $('#Message').html("Please Fill up the Form");
+//                             }
+//                             else {
 
                                  $('#Message').html("Save Successful");
                                  $("#Message").hide().html('Record saved').fadeIn(300, function () {
@@ -261,7 +264,7 @@
                                  });
                                  $('#dialog').dialog("close");   //For Closing POPUP Window    
                                  window.parent.location.href = window.parent.location.href; //For Refresh the Parent Form                   
-                             }
+                            // }
                          },
                          error: function (data) {
                              alert("Error " + data.Success);
@@ -281,7 +284,12 @@
          });
      });
      function UserCheck(inputField, helpText) {
+         var USR = /^\w{2,15}$/;
          if (inputField.value == "Select Name") {
+                 helpText.innerHTML = "Select User Name";
+                 return false;
+             }
+             else if (!USR.test(inputField.value)) {
                  helpText.innerHTML = "Select User Name";
                  return false;
              }
@@ -334,9 +342,14 @@
          }
          return true;
      }
-  function LocCheck(inputField, helpText) {
-      if (inputField.value == "Location") {
-             helpText.innerHTML = "Enter Location";
+     function LocCheck(inputField, helpText) {
+         var LOC = /^\w{2,15}$/;
+         if (inputField.value == "Location") {
+             helpText.innerHTML = "Select Location";
+             return false;
+         }
+         else if (!LOC.test(inputField.value)) {
+             helpText.innerHTML = "Select Location";
              return false;
          }
          else {
