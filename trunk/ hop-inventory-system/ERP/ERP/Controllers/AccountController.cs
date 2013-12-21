@@ -58,13 +58,13 @@ namespace ERP.Controllers
                     else
                     {
 
-                        ModelState.AddModelError("UserName", "invalid username or password.");
+                        ModelState.AddModelError("UserName", "invalid User Name or password.");
                     }
                 }
                 else
                 {
 
-                    ModelState.AddModelError("UserName", "invalid username or password.");
+                    ModelState.AddModelError("UserName", "invalid User Name or password.");
                 }
             
             return View("Login", model);
