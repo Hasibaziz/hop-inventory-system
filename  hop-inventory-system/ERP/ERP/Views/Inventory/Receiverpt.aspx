@@ -39,10 +39,7 @@
         <fieldset>          
             <div style="float: left; width: 100%;">
                 <div id="RecordsContainer"></div>
-            </div>
-            <div> 
-               <%: Html.ActionLink("Add Receive Item", "Additemreceive", new { @href="#", @id = "dialog_link", title = "Receive Item" })%>
-            </div>          
+            </div>                    
          </fieldset>
         </div>
 </div>
