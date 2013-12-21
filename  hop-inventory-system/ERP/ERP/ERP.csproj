@@ -148,6 +148,9 @@
     <Compile Include="Reports\WebForm1.aspx.designer.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
+    <Content Include="Content\images\red_button_bg.gif" />
+    <Content Include="Content\images\Search.png" />
+    <Content Include="Content\images\Searchw.png" />
     <Content Include="Content\images\Slideimg\Img05.jpg" />
     <Content Include="Content\images\Slideimg\Img06.jpg" />
     <Content Include="Reports\WebForm1.aspx" />
