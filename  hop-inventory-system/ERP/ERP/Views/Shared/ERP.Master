@@ -51,7 +51,23 @@
        window.onunload = function () { void (0) }
     </script>
     <%--**********************************************************************--%>
-
+     <script type="text/javascript">
+         $(document).ready(function () {
+             function marqueePlay() {
+                 $(".scroll-text").animate(
+            {
+                top: $(window).height(),
+                opacity: 0
+            }, 10000, function () {
+                $(".scroll-text").css("left", 15);
+                $(".scroll-text").css("opacity", 1);
+                marqueePlay();
+            }
+        );
+             }
+             marqueePlay();
+         });
+     </script>
 </head>
 <body>
     <div class="mane_page_area">

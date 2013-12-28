@@ -6,29 +6,10 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-
-
-
 <script src="<%: Url.Content("~/Scripts/jquery.validate.min.js") %>" type="text/javascript"></script>
 <script src="<%: Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js") %>" type="text/javascript"></script>
 
-<script type="text/javascript">
-    $(document).ready(function () {
-        function marqueePlay() {
-            $(".scroll-text").animate(
-                {
-                    top: $(window).height(),
-                    opacity: 0
-                }, 10000, function () {
-                    $(".scroll-text").css("left", 10);
-                    $(".scroll-text").css("opacity", 1);
-                    marqueePlay();
-                }
-            );
-        }
-        marqueePlay();
-    }); 
-</script>  
+
 <div class="mp_left_menu"><div class="scroll-text" style="background-color: #DB7093; font: Arial;">Overall Sock Info</div></div>
 <%--Hasib; hasib_aziz@yahoo.com--%>
 <%--<div class="mp_left_menu">

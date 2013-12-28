@@ -18,33 +18,12 @@
 
 <%---------------------------------------------------------------------------------------------------------------------------------%>
 <%----------------------------------------------Popup Menu---------------------------------------------------------------------- --%>
-<link href="<%: Url.Content("~/Content/themes/base/jquery.ui.all.css") %>" rel="stylesheet" type="text/css" />
-<script src="<%: Url.Content("~/Scripts/jquery-ui-1.8.11.js")  %>" type="text/javascript"></script> 
+  <link href="<%: Url.Content("~/Content/themes/redmond/jquery-ui-1.8.16.custom.css") %>" rel="stylesheet" type="text/css" />
+  <script src="<%: Url.Content("~/Scripts/jquery-ui-1.8.11.js")  %>" type="text/javascript"></script> 
 <%----------------------------------------------Popup Menu---------------------------------------------------------------------- --%>
+  <script src="<%: Url.Content("~/Scripts/uiValues/newEquipment.js")  %>" type="text/javascript"></script> 
 
-<script type="text/javascript" >
-    $(document).ready(function () {
-        $("input#PurchDate").datepicker({ dateFormat: "dd-mm-yy" });
-    });
-</script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        function marqueePlay() {
-            $(".scroll-text").animate(
-                {
-                    top: $(window).height(),
-                    opacity: 0
-                }, 10000, function () {
-                    $(".scroll-text").css("left", 15);
-                    $(".scroll-text").css("opacity", 1);
-                    marqueePlay();
-                }
-            );
-        }
-        marqueePlay();
-    });
 
-</script>
 <div class="mp_left_menu"><div class="scroll-text" style="background-color: #DB7093; font: Arial;">Equipment Entry</div></div>
 <%--Hasib; hasib_aziz@yahoo.com--%>
 <%--<div class="mp_left_menu">
@@ -187,14 +166,18 @@
                 <label for="Remark">Status: </label>
               </div>
               <div class="editor-field01">
-                <%: Html.TextBoxFor(m => m.Status)%>
+                <%--<%: Html.TextBoxFor(m => m.Status)%>--%>
+                <%: Html.DropDownListFor(m => m.Status, new SelectList(new[] {"Active","Idle" }), "Select Status")%>
               </div>  
               <div class="editor-label01">
-                <label for="Remark">Remarks: </label>
+                <label for="Remark">Idle Date: </label>
               </div>
               <div class="editor-field01">
+                <%: Html.TextBoxFor(m => m.Remarks)%>
+              </div>  
+              <%--<div class="editor-field01">
                 <%: Html.TextAreaFor(m => m.Remarks)%>
-              </div>             
+              </div>  --%>           
             </div>         
  </fieldset>   
   <p style="padding-left:400px"><input type="submit" class="Submit"  value="Save"   /></p>  
@@ -207,7 +190,6 @@
 </div>
 
  
-
 
  <script type="text/javascript">
 
@@ -301,6 +283,18 @@
     });
 
 </script>
-
+<script type="text/javascript">
+    $('#Status').change(function () {
+        var Status = $(this).val();
+        if (Status == 'Active') {
+            $('input:text[id$=Remarks]').val(' ');
+            $('input:text[id$=Remarks]').attr("disabled", true);
+            return;
+        }
+        else
+            $('input:text[id$=Remarks]').focus();
+        $('input:text[id$=Remarks]').attr("disabled", false);
+    });
+</script>
   
 </asp:Content>

@@ -26,22 +26,7 @@
         $("input#PurchDate, #MPurchDate, #MDistDate, #UPurchDate, #UDistDate ").datepicker({ dateFormat: "dd-mm-yy" });
     });
 </script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        function marqueePlay() {
-            $(".scroll-text").animate(
-                {
-                    top: $(window).height(),
-                    opacity: 0
-                }, 10000, function () {
-                    $(".scroll-text").css("left", 15);
-                    $(".scroll-text").css("opacity", 1);
-                    marqueePlay();
-                }
-            );
-        }
-        marqueePlay();
-    });
+<script type="text/javascript">  
 
 ///////////////////////////////////-----------------------------------/////////////////////////////////////////////////
 //    $(document).ready(function () {

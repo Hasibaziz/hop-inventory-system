@@ -76,7 +76,7 @@ namespace ERP.Server.DAL
             Database db = DatabaseFactory.CreateDatabase();
             //string sql = "SELECT SUM([Quantity]) AS ReceiveQty SUM() AS TotalissueQty FROM [ITInventory].[dbo].[INV_ItemReceive] WHERE ModelID='" + IREntity.ModelID + "' GROUP BY ItemID, ModelID ";
             //string sql = "SELECT SUM(A.Quantity) AS ReceiveQty, (SELECT SUM(IssueQty) FROM [ITInventory].[dbo].[INV_ItemIssue] WHERE ModelID='" + IREntity.ModelID + "' group by ModelID) AS TotalissueQty, (SUM(A.Quantity)-(SELECT SUM(IssueQty) FROM [ITInventory].[dbo].[INV_ItemIssue] WHERE ModelID='" + IREntity.ModelID + "' group by ModelID)) AS BalanceQty FROM [ITInventory].[dbo].[INV_ItemReceive] AS A,[ITInventory].[dbo].[INV_ItemIssue] AS B WHERE A.ModelID=B.ModelID AND A.ModelID='" + IREntity.ModelID + "'";
-            string sql = "SELECT SUM(Quantity) AS ReceiveQty, (SELECT SUM(IssueQty)   FROM [ITInventory].[dbo].[INV_ItemIssue]   WHERE ModelID='" + IREntity.ModelID + "' group by ModelID) AS TotalissueQty,  (SUM(Quantity)- (SELECT SUM(IssueQty)   FROM [ITInventory].[dbo].[INV_ItemIssue]   WHERE ModelID='" + IREntity.ModelID + "' group by ModelID)) AS BalanceQty FROM [ITInventory].[dbo].[INV_ItemReceive] WHERE ModelID='" + IREntity.ModelID + "' group by  ModelID";
+            string sql = "SELECT SUM(Quantity) AS ReceiveQty, (SELECT SUM(IssueQty)   FROM [ITInventory].[dbo].[INV_ItemIssue]   WHERE ModelID='" + IREntity.ModelID + "' AND LocID='" + IREntity.LocID + "' group by ModelID) AS TotalissueQty,  (SUM(Quantity)- (SELECT SUM(IssueQty)   FROM [ITInventory].[dbo].[INV_ItemIssue]   WHERE ModelID='" + IREntity.ModelID + "' AND LocID='" + IREntity.LocID + "' group by ModelID)) AS BalanceQty FROM [ITInventory].[dbo].[INV_ItemReceive] WHERE ModelID='" + IREntity.ModelID + "' AND LocID='" + IREntity.LocID + "' group by  ModelID";
             DbCommand dbCommand = db.GetSqlStringCommand(sql);
             DataSet ds = db.ExecuteDataSet(dbCommand);
             return ds.Tables[0];
@@ -109,8 +109,6 @@ namespace ERP.Server.DAL
                 return ds.Tables[0];
             }
         }
-
-
 
 
         public DataTable GetFTRTransferListRecord(object param)

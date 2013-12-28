@@ -575,11 +575,12 @@ namespace ERP.Controllers
                 return null;
             }
         }
-        public object GetSumvalues(string imodel)
+        public object GetSumvalues(string iModel, string iLoc)
         {
 
             InvreceivenissueEntity _Model = new InvreceivenissueEntity();
-            _Model.ModelID = imodel;
+            _Model.ModelID = iModel;
+            _Model.LocID = iLoc;
             DataTable dt = (DataTable)ExecuteDB(ERPTask.AG_GetSumvalueRecord, _Model);
 
             foreach (DataRow dr in dt.Rows)
@@ -611,7 +612,7 @@ namespace ERP.Controllers
         {
 
             InvreceivenissueEntity _Model = new InvreceivenissueEntity();
-            _Model.ModelID = imodel;
+            _Model.ModelID = imodel;          
             _Model.Location = CurrentLocation;
             DataTable dt = (DataTable)ExecuteDB(ERPTask.AG_GetusersumvalueRecord, _Model);
 

@@ -2225,7 +2225,7 @@ namespace ERP.Controllers
             }
         }
 
-        public JsonResult Getsumvalue(string XModelid)
+        public JsonResult Getsumvalue(string XModelid, string LOC)
         {
             if (XModelid.ToString().Trim() == "")           
             {
@@ -2235,7 +2235,7 @@ namespace ERP.Controllers
             {
                 try
                 {
-                    InvreceivenissueEntity obj = (InvreceivenissueEntity)GetSumvalues(XModelid);
+                    InvreceivenissueEntity obj = (InvreceivenissueEntity)GetSumvalues(XModelid, LOC);
 
                     return Json(obj);
                 }

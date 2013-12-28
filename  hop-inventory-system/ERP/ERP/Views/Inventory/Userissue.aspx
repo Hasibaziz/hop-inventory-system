@@ -18,23 +18,6 @@
     });
 </script>
 
-<script type="text/javascript">
-    $(document).ready(function () {
-        function marqueePlay() {
-            $(".scroll-text").animate(
-                {
-                    top: $(window).height(),
-                    opacity: 0
-                }, 10000, function () {
-                    $(".scroll-text").css("left", 15);
-                    $(".scroll-text").css("opacity", 1);
-                    marqueePlay();
-                }
-            );
-        }
-        marqueePlay();
-    }); 
-</script>  
 <%--Hasib; hasib_aziz@yahoo.com--%>
 <div class="mp_left_menu"><div class="scroll-text" style="background-color: #DB7093; font: Arial;">User Issue Items</div></div>
 <%--<div class="mp_left_menu">

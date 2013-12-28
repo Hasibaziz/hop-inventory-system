@@ -23,23 +23,7 @@
         $("input#IssueDate").datepicker({ dateFormat: "dd-mm-yy" });       
     });
  </script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        function marqueePlay() {
-            $(".scroll-text").animate(
-                {
-                    top: $(window).height(),
-                    opacity: 0
-                }, 10000, function () {
-                    $(".scroll-text").css("left", 15);
-                    $(".scroll-text").css("opacity", 1);
-                    marqueePlay();
-                }
-            );
-        }
-        marqueePlay();
-    }); 
-</script>  
+
 <style>
     .ui-state-error { padding: .3em; }
 </style>
@@ -66,6 +50,14 @@
         <legend>Receive Item Info</legend>
          <%: Html.HiddenFor(model => model.RIssueID)%>
          <div class="editor-label01">
+           <label for="ModelID">Location:</label>
+        </div>
+        <div class="editor-field01">
+            <%: Html.DropDownListFor(m => m.LocID, (List<SelectListItem>)ViewData["Location"], "Location", new { @readonly = "true", @class = "Width=250" })%>
+            <%--<%: Html.DropDownListFor(m => m.Location, new SelectList(new[] { "HLNT", "HLAP", "HLBD", "HLRC", "HLWF", "HYBD" }), "Select")%>--%>
+            <%: Html.ValidationMessageFor(model => model.LocID)%>
+        </div> 
+         <div class="editor-label01">
            <label for="ItemID">Item Name:</label>
         </div>
         <div class="editor-field01">
@@ -81,7 +73,7 @@
             <%: Html.DropDownListFor(model => model.ModelID, new SelectList(new[] { " " }),"Select Model") %>
             <%: Html.ValidationMessageFor(model => model.ModelID) %>
         </div>
-<div style="margin: -6em 20cm 0 4cm; padding: 0 0 0 7cm;">
+<div style="margin: -9em 20cm 0 8cm; padding: 0 0 0 7cm;">
  
         <div class="editor-label01">
             <label for="ReceiveQty">Receive Quantity:</label>
@@ -100,9 +92,7 @@
             <%: Html.TextBoxFor(model => model.TotalissueQty, new {@class = " Control_Moni_Width_100", @readonly = "readonly" })%>
             <%: Html.ValidationMessageFor(model => model.TotalissueQty)%>
         </div>
-</div>
-<div style="margin: -6em 20cm 0 13cm; padding: 0 0 0 7cm;">
-        <div class="editor-label01">
+         <div class="editor-label01">
             <label for="BalanceQty">Balance Quantity:</label>
         </div>
         <div class="editor-field01">
@@ -366,7 +356,7 @@
 
 <script type="text/javascript">
     $('#ModelID').change(function () {
-        $.post('<%: ResolveUrl("~/Inventory/Getsumvalue?XModelid=")%>' + $("#ModelID > option:selected").attr("value"), function (data) {
+        $.post('<%: ResolveUrl("~/Inventory/Getsumvalue?XModelid=")%>' + $("#ModelID > option:selected").attr("value") + "&LOC=" + $("#LocID").val(), function (data) {
             $('input:text[id$=ReceiveQty]').val(data.ReceiveQty);
             //$('input:text[id$=ReceiveQty]').attr("disabled", true);
             $('input:text[id$=ReceiveQty]').attr('disabled', false)
