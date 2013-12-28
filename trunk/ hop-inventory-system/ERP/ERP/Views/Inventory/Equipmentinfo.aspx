@@ -6,23 +6,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-<script type="text/javascript">
-    $(document).ready(function () {
-        function marqueePlay() {
-            $(".scroll-text").animate(
-                {
-                    top: $(window).height(),
-                    opacity: 0
-                }, 10000, function () {
-                    $(".scroll-text").css("left", 15);
-                    $(".scroll-text").css("opacity", 1);
-                    marqueePlay();
-                }
-            );
-        }
-        marqueePlay();
-    }); 
-</script>  
+  
 <script type="text/javascript">
     function impexcel() {
         alert("Report");

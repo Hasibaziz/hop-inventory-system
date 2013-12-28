@@ -456,6 +456,7 @@
     <Content Include="Scripts\uiDialog\jquery-ui-1.8.custom.min.js" />
     <Content Include="Scripts\uiDialog\jquery.effects.core.js" />
     <Content Include="Scripts\uiDialog\jquery.effects.fade.js" />
+    <Content Include="Scripts\uiValues\newEquipment.js" />
     <Content Include="Scripts\validationEngine\jquery.validationEngine-en.js" />
     <Content Include="Scripts\validationEngine\jquery.validationEngine.js" />
     <Content Include="Scripts\validationEngine\validationEngine.jquery.css" />
