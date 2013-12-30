@@ -923,6 +923,7 @@ namespace ERP.Controllers
             }
             return Items;
         }
+       
         public object GetMachinedetail(string imodel)
         {
 
