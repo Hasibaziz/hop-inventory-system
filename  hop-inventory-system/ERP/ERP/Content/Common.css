@@ -380,7 +380,7 @@ input[type="text"],
 input[type="password"] 
 {
     border-radius: 4px 4px 4px 4px;     /*Making TextBox Oval Shape  */
-    border: 1px solid #ccc;
+    border: 1px solid #BABABA;
     padding: 2px;
     font-size: 1.2em;
     color: #444;
@@ -394,7 +394,7 @@ input[type="password"]
 }
 input:focus, textarea:focus 
 {
-    border: 1px solid #CCCCCC;
+    border: 1px solid #783BA8;
     box-shadow: 0 6px 3px rgba(0, 0, 0, 0.05) inset, 0 0 8px rgba(82, 168, 236, 0.6);
 }
 /*-------------------------------------------------------------------------------------*/
