@@ -159,8 +159,8 @@
                     title: 'Equipment No',
                     width:'6%'
                 },
-                Machineid: {
-                    title: 'Machine ID',
+                AccountCode: {
+                    title: 'Account Code',
                     width: '5%'
                 },
                 LocID: {
@@ -168,38 +168,40 @@
                      width: '5%',
                      options: '<%=Url.Content("~/Inventory/AllLocation") %>'
                 },                              
-                AccountCode: {
+                AssetCode: {
                     title: 'Asset Code',
                     width: '5%'
                 },
-                BrandModel: {
-                    title: 'Brand & Model',
-                    width: '8%'
+                Brand: {
+                    title: 'Brand',
+                    width: '5%'
                 },
-                Machineno:{
-                    title: 'Machine No',
+                Model:{
+                    title: 'Model',
                     width:'5%'
                 },
-                Type: {
-                    title: 'Type OF M/C',
+                Serialno: {
+                    title: 'Serial No',
                     width: '7%'
                 },
-                PurchDate: {
-                    title: 'Purchase Date',
+                Subserialno: {
+                    title: 'Subserial No',
                     width: '7%'
                 },                
-                Lifetime: {
-                    title: 'Life Time',
-                    width: '3%'
+                MNID: {
+                    title: 'Machine Name',
+                    width: '7%',
+                    options: '<%=Url.Content("~/Inventory/AllMachineinfo") %>'
                 },  
                 UnitID: {
                     title: 'Unit Name',
                     width: '5%',
                     options: '<%=Url.Content("~/Inventory/AllUnits") %>'
                 },                                                        
-                Buildingno: {
+                BNID: {
                     title: 'Building No',
-                    width: '4%'
+                    width: '6%',
+                    options: '<%=Url.Content("~/Inventory/AllBuildinginfo") %>'
                 },
                 FID: {
                     title: 'Level/Floor No',
@@ -214,7 +216,11 @@
                 Status: {
                     title: 'Status',
                     width: '3%'
-                },              
+                }, 
+                Remarks: {
+                    title: 'Idle Date',
+                    width: '7%'
+                },             
                 CID: {
                     title: 'Country',
                     width: '5%',
