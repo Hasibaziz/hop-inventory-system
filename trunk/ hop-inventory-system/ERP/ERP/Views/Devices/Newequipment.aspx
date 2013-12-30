@@ -21,7 +21,11 @@
   <link href="<%: Url.Content("~/Content/themes/redmond/jquery-ui-1.8.16.custom.css") %>" rel="stylesheet" type="text/css" />
   <script src="<%: Url.Content("~/Scripts/jquery-ui-1.8.11.js")  %>" type="text/javascript"></script> 
 <%----------------------------------------------Popup Menu---------------------------------------------------------------------- --%>
-  <script src="<%: Url.Content("~/Scripts/uiValues/newEquipment.js")  %>" type="text/javascript"></script> 
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("input#Remarks, #PurchDate").datepicker({ dateFormat: "dd-mm-yy" });
+    });
+</script> 
 
 
 <div class="mp_left_menu"><div class="scroll-text" style="background-color: #DB7093; font: Arial;">Equipment Entry</div></div>
@@ -113,6 +117,12 @@
                 <%: Html.TextBoxFor(m=>m.Subserialno) %>
               </div>
                <div class="editor-label01">
+                <label for="BrandModel">Purchase Date: </label>
+              </div>
+              <div class="editor-field01">
+                <%: Html.TextBoxFor(m=>m.PurchDate) %>
+              </div>
+               <div class="editor-label01">
                 <label for="BrandModel">Machine Short Code: </label>
               </div>
               <div class="editor-field01">
@@ -126,12 +136,18 @@
                 <%--<%: Html.TextBoxFor(m => m.Description, new {@readonly="true" })%>--%>
                 <p id="Results" ></p>
               </div>
-  <div style="margin: -23em 50cm 0 0.5cm;  padding: 0 0 0 15cm;" > 
+  <div style="margin: -25.6em 50cm 0 0.5cm;  padding: 0 0 0 15cm;" > 
               <div class="editor-label01">
                 <label for="Remark">Machine ID: </label>
               </div>
               <div class="editor-field01">
                 <%: Html.TextBoxFor(m => m.Machineid)%>
+              </div>  
+              <div class="editor-label01">
+                <label for="Remark">Machine Life Time: </label>
+              </div>
+              <div class="editor-field01">
+                <%: Html.TextBoxFor(m => m.Lifetime)%>
               </div>  
               <div class="editor-label01">
                 <label for="DeptNo">Unit Name:</label>
@@ -191,7 +207,7 @@
 
  
 
- <script type="text/javascript">
+<script type="text/javascript">
 
      $('#CID').change(function () {
          $.ajaxSetup({ cache: false });
@@ -281,8 +297,8 @@
         });
 
     });
-
 </script>
+
 <script type="text/javascript">
     $('#Status').change(function () {
         var Status = $(this).val();
