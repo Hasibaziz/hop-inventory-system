@@ -21,8 +21,8 @@ CREATE TABLE [dbo].[Inv_Equipmentinfo](
 	[PurchDate]          [nvarchar](50)     NOT NULL,	
         [UnitID]             [uniqueidentifier] NOT NULL,
         [BNID]               [uniqueidentifier] NOT NULL,
-        [Floorno]            [nvarchar](50)         NULL,
-        [Lineno]             [nvarchar](50)         NULL,
+        [FID]                [uniqueidentifier] NOT NULL,
+        [LID]                [uniqueidentifier] NOT NULL,
 	[Status]             [nvarchar](100)        NULL,
         [Remarks]            [nvarchar](100)        NULL,
         [CID]                [uniqueidentifier] NOT NULL,
@@ -34,8 +34,10 @@ CREATE TABLE [dbo].[Inv_Equipmentinfo](
         FOREIGN KEY (UnitID)  REFERENCES INV_Unitentry         (UnitID),
         FOREIGN KEY (LocID)   REFERENCES INV_Location          (LocID),
         FOREIGN KEY (CID)     REFERENCES INV_Country           (CID),
-        FOREIGN KEY (MNID)    REFERENCES INV_Machinename       (MNID),
+        FOREIGN KEY (MNID)    REFERENCES INV_Machineinfo       (MNID),
         FOREIGN KEY (BNID)    REFERENCES INV_Buildinginfo      (BNID),
+        FOREIGN KEY (FID)    REFERENCES INV_Floorinfo         (FID),
+        FOREIGN KEY (LID)    REFERENCES INV_Lineinfo          (LID),
 
        
 
