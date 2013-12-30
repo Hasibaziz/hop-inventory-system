@@ -322,6 +322,12 @@ namespace ERP.Controllers
             ViewData["CID"] = GetCountry(Country);           
             InvUnitinfoEntity Units = new InvUnitinfoEntity();
             ViewData["UnitID"] = GetAllUnit(Units);
+            InvLineinfoEntity lEntity = new InvLineinfoEntity();
+            ViewData["LID"] = GetAllLineinfo(lEntity);
+            InvMachineinfoEntity mEntity = new InvMachineinfoEntity();
+            ViewData["MNID"] = GetAllMachineinfo(mEntity);
+            InvBuilinginfoEntity Build = new InvBuilinginfoEntity();
+            ViewData["BNID"] = GetAllBuildinginfo(Build);
             Invlocation LocEntity = new Invlocation();
             //LocEntity.Location = CurrentLocation;
             //LocEntity.Userstatus = CurrentUserstatus;
@@ -3996,6 +4002,21 @@ namespace ERP.Controllers
                 }
                 else
                     return Json(new { Result = "ERROR", Message = "Information failed to save" });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { Result = "ERROR", Message = ex.Message });
+            }
+        }
+        public JsonResult AllMachineinfo()
+        {
+            try
+            {
+                InvMachineinfoEntity models = new InvMachineinfoEntity();
+                //models.Userstatus = CurrentUserstatus;
+                //models.Location = CurrentLocation;
+                var jList = GetAllMachineinfo(models).Select(c => new { DisplayText = c.Text, Value = c.Value });
+                return Json(new { Result = "OK", Options = jList });
             }
             catch (Exception ex)
             {
