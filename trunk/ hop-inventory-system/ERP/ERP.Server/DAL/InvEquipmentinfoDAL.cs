@@ -18,7 +18,7 @@ namespace ERP.Server.DAL
             //if (obj.Location == "HLNT" || obj.Location == "HLBD" || obj.Location == "HLAP")
             //{
             Database db = DatabaseFactory.CreateDatabase();
-            string sql = "SELECT [EID], [ENumber], [Machineid], [AccountCode], [BrandModel], [Type], [Machineno], [Lifetime], [LocID], [PurchDate], [UnitID], [Buildingno], [Floorno], [Lineno], [CID], [Status] ";
+            string sql = "SELECT [EID],[LocID],[ENumber],[AccountCode],[AssetCode],[Brand],[Model],[Serialno],[Subserialno],[MNID],[Machineid],[Lifetime],[PurchDate],[UnitID],[BNID],[FID],[LID],[Status],[Remarks],[CID]";
             sql = sql + " FROM [ITInventory].[dbo].[Inv_Equipmentinfo] ";
             sql = sql + " ORDER BY ENumber ASC";
             DbCommand dbCommand = db.GetSqlStringCommand(sql);
@@ -57,27 +57,28 @@ namespace ERP.Server.DAL
         public bool SaveEquipmentDetails(InvEquipmentEntity EQEntity, Database db, DbTransaction transaction)
         {
 
-            string sql = "INSERT INTO ITInventory.dbo.Inv_Equipmentinfo ( ENumber, Machineid, AccountCode, BrandModel, Type, Machineno, Lifetime, LocID, PurchDate, UnitID, CID, Status) VALUES ( @ENumber, @Machineid, @AccountCode, @BrandModel, @Type, @Machineno, @Lifetime, @LocID, @PurchDate, @UnitID, @CID, @Status )";
+            string sql = "INSERT INTO ITInventory.dbo.Inv_Equipmentinfo ([LocID],[ENumber],[AccountCode],[AssetCode],[Brand],[Model],[Serialno],[Subserialno],[MNID],[Machineid],[Lifetime],[PurchDate],[UnitID],[BNID],[FID],[LID],[Status],[Remarks],[CID]) VALUES (@LocID, @ENumber, @AccountCode, @AssetCode, @Brand, @Model, @Serialno, @Subserialno, @MNID, @Machineid, @Lifetime, @PurchDate, @UnitID, @BNID, @FID, @LID, @Status, @Remarks, @CID )";
             DbCommand dbCommand = db.GetSqlStringCommand(sql);
 
-
-            //db.AddInParameter(dbCommand, "ENumber", DbType.String, EQEntity.ENumber);
-            //db.AddInParameter(dbCommand, "Machineid", DbType.String, EQEntity.Machineid);
-            //db.AddInParameter(dbCommand, "AccountCode", DbType.String, EQEntity.AccountCode);
-            //db.AddInParameter(dbCommand, "BrandModel", DbType.String, EQEntity.BrandModel);
-            //db.AddInParameter(dbCommand, "Type", DbType.String, EQEntity.Type);
-            //db.AddInParameter(dbCommand, "Machineno", DbType.String, EQEntity.Machineno);
-            //db.AddInParameter(dbCommand, "Lifetime", DbType.String, EQEntity.Lifetime);
-            //db.AddInParameter(dbCommand, "LocID", DbType.String, EQEntity.LocID);           
-            //db.AddInParameter(dbCommand, "PurchDate", DbType.String, EQEntity.PurchDate);
-            //db.AddInParameter(dbCommand, "UnitID", DbType.String, EQEntity.UnitID);
-            //db.AddInParameter(dbCommand, "Buildingno", DbType.String, EQEntity.Buildingno);
-            //db.AddInParameter(dbCommand, "Floorno", DbType.String, EQEntity.Floorno);
-            //db.AddInParameter(dbCommand, "Lineno", DbType.String, EQEntity.Lineno);
-            //db.AddInParameter(dbCommand, "Status", DbType.String, EQEntity.Status); 
-            //db.AddInParameter(dbCommand, "CID", DbType.String, EQEntity.CID);
-                     
-           
+            db.AddInParameter(dbCommand, "LocID", DbType.String, EQEntity.LocID);
+            db.AddInParameter(dbCommand, "ENumber", DbType.String, EQEntity.ENumber);
+            db.AddInParameter(dbCommand, "AccountCode", DbType.String, EQEntity.AccountCode);
+            db.AddInParameter(dbCommand, "AssetCode", DbType.String, EQEntity.AssetCode);
+            db.AddInParameter(dbCommand, "Brand", DbType.String, EQEntity.Brand);
+            db.AddInParameter(dbCommand, "Model", DbType.String, EQEntity.Model);
+            db.AddInParameter(dbCommand, "Serialno", DbType.String, EQEntity.Serialno);
+            db.AddInParameter(dbCommand, "Subserialno", DbType.String, EQEntity.Subserialno);
+            db.AddInParameter(dbCommand, "MNID", DbType.String, EQEntity.MNID);
+            db.AddInParameter(dbCommand, "Machineid", DbType.String, EQEntity.Machineid);
+            db.AddInParameter(dbCommand, "Lifetime", DbType.String, EQEntity.Lifetime);
+            db.AddInParameter(dbCommand, "PurchDate", DbType.String, EQEntity.PurchDate);
+            db.AddInParameter(dbCommand, "UnitID", DbType.String, EQEntity.UnitID);
+            db.AddInParameter(dbCommand, "BNID", DbType.String, EQEntity.BNID);
+            db.AddInParameter(dbCommand, "FID", DbType.String, EQEntity.FID);
+            db.AddInParameter(dbCommand, "LID", DbType.String, EQEntity.LID);
+            db.AddInParameter(dbCommand, "Status", DbType.String, EQEntity.Status);
+            db.AddInParameter(dbCommand, "Remarks", DbType.String, EQEntity.Remarks);
+            db.AddInParameter(dbCommand, "CID", DbType.String, EQEntity.CID);          
 
             db.ExecuteNonQuery(dbCommand, transaction);          
             return true;
