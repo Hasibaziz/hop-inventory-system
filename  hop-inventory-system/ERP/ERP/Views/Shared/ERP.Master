@@ -59,7 +59,7 @@
                 top: $(window).height(),
                 opacity: 0
             }, 10000, function () {
-                $(".scroll-text").css("left", 15);
+                $(".scroll-text").css("left", 10);
                 $(".scroll-text").css("opacity", 1);
                 marqueePlay();
             }
