@@ -25,6 +25,8 @@ namespace ERP.Controllers
             return View();
         }
 
+
+
         public ActionResult PCDetails()
         {
             //InvInventorydetailsEntity InvEntity = new InvInventorydetailsEntity();
