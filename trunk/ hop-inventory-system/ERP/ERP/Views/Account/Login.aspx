@@ -9,11 +9,11 @@
     <script src="<%: Url.Content("~/Scripts/jquery-1.5.1.min.js") %>" type="text/javascript"></script>
     <script src="<%: Url.Content("~/Scripts/jquery.cycle.all.js")  %>" type="text/javascript"></script> 
 
-                   <%--***************Forget Password*********************--%>
-<link href="<%: Url.Content("~/Content/themes/base/jquery.ui.all.css") %>" rel="stylesheet" type="text/css" />
-<script src="<%: Url.Content("~/Scripts/jquery-1.5.1.js")  %>" type="text/javascript"></script> 
-<script src="<%: Url.Content("~/Scripts/jquery-ui-1.8.11.js")  %>" type="text/javascript"></script> 
-                                <%--**********************--%>
+                       <%--***************Forget Password*********************--%>
+    <link href="<%: Url.Content("~/Content/themes/redmond/jquery-ui-1.8.16.custom.css") %>" rel="stylesheet" type="text/css" />
+    <script src="<%: Url.Content("~/Scripts/jquery-1.5.1.js")  %>" type="text/javascript"></script> 
+    <script src="<%: Url.Content("~/Scripts/jquery-ui-1.8.11.js")  %>" type="text/javascript"></script> 
+                                    <%--**********************--%>
      <script type="text/javascript">
          $(document).ready(function () {
              // Dialog
@@ -171,11 +171,11 @@
          <div class="page_single_column">                
             <div class="editor-field">           
               UserName<%: Html.EditorFor(model => model.UserName, new { @class = "water text-box", title = "User Name" })%>
-                      <%--<%: Html.TextBoxFor(model => model.Location, new { @class = "text-box-Location" })%>--%>                                   
+                      <%--<%: Html.TextBoxFor(model => model.Location, new { @class = "text-box-Location" })%>--%>                                                        
                       <div> <%: Html.ValidationMessageFor(model => model.UserName)%> </div>
             </div>           
         </div>
-         <div style="margin: 2.2em 50cm 0cm 1.2cm;  padding: 0 0 0 5cm;color: Green;"> <div><p  id="Location" ></p></div></div>
+        <div style="margin: 2.-1em 50cm 0cm 1.2cm;  padding: 0 0 0 6cm;color: Green;"> <div><p  id="Location" ></p></div></div>
         <div class="page_single_column">            
             <div class="editor-field">
               Password   <%: Html.PasswordFor(model => model.Password, new { @class = "text-box" })%>
