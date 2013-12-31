@@ -28,7 +28,7 @@
 </script> 
 
 
-<div class="mp_left_menu"><div class="scroll-text" style="background-color: #DB7093; font: Arial;">Equipment Entry</div></div>
+<div class="mp_left_menu"><div class="scroll-text" style="background-color: #DB7093; font: Bookman Old Style;">Equipment Entry</div></div>
 <%--Hasib; hasib_aziz@yahoo.com--%>
 <%--<div class="mp_left_menu">
     <% Html.RenderPartial("DeviceLeftMenu"); %>
@@ -44,7 +44,7 @@
         <%-- <% using (Html.BeginForm(new { ID="MyID"}))--%>
          <% using (Html.BeginForm())
             { %>
-          <div style="color:#B0171F; font-size: x-large; text-align: center">Equipment Entry</div>
+          <div style="background-color: #680000; color:#FFFFFF; font-size: large; padding:2px 1px 1px 533px; font: Bookman Old Style;">Equipment Entry</div>
            <fieldset> <%--<fieldset width="10" hight="100">--%>
             <legend class="LegendColor">Select Location </legend>
             <%: Html.HiddenFor(m => m.EID)%>
@@ -196,7 +196,7 @@
               </div>  --%>           
             </div>         
  </fieldset>   
-  <p style="padding-left:400px"><input type="submit" class="Submit"  value="Save"   /></p>  
+  <p style="padding-left:512px"><input type="submit" class="Submit"  value="Save"   /></p>  
            <%--<input type="button" value="Clean Boxes" title="Clean" id="msg"   onclick="TXTBOX()" />   --%> 
                 <div style="float: left; width: 100%;">        
  

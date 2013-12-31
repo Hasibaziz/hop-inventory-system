@@ -106,7 +106,7 @@
         <%-- <% using (Html.BeginForm(new { ID="MyID"}))--%>
          <% using (Html.BeginForm())
             { %>
-          <div style="color:#B0171F; font-size: x-large; text-align: center">PC Information</div>
+          <div style="background-color: #680000; color:#FFFFFF; font-size: large; padding:2px 1px 1px 533px; font: Bookman Old Style;">PC Information</div>
            <fieldset> <%--<fieldset width="10" hight="100">--%>
             <legend class="LegendColor">Select Location </legend>
             <%: Html.HiddenFor(m => m.AccountID)%>

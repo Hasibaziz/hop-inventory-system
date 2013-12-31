@@ -24,7 +24,7 @@
 </div>
 <div class="mp_right_content_form">
         <div class="page_list_container">
-        <div style="text-align: center; color: #B0171F; font-size: x-large"><strong>Printer Information</strong></div>
+        <div style="background-color: #680000; color:#FFFFFF; font-size: large; padding:2px 1px 1px 533px; font: Bookman Old Style;"><strong>Printer Information</strong></div>
             <fieldset> <%--<fieldset width="10" hight="100">--%>
             <legend class="LegendColor">Enter Asset ID </legend>
             <div style="float: left; width: 100%">
