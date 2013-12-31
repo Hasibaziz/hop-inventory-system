@@ -36,7 +36,7 @@
          { %>
       <div style="float: left; width: 100%">
            <div id="RecordsContainer"></div>
-        <div style="text-align: center; color: #B0171F; font-size: x-large"><strong>Server Information</strong></div>
+        <div style="background-color: #680000; color:#FFFFFF; font-size: large; padding:2px 1px 1px 533px; font: Bookman Old Style;"><strong>Server Information</strong></div>
             <fieldset> <%--<fieldset width="10" hight="100">--%>
             <legend class="LegendColor">Enter Asset ID </legend>            
                 Account Code: <%: Html.TextBoxFor(m => m.AccountCode, new { @class = "datefield Search_width_txt"})%>
