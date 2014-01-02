@@ -90,5 +90,14 @@ namespace ERP.Server.BLL
             retObj = (object)SRDAL.GetAllENUMBERList(param);
             return retObj;
         }
+
+        public object GetEquipmentinfobyloc(object param)
+        {
+            object retObj = null;
+            InvEquipmentinfoDAL EQDAL = new InvEquipmentinfoDAL();
+            InvEquipmentEntity obj = (InvEquipmentEntity)param;
+            retObj = (object)EQDAL.GetEquipmentinfobyloc(obj, param);
+            return retObj;
+        }
     }
 }

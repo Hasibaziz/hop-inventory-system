@@ -129,5 +129,15 @@ namespace ERP.Server.DAL
             DataSet ds = db.ExecuteDataSet(dbCommand);
             return ds.Tables[0];
         }
+
+
+        public DataTable GetEquipmentinfobyloc( InvEquipmentEntity obj, object param)
+         {
+           Database db = DatabaseFactory.CreateDatabase();
+           object[] parameters = new object[] { obj.Location };
+           DbCommand dbCommand = db.GetStoredProcCommand("spGetEquipmentBySearch", parameters);
+           DataSet ds = db.ExecuteDataSet(dbCommand);
+           return ds.Tables[0];
+         }        
     }
 }
