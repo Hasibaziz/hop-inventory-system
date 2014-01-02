@@ -270,6 +270,7 @@ namespace ERP.Structure
         public const string AG_GetEQAutonumber = "AG_GetEQAutonumber";
         public const string AG_GetAllENUMBERList = "AG_GetAllENUMBERList";
         public const string AG_GetAllBuildinginfo = "AG_GetAllBuildinginfo";
+        public const string AG_GetEquipmentinfobyloc = "AG_GetEquipmentinfobyloc";
         #endregion
 
     }

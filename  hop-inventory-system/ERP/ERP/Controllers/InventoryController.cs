@@ -395,6 +395,69 @@ namespace ERP.Controllers
                 return Json(new { Result = "ERROR", Message = ex.Message });
             }
         }
+        [HttpPost]
+        public JsonResult EquipmentDetailsbyloc(InvEquipmentEntity _Model, string location="", int jtStartIndex = 0, int jtPageSize = 0, string jtSorting = null)
+        {
+            try
+            {
+                try
+                {
+                    //_Model.Location = CurrentLocation;
+                    //_Model.Userstatus = CurrentUserstatus;
+                    _Model.Location = location;
+                    DataTable dt = (DataTable)ExecuteDB(ERPTask.AG_GetEquipmentinfobyloc, _Model);
+                    List<InvEquipmentEntity> ItemList = null;
+                    ItemList = new List<InvEquipmentEntity>();
+                    int iCount = 0;
+                    //int offset = 0;
+                    //offset = jtStartIndex / jtPageSize;
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        //if (iCount >= jtStartIndex && iCount < (jtPageSize * (offset + 1)))
+                        //{
+                            ItemList.Add(new InvEquipmentEntity()
+                            {
+                                SL = (iCount + 1).ToString(),
+                                EID = dr["EID"].ToString(),
+                                LocID = dr["LocID"].ToString(),
+                                ENumber = dr["ENumber"].ToString(),
+                                AccountCode = dr["AccountCode"].ToString(),
+                                AssetCode = dr["AssetCode"].ToString(),
+                                Brand = dr["Brand"].ToString(),
+                                Model = dr["Model"].ToString(),
+                                Serialno = dr["Serialno"].ToString(),
+                                Subserialno = dr["Subserialno"].ToString(),
+                                MNID = dr["MNID"].ToString(),
+                                Machineid = dr["Machineid"].ToString(),
+                                Lifetime = dr["Lifetime"].ToString(),
+                                PurchDate = dr["PurchDate"].ToString(),
+                                UnitID = dr["UnitID"].ToString(),
+                                BNID = dr["BNID"].ToString(),
+                                FID = dr["FID"].ToString(),
+                                LID = dr["LID"].ToString(),
+                                Status = dr["Status"].ToString(),
+                                Remarks = dr["Remarks"].ToString(),
+                                CID = dr["CID"].ToString()
+
+                            });
+                        //}
+                        iCount += 1;
+                    }
+                    var RecordCount = dt.Rows.Count;
+                    var Record = ItemList;
+                    return Json(new { Result = "OK", Records = Record, TotalRecordCount = RecordCount });
+                }
+                catch (Exception ex)
+                {
+                    return Json(new { Result = "ERROR", Message = ex.Message });
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(new { Result = "ERROR", Message = ex.Message });
+            }
+        }
+       
         public JsonResult AllEQPList()
         {
             try

@@ -778,6 +778,10 @@ namespace ERP.Structure.TaskManager
                     EQBLL = new InvEquipmentinfoBLL();
                     return EQBLL.GetAllENUMBERList(param);
                     break;
+                case ERPTask.AG_GetEquipmentinfobyloc:
+                    EQBLL = new InvEquipmentinfoBLL();
+                    return EQBLL.GetEquipmentinfobyloc(param);
+                    break;
                 #endregion
 
                 default:
