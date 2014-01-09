@@ -23,13 +23,13 @@
                  width: 300,
                  modal: true,    // For Background Disable... 
                  show: {
-                        effect: "blind",
-                        duration: 1000
-                       },
+                     effect: "blind",
+                     duration: 1000
+                 },
                  hide: {
-                        effect: "explode",
-                        duration: 1000
-                       },
+                     effect: "blind",    //effect: "explode",
+                     duration: 1000
+                 },
                  buttons: {
                      "Send": function () {
                          //jQuery(this).dialog('close');
@@ -42,21 +42,25 @@
                              data: { Umail: $('#Useremail').val() },
                              //data: { startDate: $('#startDate').val(), endDate: $('#endDate').val(), userName: $('#userName').val() },
                              dataType: "json",
-                             success: function (Result) {
-                                 //var Mail = /^\w+@\w+\.\w{2,3}$/;   
-                                 //window.close(); 
-                                 $('#Useremail').val("");
+                             success: function (Result) {                                                           
+                                 var html = '';
+                                 if (Result != null) {
+                                     $('#Message').html("Please Check Mail");
+                                     $('#Useremail').val("");
+                                     //$('#dialog').dialog("close"); 
+                                 }
                                  //$('#TextBox').hide();                         //window.close(); OR $('#popup_id').hide();   //$('#popup_wrapper_id').fadeOut();
-                                 $('#Message').html("Please Check Mail");     //$('#div_id').html("Write message or other response form your action").
-                                 $('#dialog').dialog("close");   //For Closing POPUP Window
+                                 //$('#div_id').html("Write message or other response form your action").
+                                   //For Closing POPUP Window
                                  //window.parent.location.href = window.parent.location.href; //For Refresh the Parent Form
                                  //return false;
                                  //alert(Result.Success);
                                  //alert("Please Check Mail ");
-                                 
+
                              },
                              error: function (Result) {
-                                 alert("Error " + Result.Success);
+                                 $('#Message').html("Error " + Result.Success);
+                                 //alert("Error " + Result.Success);
                              }
                          });
                          return false;
