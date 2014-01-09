@@ -27,7 +27,7 @@
             <label for="Location">Location:</label>
         </div>
         <div class="editor-field01">
-            <%: Html.DropDownListFor(m => m.LocID, (List<SelectListItem>)ViewData["Location"], "Location", new { @onblur = "javascript:LocCheck(this, document.getElementById('Locmsg'))" })%>
+            <%: Html.DropDownListFor(m => m.LocID, (List<SelectListItem>)ViewData["Location"], "Location", new { @onblur = "javascript:LocCheck(this)" })%>
             <%--<%: Html.DropDownListFor(m => m.Location, new SelectList(new[] { "HLNT", "HLAP", "HLBD", "HLRC", "HLWF", "HYBD" }), "Select")%>--%>
             <%: Html.ValidationMessageFor(model => model.LocID)%>
             <span style="color:Red;" id="Locmsg" ></span>
@@ -39,7 +39,7 @@
             <%: Html.TextBoxFor(model => model.ENumber)%>
             <%: Html.ValidationMessageFor(model => model.ENumber)%>
             <span style="color:Red;" id="Span1" ></span>
-        </div>
+        </div>        
         <div style="color:Red;"><span id="Message" ></span></div>
 	</div>         
 <% } %>
@@ -57,31 +57,31 @@
                 duration: 1000
                 },
             hide: {
-                effect: "explode",
+                effect: "blind",       //effect: "explode",
                 duration: 1000
                 },
             buttons: {
                 "Search": function () {                   
-                    $.ajax({
-                        //url: '@(Url.Action("AddRole", "Home"))',                                                       
-                        //*url: '/Inventory/EquipmentDetailsbyloc'+ $('#LocID').val(),
-                        url: '/Inventory/EquipmentDetailsbyloc',                       
-                        type: 'POST',
-                        //data: { className: cName }, // Your parameter
-                        //data: "{ Umail: '" + $('.Usermail').val() + "' }",
-                        data: { location: $('#LocID').val() },
-                        //data: { startDate: $('#startDate').val(), endDate: $('#endDate').val(), userName: $('#userName').val() },
-                        dataType: "json",
-                        success: function (Result) {
-                            $('#LocID').val("");                           
-                            $('#dialog').dialog("close");   //For Closing POPUP Window                                                            
-                        },
-                        error: function (Result) {
-                            alert("Error " + Result.Success);
-                        }
-                    });
-                    return false;
-                },
+////                    $.ajax({
+////                        //url: '@(Url.Action("AddRole", "Home"))',                                                       
+////                        //*url: '/Inventory/EquipmentDetailsbyloc'+ $('#LocID').val(),
+////                        url: '/Inventory/EquipmentDetailsbyloc',                                               
+////                        type: 'POST',
+////                        //data: { className: cName }, // Your parameter
+////                        //data: "{ Umail: '" + $('.Usermail').val() + "' }",
+////                        data: { location: $('#LocID').val() },
+////                        //data: { startDate: $('#startDate').val(), endDate: $('#endDate').val(), userName: $('#userName').val() },
+////                        dataType: "json",
+////                        success: function (Result) {
+////                            $('#LocID').val("");                           
+////                            $('#dialog').dialog("close");   //For Closing POPUP Window                                                            
+////                        },
+////                        error: function (Result) {
+////                            alert("Error " + Result.Success);
+////                        }
+//                    });
+//                    return false;
+                 },
                 "Cancel": function () {
                     $(this).dialog("close");
                 }
@@ -217,8 +217,10 @@
  
  </script>
  <script type="text/javascript">
-      $('input#LocID').change(function () {    
-             alert("Got Location ID");
+     function LocCheck(Locvalue) {
+         $(Locvalue).change(function () {
+             //$('input#LocID').change(function () {    
+             //alert("Got Location ID");
              $('#RecordsContainer').jtable({
                  paging: true,
                  pageSize: 10,
@@ -226,7 +228,7 @@
                  title: 'Equipment Info List',
                  defaultSorting: 'Name ASC',
                  actions: {
-                     listAction: '/Inventory/EquipmentDetailsbyloc?location=' + $("#LocID").val()
+                     listAction: '/Inventory/EquipmentDetailsbyloc?location=' + $(Locvalue).val()
                      //listAction: '/Inventory/InventoryDetailsListbyDid?DNAME=' + $("#DeptID").val()
                  },
                  fields: {
@@ -315,6 +317,7 @@
              });
              $('#RecordsContainer').jtable('load');
          });
+     }
 </script>
 
 </asp:Content>
