@@ -21,11 +21,24 @@
   <link href="<%: Url.Content("~/Content/themes/redmond/jquery-ui-1.8.16.custom.css") %>" rel="stylesheet" type="text/css" />
   <script src="<%: Url.Content("~/Scripts/jquery-ui-1.8.11.js")  %>" type="text/javascript"></script> 
 <%----------------------------------------------Popup Menu---------------------------------------------------------------------- --%>
+<%-- Use of Enter Key:
+<script src="<%: Url.Content("~/Scripts/jquery-ui-1.8.11.min.js")  %>" type="text/javascript"></script> 
+<script src = "<%: Url.Content("http://www.aspsnippets.com/scripts/ScrollableGridPlugin.js?22_12") %>" type = "text/javascript"></script>
+--%>
 <script type="text/javascript">
     $(document).ready(function () {
         $("input#Remarks, #PurchDate").datepicker({ dateFormat: "dd-mm-yy" });
     });
 </script> 
+ <script type = "text/javascript">
+     //Use of Enter Key:http://www.aspforums.net/Threads/868193/Move-cursor-from-one-to-another-textbox-on-enter-key-press-in-aspnet-using-JavaScript/
+//     $("input[type=text]").live("keydown", function (e) {
+//         var keyCode = e.keyCode ? e.keyCode : e.which;
+//         if (keyCode == 13) {
+//             $(this).next("input[type='text']").focus();
+//         }
+//     });
+ </script>
 
 
 <div class="mp_left_menu"><div class="scroll-text" style="background-color: #DB7093; font: Bookman Old Style;">Equipment Entry</div></div>

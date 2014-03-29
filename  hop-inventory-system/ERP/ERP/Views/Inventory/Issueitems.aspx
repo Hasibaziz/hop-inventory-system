@@ -217,44 +217,44 @@
                      $.ajax({
                          type: 'POST',
                          //url: '@(Url.Action("Issueitems", "Inventory"))',  
-                         url: '/Inventory/Issueitems',                         
+                         url: '/Inventory/Issueitems',
                          data: {
-                            ItemID: $("#ItemID").val(),
-                            ModelID: $("#ModelID").val(),
-                            ReceiveQty: $("#ReceiveQty").val(),
-                            IssueDate: $("#IssueDate").val(),
-                            ReceiverName: $("#ReceiverName").val(),
-                            ReceiverEmail: $("#ReceiverEmail").val(),
-                            Transportno: $("#Transportno").val(),
-                            Location: $("#Location").val(),
-                            IssueQty: $("#IssueQty").val(),
-                            NewbalanceQty: $("#NewbalanceQty").val(),
+                             ItemID: $("#ItemID").val(),
+                             ModelID: $("#ModelID").val(),
+                             ReceiveQty: $("#ReceiveQty").val(),
+                             IssueDate: $("#IssueDate").val(),
+                             ReceiverName: $("#ReceiverName").val(),
+                             ReceiverEmail: $("#ReceiverEmail").val(),
+                             Transportno: $("#Transportno").val(),
+                             Location: $("#Location").val(),
+                             IssueQty: $("#IssueQty").val(),
+                             NewbalanceQty: $("#NewbalanceQty").val(),
 
-                            IDate: $("#IDate").val(),
-                            ITRFNo: $("#ITRFNo").val(),
-                            LocID: $("#LocID").val(),
-                            IssueQty: $("#IssueQty").val()
-                          },
+                             IDate: $("#IDate").val(),
+                             ITRFNo: $("#ITRFNo").val(),
+                             LocID: $("#LocID").val(),
+                             IssueQty: $("#IssueQty").val()
+                         },
                          //dataType: "json",
                          //dataType: "html",
                          success: function (Result) {
-                            // alert("Data: " + Result.ReceiverName);
-                             $('#Message').val(Result.ReceiverName);
+                             // alert("Data: " + Result.ReceiverName);
+                             //$('#Message').val(Result.ReceiverName);
                              // if (!Result.success) {
-//                             if (Result.ItemID == null) {
-//                                 alert("Null Value");
-//                                 $('#Message').html("Please Fill up the Form");
-//                             }
-//                             else {
-
-                                 $('#Message').html("Save Successful");
-                                 $("#Message").hide().html('Record saved').fadeIn(300, function () {
-                                     var e = this;
-                                     setTimeout(function () { $(e).fadeOut(400); }, 2500);
-                                 });
-                                 $('#dialog').dialog("close");   //For Closing POPUP Window    
-                                 window.parent.location.href = window.parent.location.href; //For Refresh the Parent Form                   
-                            // }
+                             //                             if (Result.ItemID == null) {
+                             //                                 alert("Null Value");
+                             //                                 $('#Message').html("Please Fill up the Form");
+                             //                             }
+                             //                             else {                            
+                            $('#Message').html("Save Successful");
+                            $("#Message").hide().html('Record saved').fadeIn(300, function () {
+                                var e = this;
+                                setTimeout(function () { $(e).fadeOut(400); }, 2500);
+                            });
+                            $('#dialog').dialog("close");   //For Closing POPUP Window    
+                            window.parent.location.href = window.parent.location.href; //For Refresh the Parent Form                   
+                         
+                             // }
                          },
                          error: function (data) {
                              alert("Error " + data.Success);

@@ -27,7 +27,7 @@
             <label for="Location">Location:</label>
         </div>
         <div class="editor-field01">
-            <%: Html.DropDownListFor(m => m.LocID, (List<SelectListItem>)ViewData["Location"], "Location", new { @onblur = "javascript:LocCheck(this)" })%>
+            <%: Html.DropDownListFor(m => m.LocID, (List<SelectListItem>)ViewData["Location"], "Location", new { @onClick = "javascript:LocCheck(this)" })%>
             <%--<%: Html.DropDownListFor(m => m.Location, new SelectList(new[] { "HLNT", "HLAP", "HLBD", "HLRC", "HLWF", "HYBD" }), "Select")%>--%>
             <%: Html.ValidationMessageFor(model => model.LocID)%>
             <span style="color:Red;" id="Locmsg" ></span>

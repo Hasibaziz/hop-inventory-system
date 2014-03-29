@@ -76,6 +76,8 @@ namespace ERP.Domain.Model
             set;
             get;
         }
+        [Required(ErrorMessage = "{0} is required!")]
+        [Display(Name = "Issue Quantity")]
         public string IssueQty
         {
             set;
