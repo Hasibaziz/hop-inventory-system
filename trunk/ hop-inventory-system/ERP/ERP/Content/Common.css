@@ -1592,17 +1592,17 @@ input[type="submit"],input[type="button"] {
 }
 .New_Right_Begin
 {
-    margin: -23em 50cm 0px .5cm;
+    margin: -21em 50cm 0px .5cm;
     padding: 0em 0cm 0px 15cm;
  }
  .Monitor-label
  {
     color: black;
-    margin: 1em .5cm -.5px .5cm;
+    margin: 1em .7cm -.5px .5cm;
  }
  .Monitor-field
  {
-   margin: -1.3em 1px 5px 140px ; 
+   margin: -1.5em 1px 5px 140px ; 
  }
  .Control_Moni_Width_100
 {
@@ -1610,12 +1610,12 @@ input[type="submit"],input[type="button"] {
 }
 .New_Right_Monitor
 {
-    margin: -6em 20cm 0px .5cm;
+    margin: -5em 20cm 0px .5cm;
     padding: 0em 0cm 0px 7cm;
  }
  .New_Right_Monitor01
 {
-    margin: -6em 20cm 0px .5cm;
+    margin: -5em 20cm 0px .5cm;
     padding: 0em 0cm 0px 14cm;
  }
  .LegendColor

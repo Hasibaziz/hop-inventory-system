@@ -2257,18 +2257,21 @@ namespace ERP.Controllers
             {
                 if (!ModelState.IsValid)
                 {
-                    //return Json(new { Result = "ERROR", Message = "Form is not valid! Please correct it and try again." });
-                    InvreceivenissueEntity RIEntity = new InvreceivenissueEntity();
-                    InvitemsEntity items = new InvitemsEntity();
-                    ViewData["ItemName"] = GetAllitemsName(items);
-                    Invlocation LocEntity = new Invlocation();
-                    ViewData["Location"] = GetLocation(LocEntity);
-                    return View(RIEntity);
+                    return Json(new { Result = "ERROR", Message = "Form is not valid! Please correct it and try again." });
+                    //InvreceivenissueEntity RIEntity = new InvreceivenissueEntity();
+                    //InvitemsEntity items = new InvitemsEntity();
+                    //ViewData["ItemName"] = GetAllitemsName(items);
+                    //Invlocation LocEntity = new Invlocation();
+                    //ViewData["Location"] = GetLocation(LocEntity);
+                    //return View(_Model);
                 }
                 
                 bool isUpdate = false;
                 if (_Model.RIssueID == null)
                 {
+                    if (_Model.IssueQty == null)
+                        ModelState.AddModelError("Issue", string.Format("Issue Quantity Is Required!"));
+
                     isUpdate = (bool)ExecuteDB(ERPTask.AG_SaveReceiveissueRecord, _Model);
                     return RedirectToAction("Issueitems", "Inventory");
                 }
@@ -4114,5 +4117,10 @@ namespace ERP.Controllers
 
         
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        public ActionResult DocumentStore()
+        {
+            return View();
+        }
+
     }
 }
