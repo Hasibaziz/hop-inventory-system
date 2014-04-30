@@ -893,6 +893,7 @@ namespace ERP.Controllers
                 {
                     //var addedModel = _Model;
                     //return Json(new { Result = "OK", Record = addedModel });
+                    //Response.Output.Write("Equipment No: is {0} at {1:d}", "cool" + _Model.ENumber);
                     return RedirectToAction("InventoryDetailsView", "Inventory");
                 }
                 else
@@ -931,6 +932,7 @@ namespace ERP.Controllers
                 foreach (DataRow dr in dt.Rows)
                 {
                     _Model.AccountID = dr["AccountID"].ToString();
+                    _Model.ENumber = dr["ENumber"].ToString();
                     _Model.AccountCode = dr["AccountCode"].ToString();
                     _Model.BrandModel = dr["BrandModel"].ToString();
                     _Model.Configuration = dr["Configuration"].ToString();
@@ -1758,6 +1760,7 @@ namespace ERP.Controllers
                             {
                                 SL = (iCount + 1).ToString(),
                                 AccountID = dr["AccountID"].ToString(),
+                                ENumber = dr["ENumber"].ToString(),
                                 AccountCode = dr["AccountCode"].ToString(),
                                 BrandModel = dr["BrandModel"].ToString(),
                                 Configuration = dr["Configuration"].ToString(),
