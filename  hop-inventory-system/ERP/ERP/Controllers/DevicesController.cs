@@ -92,8 +92,9 @@ namespace ERP.Controllers
                     TempData["notice"] = "New Equipment Number:" + _Model.ENumber;
                     //Json(new { Message = "New Equipment Number: "+_Model.ENumber });
                     //ViewBag.Message = "New Equipment Number:" + _Model.ENumber;
-                    Response.Write("<script>alert('New Equipment Number:');</script>" + _Model.ENumber );
+                    //Response.Write("<script>alert('New Equipment Number:');</script>" + _Model.ENumber );
                     JavaScript("alert('Email sent successfully');" + _Model.ENumber);
+                    TempData["Msg"] = "Data has been saved succeessfully";
                     isUpdate = (bool)ExecuteDB(ERPTask.AG_SaveInventoryDetails, _Model);                   
                 }
                 else
@@ -107,7 +108,9 @@ namespace ERP.Controllers
                     //return new JavaScriptResult() { Script = "alert('saved Successfully Added. Thank You.'); window.location='/ObnCategory/Index';" };
                     //return new JavaScriptResult() { Script = "PopUpWindow('saved Successfully Added. Thank You.');" };
                     //Response.Write("<script>alert('OK!');</script>");
+                    Response.Output.Write("Scott is {0} at {1:d}", "cool" +_Model.ENumber);
                     //return RedirectToAction("PCDetails", "Devices", new { Message = " <script>alert('New Equipment Number:');</script>" + _Model.ENumber });
+                    TempData["Msg"] = "Data has been updated succeessfully";
                     return RedirectToAction("PCDetails", "Devices");
                 }
                 else

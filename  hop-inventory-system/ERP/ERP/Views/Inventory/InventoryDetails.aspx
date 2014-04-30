@@ -26,17 +26,40 @@
     });
 </script>
 
-  
-<div class="mp_left_menu"><div class="scroll-text" style="background-color: #DB7093; font: Arial;">PC Info</div></div>
+<script type="text/javascript">
+    $(function () {
+        $("#tabs").tabs();
+    });
+</script>
+
+<div class="mp_left_menu"><div class="scroll-text" style="background-color: #DB7093; font: Arial;">PC Details</div></div>
 <div class="mp_right_content_form">
-        <div class="page_list_container">
-         <% using (Html.BeginForm())
+   <div class="page_list_container">
+         <div style="float:Left; width: 10%;">
+           <div id="RecordsContainer"></div>
+</div> 
+  
+      <% using (Html.BeginForm())
          { %>
-            <fieldset> <%--<fieldset width="10" hight="100">--%>
-            <legend class="LegendColor">Enter Asset ID </legend>
+         <div style="background-color: #680000; color:#FFFFFF; font-size: large; padding:2px 1px 1px 533px; font: Bookman Old Style;">PC Information</div>
+            <%--<fieldset>--%> <%--<fieldset width="10" hight="100">--%>
+           <%-- <legend class="LegendColor">Enter Asset ID </legend>--%>
             <%: Html.HiddenFor(m => m.AccountID) %>
+            <%: Html.HiddenFor(m => m.ENumber)%>
             <%: Html.HiddenFor(m => m.MonitorID) %>
             <%: Html.HiddenFor(m => m.UPSID) %>
+
+<div id="tabs">
+        <ul>
+        <li><a href="#tabs-1">Locatin</a></li>
+        <li><a href="#tabs-2">PC Details</a></li>
+        <li><a href="#tabs-3">Monitor Info</a></li>
+        <li><a href="#tabs-4">UPS Info</a></li>
+        </ul>
+
+   <div id="tabs-1">
+           <fieldset>
+              <legend class="LegendColor">Enter Location </legend>
              <div class="editor-label01">
                 <label for="Location">Office: </label>
               </div>
@@ -54,6 +77,8 @@
                 <%: Html.ValidationMessageFor(m => m.ENumber)%>                                          
             </div>--%>
             </fieldset>
+    </div>
+    <div id="tabs-2">
             <fieldset> <%--<fieldset width="30" hight="100">--%>
             <legend class="LegendColor">Details Information</legend>
               <div class="editor-label01">
@@ -160,9 +185,11 @@
                 <%: Html.ValidationMessageFor(m => m.DeviceID)%>
               </div> 
             </div>         
- </fieldset>           
-       </div>  
- <fieldset> <%--<fieldset width="10" hight="100">--%>  
+      </fieldset>           
+       </div>
+  
+   <div id="tabs-3">         
+        <fieldset> <%--<fieldset width="10" hight="100">--%>  
             <legend class="LegendColor">Monitor Information </legend>
               <div class="Monitor-label">
                 <label for="Monitorname">MonitorAcc Code </label>
@@ -176,7 +203,7 @@
               <div class="Monitor-field">
                 <%: Html.TextBoxFor(m => m.MModelNo, new { @class = " Control_Moni_Width_100" })%>
               </div>
-     <div class="New_Right_Monitor">
+        <div class="New_Right_Monitor">
              <div class="Monitor-label">
                 <label for="Modelno">Serial No</label>
               </div>
@@ -189,17 +216,19 @@
               <div class="Monitor-field">
                 <%: Html.TextBoxFor(m => m.MPurchDate, new { @class = " Control_Moni_Width_100" })%>
               </div>
-      </div>
-           <div class="New_Right_Monitor01">
+        </div>
+              <div class="New_Right_Monitor01">
                <div class="Monitor-label">
                 <label for="Purchagedate">Distribution Date</label>
-              </div>
-              <div class="Monitor-field">
+               </div>
+               <div class="Monitor-field">
                 <%: Html.TextBoxFor(m => m.MDistDate, new { @class = " Control_Moni_Width_100" })%>
-             </div>
-        </div>
-  </fieldset>
-  <fieldset> <%--<fieldset width="10" hight="100">--%>  
+               </div>
+              </div>
+      </fieldset>
+   </div>
+   <div id="tabs-4">
+      <fieldset> <%--<fieldset width="10" hight="100">--%>  
             <legend class="LegendColor">UPS Information </legend>
               <div class="Monitor-label">
                 <label for="UPSname">UPSAcc Code </label>
@@ -213,7 +242,7 @@
               <div class="Monitor-field">
                 <%: Html.TextBoxFor(m => m.UModelNo, new { @class = " Control_Moni_Width_100" })%>
               </div>
-        <div class="New_Right_Monitor">
+          <div class="New_Right_Monitor">
              <div class="Monitor-label">
                 <label for="Modelno">Serial No</label>
               </div>
@@ -226,24 +255,27 @@
               <div class="Monitor-field">
                 <%: Html.TextBoxFor(m => m.UPurchDate, new { @class = " Control_Moni_Width_100" })%>
               </div>
-         </div>
-        <div class="New_Right_Monitor01">
+          </div>
+             <div class="New_Right_Monitor01">
                <div class="Monitor-label">
                 <label for="Purchagedate">Distribution Date</label>
               </div>
               <div class="Monitor-field">
                 <%: Html.TextBoxFor(m => m.UDistDate, new { @class = " Control_Moni_Width_100" })%>
               </div>
-        </div>
-  </fieldset>
-           <p style="padding-left:400px"><input type="submit" id="Submit" value="Update"/></p>          
-                <div style="float: left; width: 100%;">
-
- <% } %>
-   <div id="RecordsContainer"></div>
+             </div>
+      </fieldset>
    </div>
-  </div>
 
+                <p style="padding-left:400px"><input type="submit" id="Submit" value="Update"/></p>    
+                <div style="float: left; width: 100%;"></div>
+
+     <% } %>
+   
+    </div>    
+  </div>
+ </div>
+ 
   
 <%--<script type="text/javascript">
 

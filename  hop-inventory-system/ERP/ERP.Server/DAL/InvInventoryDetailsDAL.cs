@@ -21,11 +21,11 @@ namespace ERP.Server.DAL
                Database db = DatabaseFactory.CreateDatabase();
                string STR = "22fc4927-cf7c-4e72-8575-2780eec97126";
                //string sql = "SELECT ROW_NUMBER() OVER(ORDER BY AccountCode) SLNO, A.Office, A.Proposed, A.AccountID, A.AccountCode, A.BrandModel, A.Category, A.Configuration, A.SerialNo, A.Location, A.DeptID, A.EMPID, A.EMPID AS EMPNAME, convert(date, A.PurchDate,103) as PurchDate, A.Remark, B.SerialNo AS MonitorID, C.SerialNo AS UPSID, A.Team, A.Status, A.HostName, A.ITemNo, A.DeviceID";
-               string sql = "SELECT ENumber, A.Office, A.Proposed, A.AccountID, A.AccountCode, A.BrandModel, A.Category, A.Configuration, A.SerialNo, A.Location, A.DeptID, A.EMPID, A.EMPID AS EMPNAME, convert(date, A.PurchDate,103) as PurchDate, A.Remark, B.SerialNo AS MonitorID, C.SerialNo AS UPSID, A.Team, A.Status, A.HostName, A.ITemNo, A.DeviceID";
+               string sql = "SELECT A.ENumber, A.Office, A.Proposed, A.AccountID, A.AccountCode, A.BrandModel, A.Category, A.Configuration, A.SerialNo, A.Location, A.DeptID, A.EMPID, A.EMPID AS EMPNAME, convert(date, A.PurchDate,103) as PurchDate, A.Remark, B.SerialNo AS MonitorID, C.SerialNo AS UPSID, A.Team, A.Status, A.HostName, A.ITemNo, A.DeviceID";
                sql = sql + " FROM ITInventory.dbo.INV_InventoryInfo as A LEFT OUTER JOIN";
                sql = sql + " ITInventory.dbo.INV_MonitorDetails AS B ON A.EMPID=B.EMPID";
                sql = sql + " LEFT OUTER JOIN ITInventory.dbo.INV_UPSDetails AS C ON A.EMPID=C.EMPID";
-               sql = sql + " WHERE  A.DeviceID='" + STR + "' and A.Location=@Location ORDER BY A.EMPID ASC";
+               sql = sql + " WHERE  A.DeviceID='" + STR + "' and A.Location=@Location ORDER BY  A.ENumber ASC";
                DbCommand dbCommand = db.GetSqlStringCommand(sql);
                db.AddInParameter(dbCommand, "Location", DbType.String, obj.Location);
                DataSet ds = db.ExecuteDataSet(dbCommand);
@@ -50,11 +50,11 @@ namespace ERP.Server.DAL
                Database db = DatabaseFactory.CreateDatabase();
                string STR = "22fc4927-cf7c-4e72-8575-2780eec97126";
                //string sql = "SELECT ROW_NUMBER() OVER(ORDER BY AccountCode) SLNO, A.Office, A.Proposed, A.AccountID, A.AccountCode, A.BrandModel, A.Category, A.Configuration, A.SerialNo, A.Location, A.DeptID, A.EMPID, A.EMPID AS EMPNAME, A.PurchDate, A.Remark, B.SerialNo AS MonitorID, C.SerialNo AS UPSID, A.Team, A.Status, A.HostName, A.ITemNo, A.DeviceID";
-               string sql = "SELECT ENumber, A.Office, A.Proposed, A.AccountID, A.AccountCode, A.BrandModel, A.Category, A.Configuration, A.SerialNo, A.Location, A.DeptID, A.EMPID, A.EMPID AS EMPNAME, A.PurchDate, A.Remark, B.SerialNo AS MonitorID, C.SerialNo AS UPSID, A.Team, A.Status, A.HostName, A.ITemNo, A.DeviceID";
+               string sql = "SELECT A.ENumber, A.Office, A.Proposed, A.AccountID, A.AccountCode, A.BrandModel, A.Category, A.Configuration, A.SerialNo, A.Location, A.DeptID, A.EMPID, A.EMPID AS EMPNAME, A.PurchDate, A.Remark, B.SerialNo AS MonitorID, C.SerialNo AS UPSID, A.Team, A.Status, A.HostName, A.ITemNo, A.DeviceID";
                sql = sql + " FROM ITInventory.dbo.INV_InventoryInfo as A LEFT OUTER JOIN";
                sql = sql + " ITInventory.dbo.INV_MonitorDetails AS B ON A.EMPID=B.EMPID";
                sql = sql + " LEFT OUTER JOIN ITInventory.dbo.INV_UPSDetails AS C ON A.EMPID=C.EMPID";
-               sql = sql + " WHERE  A.DeviceID='" + STR + "' and A.Location=LEFT(A.Location,4) ORDER BY A.EMPID ASC";
+               sql = sql + " WHERE  A.DeviceID='" + STR + "' and A.Location=LEFT(A.Location,4) ORDER BY A.ENumber ASC";
                DbCommand dbCommand = db.GetSqlStringCommand(sql);
                db.AddInParameter(dbCommand, "Location", DbType.String, obj.Location);
                DataSet ds = db.ExecuteDataSet(dbCommand);
@@ -122,7 +122,10 @@ namespace ERP.Server.DAL
        }
        public bool UpdateInventoryDetails(InvInventorydetailsEntity InvInvEntity, Database db, DbTransaction transaction)
        {
-           string sql = " UPDATE ITInventory.dbo.INV_InventoryInfo SET AccountID= @AccountID, AccountCode= @AccountCode, ENumber=@ENumber, BrandModel= @BrandModel, Category= @Category, Configuration= @Configuration, SerialNo= @SerialNo, Location= @Location, DeptID= @DeptID, EMPID= @EMPID, PurchDate= CONVERT(DATE, @PurchDate, 103), Remark= @Remark,  Team= @Team,  Status= @Status,  HostName= @HostName,  ITemNo= @ITemNo,  DeviceID= @DeviceID, Office=@Office, Proposed=@Proposed WHERE AccountID=@AccountID";
+           string sql = " UPDATE ITInventory.dbo.INV_InventoryInfo SET BrandModel= @BrandModel, Category= @Category, Configuration= @Configuration, SerialNo= @SerialNo, Location= @Location, DeptID= @DeptID, EMPID= @EMPID, ";
+           //sql=sql+ "PurchDate= CONVERT(DATE, @PurchDate, 103), ";
+           sql = sql + " PurchDate=@PurchDate, ";
+           sql = sql + " Remark= @Remark,  Team= @Team,  Status= @Status,  HostName= @HostName,  ITemNo= @ITemNo,  DeviceID= @DeviceID, Office=@Office, Proposed=@Proposed WHERE AccountID=@AccountID AND ENumber=@ENumber";
            string sql01 = " UPDATE [ITInventory].[dbo].[INV_MonitorDetails] set MonitorID=@MonitorID, MonitorName=@MonitorName, ModelNo=@MModelNo, SerialNo=@MSerialNo, PurchDate=CONVERT(DATE, @MPurchDate,103),  DeptID= @DeptID, EMPID= @EMPID, DistDate=CONVERT(DATE, @MDistDate,103) WHERE MonitorID=@MonitorID ";
            string sql02 = " UPDATE [ITInventory].[dbo].[INV_UPSDetails] set UPSID=@UPSID, UPSName=@UPSName, ModelNo=@UModelNo, SerialNo=@USerialNo, PurchDate=CONVERT(DATE, @UPurchDate,103),  DeptID= @DeptID, EMPID= @EMPID, DistDate=CONVERT(DATE, @UDistDate,103) WHERE UPSID=@UPSID ";
            string sql03 = "INSERT INTO [ITInventory].[dbo].[INV_Userinfo](AccountCode, UserID, Modifydate) VALUES (@AccountCode, @UserID, @Modifydate)";
@@ -230,7 +233,7 @@ namespace ERP.Server.DAL
            //string sql = "SELECT AccountID, AccountCode, BrandModel, Category, Configuration, SerialNo, Location, DeptID, EMPID, PurchDate, Remark, Team, Status, HostName, ITemNo FROM ";
            //sql = sql + " ITInventory.dbo.INV_InventoryInfo WHERE AccountID=@AccountID";
            //sql = sql + "(SELECT A.MonitorID AS MonitorID, A.MonitorName as MonitorName, A.ModelNo AS MModelNo, A.SerialNo AS MSerialNo, A.PurchDate AS MPurchDate, A.DistDate AS MDistDate, B.UPSID AS UPSID, B.UPSName as UPSName, B.ModelNo AS UModelNo, B.SerialNo AS USerialNo, B.PurchDate AS UPurchDate, B.DistDate AS UDistDate FROM ITInventory.dbo.INV_MonitorDetails AS A, ITInventory.dbo.INV_UPSDetails AS B, ITInventory.dbo.INV_InventoryInfo AS C WHERE A.EmpID=B.EmpID AND A.EmpID=C.EmpID)";
-           string sql = " SELECT A.Office, A.Proposed, A.AccountID as AccountID, A.AccountCode as AccountCode, A.BrandModel AS BrandModel, A.Category AS Category, A.Configuration AS Configuration, A.SerialNo AS SerialNo, A.Location AS Location, A.DeptID AS DeptID, A.EMPID AS EMPID, A.PurchDate AS PurchDate, A.Remark AS Remark, A.Team AS Team, A.Status AS Status, A.HostName AS HostName, A.ITemNo  AS ITemNo, A.DeviceID";
+           string sql = " SELECT A.ENumber, A.Office, A.Proposed, A.AccountID as AccountID, A.AccountCode as AccountCode, A.BrandModel AS BrandModel, A.Category AS Category, A.Configuration AS Configuration, A.SerialNo AS SerialNo, A.Location AS Location, A.DeptID AS DeptID, A.EMPID AS EMPID, A.PurchDate AS PurchDate, A.Remark AS Remark, A.Team AS Team, A.Status AS Status, A.HostName AS HostName, A.ITemNo  AS ITemNo, A.DeviceID";
            sql = sql + " ,C.MonitorID AS MonitorID, C.MonitorName as MonitorName, C.ModelNo AS MModelNo, C.SerialNo AS MSerialNo, C.PurchDate AS MPurchDate, C.DistDate AS MDistDate";
            sql = sql + " ,B.UPSID AS UPSID, B.UPSName as UPSName, B.ModelNo AS UModelNo, B.SerialNo AS USerialNo, B.PurchDate AS UPurchDate, B.DistDate AS UDistDate  ";
            sql = sql + "FROM ITInventory.dbo.INV_InventoryInfo AS A Left outer join ITInventory.dbo.INV_UPSDetails AS B on A.EmpID=B.EmpID left outer join ITInventory.dbo.INV_MonitorDetails  AS C on  A.EmpID=C.EmpID";
@@ -274,7 +277,10 @@ namespace ERP.Server.DAL
            string STR = "22fc4927-cf7c-4e72-8575-2780eec97126";
            if (obj.AccountCode !="" )
            {
-               string sql = "SELECT A.Office, A.Proposed, A.AccountID, A.AccountCode, A.BrandModel, A.Category, A.Configuration, A.SerialNo, A.Location, A.DeptID, A.EMPID, A.EMPID AS EMPNAME, convert(date, A.PurchDate,103) as PurchDate, A.Remark, B.SerialNo AS MonitorID, C.SerialNo AS UPSID, A.Team, A.Status, A.HostName, A.ITemNo, A.DeviceID";
+               string sql = "SELECT A.ENumber, A.Office, A.Proposed, A.AccountID, A.AccountCode, A.BrandModel, A.Category, A.Configuration, A.SerialNo, A.Location, A.DeptID, A.EMPID, A.EMPID AS EMPNAME, ";
+               //sql=sql+" convert(date, A.PurchDate,103) as PurchDate,"; 
+               sql = sql + "A.PurchDate, ";
+               sql=sql +" A.Remark, B.SerialNo AS MonitorID, C.SerialNo AS UPSID, A.Team, A.Status, A.HostName, A.ITemNo, A.DeviceID";
                sql = sql + " FROM ITInventory.dbo.INV_InventoryInfo as A LEFT OUTER JOIN";
                sql = sql + " ITInventory.dbo.INV_MonitorDetails AS B ON A.EMPID=B.EMPID";
                sql = sql + " LEFT OUTER JOIN ITInventory.dbo.INV_UPSDetails AS C ON A.EMPID=C.EMPID";
@@ -287,7 +293,10 @@ namespace ERP.Server.DAL
            }
            else if(obj.EMPNAME!="")
            {
-               string sql = "SELECT A.Office, A.Proposed, A.AccountID, A.AccountCode, A.BrandModel, A.Category, A.Configuration, A.SerialNo, A.Location, A.DeptID, A.EMPID, A.EMPID AS EMPNAME, convert(date, A.PurchDate,103) as PurchDate, A.Remark, B.SerialNo AS MonitorID, C.SerialNo AS UPSID, A.Team, A.Status, A.HostName, A.ITemNo, A.DeviceID";
+               string sql = "SELECT A.ENumber, A.Office, A.Proposed, A.AccountID, A.AccountCode, A.BrandModel, A.Category, A.Configuration, A.SerialNo, A.Location, A.DeptID, A.EMPID, A.EMPID AS EMPNAME, ";
+               //sql=sql+" convert(date, A.PurchDate,103) as PurchDate,"; 
+               sql = sql + "A.PurchDate, ";
+               sql = sql + " A.Remark, B.SerialNo AS MonitorID, C.SerialNo AS UPSID, A.Team, A.Status, A.HostName, A.ITemNo, A.DeviceID";
                sql = sql + " FROM ITInventory.dbo.INV_InventoryInfo as A LEFT OUTER JOIN";
                sql = sql + " ITInventory.dbo.INV_MonitorDetails AS B ON A.EMPID=B.EMPID";
                sql = sql + " LEFT OUTER JOIN ITInventory.dbo.INV_UPSDetails AS C ON A.EMPID=C.EMPID";

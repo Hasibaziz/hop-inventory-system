@@ -161,7 +161,7 @@
               <div class="editor-field01">
                <%-- <%: Html.TextBoxFor(m => m.DeptNo)%>--%>
                <%: Html.DropDownListFor(m => m.DeptID, (List<SelectListItem>)ViewData["DeptName"], "Select Department", new { @readonly = "true", @class = "Width=250" })%>
-               <%: Html.ActionLink("Add New", "DepartmentInfo")%>
+             <%--  <%: Html.ActionLink("Add New", "DepartmentInfo")%>--%>
                <%: Html.ValidationMessageFor(m => m.DeptID)%> 
               </div>  
               <div class="editor-label01">
@@ -232,7 +232,7 @@
               <%--<%: Html.TextBoxFor(m=>m.UserName) %>  --%>  
               <%: Html.DropDownListFor(model => model.EMPID, new SelectList(new[] { " " }), "Select Emp ID")%> 
               <%--<%: Html.DropDownListFor(m => m.EMPID, (List<SelectListItem>)ViewData["EmpNo"], "Employee ID", new { @readonly = "true", @class = "Width=250" })%>           --%>
-              <%: Html.ActionLink("Add New", "EmployeeInfo", new { @href = "#", @id = "dialog_link", title = "Receive Item" })%>
+              <%--<%: Html.ActionLink("Add New", "EmployeeInfo", new { @href = "#", @id = "dialog_link", title = "Receive Item" })%>--%>
               <%: Html.ValidationMessageFor(m => m.EMPID)%>              
               </div>                    
               <div class="editor-label01">
@@ -352,7 +352,7 @@
     <% } %>  
   </div>  
  </div>  
-
+ </div>
 
         <!-- ui-dialog -->
 <%--<div id="dialog" title="Monitor Details">
