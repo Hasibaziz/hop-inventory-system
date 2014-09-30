@@ -154,6 +154,7 @@
     <Content Include="Content\images\Slideimg\Img05.jpg" />
     <Content Include="Content\images\Slideimg\Img06.jpg" />
     <Content Include="Reports\WebForm1.aspx" />
+    <Content Include="Scripts\jquery-idleTimeout.js" />
     <Content Include="Scripts\SimpleDialog\jquery.simpledialog.js" />
     <Compile Include="Utility\AppConstants.cs" />
     <Compile Include="Utility\AppExcel.cs" />
